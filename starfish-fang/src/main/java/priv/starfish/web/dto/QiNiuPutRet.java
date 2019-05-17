@@ -1,8 +1,9 @@
 package priv.starfish.web.dto;
 
-/**
- * Created by 瓦力.
- */
+
+import lombok.ToString;
+
+@ToString
 public final class QiNiuPutRet {
     public String key;
     public String hash;
@@ -10,14 +11,4 @@ public final class QiNiuPutRet {
     public int width;
     public int height;
 
-    @Override
-    public String toString() {
-        return "QiNiuPutRet{" +
-                "key='" + key + '\'' +
-                ", hash='" + hash + '\'' +
-                ", bucket='" + bucket + '\'' +
-                ", width=" + width +
-                ", height=" + height +
-                '}';
-    }
 }

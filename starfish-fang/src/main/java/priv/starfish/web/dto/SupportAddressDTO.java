@@ -1,10 +1,11 @@
 package priv.starfish.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
-/**
- * Created by 瓦力.
- */
+@Setter
+@Getter
 public class SupportAddressDTO {
     private Long id;
     @JsonProperty(value = "belong_to")
@@ -22,59 +23,4 @@ public class SupportAddressDTO {
 
     private double baiduMapLatitude;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getBelongTo() {
-        return belongTo;
-    }
-
-    public void setBelongTo(String belongTo) {
-        this.belongTo = belongTo;
-    }
-
-    public String getEnName() {
-        return enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public String getCnName() {
-        return cnName;
-    }
-
-    public void setCnName(String cnName) {
-        this.cnName = cnName;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public double getBaiduMapLongitude() {
-        return baiduMapLongitude;
-    }
-
-    public void setBaiduMapLongitude(double baiduMapLongitude) {
-        this.baiduMapLongitude = baiduMapLongitude;
-    }
-
-    public double getBaiduMapLatitude() {
-        return baiduMapLatitude;
-    }
-
-    public void setBaiduMapLatitude(double baiduMapLatitude) {
-        this.baiduMapLatitude = baiduMapLatitude;
-    }
 }

@@ -1,8 +1,10 @@
 package priv.starfish.web.form;
 
-/**
- * Created by 瓦力.
- */
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class PhotoForm {
     private String path;
 
@@ -10,27 +12,4 @@ public class PhotoForm {
 
     private int height;
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
 }

@@ -19,7 +19,7 @@ import priv.starfish.base.HouseSort;
 import priv.starfish.base.HouseStatus;
 import priv.starfish.base.HouseSubscribeStatus;
 import priv.starfish.base.LoginUserUtil;
-import priv.starfish.entity.*;
+import priv.starfish.dto.*;
 import priv.starfish.repository.*;
 import priv.starfish.service.ServiceMultiResult;
 import priv.starfish.service.ServiceResult;

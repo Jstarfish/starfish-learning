@@ -1,8 +1,10 @@
 package priv.starfish.web.form;
 
-/**
- * Created by 瓦力.
- */
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class MapSearch {
     private String cityEnName;
 
@@ -27,83 +29,4 @@ public class MapSearch {
     private int start = 0;
     private int size = 5;
 
-    public String getCityEnName() {
-        return cityEnName;
-    }
-
-    public void setCityEnName(String cityEnName) {
-        this.cityEnName = cityEnName;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public String getOrderBy() {
-        return orderBy;
-    }
-
-    public void setOrderBy(String orderBy) {
-        this.orderBy = orderBy;
-    }
-
-    public String getOrderDirection() {
-        return orderDirection;
-    }
-
-    public void setOrderDirection(String orderDirection) {
-        this.orderDirection = orderDirection;
-    }
-
-    public Double getLeftLongitude() {
-        return leftLongitude;
-    }
-
-    public void setLeftLongitude(Double leftLongitude) {
-        this.leftLongitude = leftLongitude;
-    }
-
-    public Double getLeftLatitude() {
-        return leftLatitude;
-    }
-
-    public void setLeftLatitude(Double leftLatitude) {
-        this.leftLatitude = leftLatitude;
-    }
-
-    public Double getRightLongitude() {
-        return rightLongitude;
-    }
-
-    public void setRightLongitude(Double rightLongitude) {
-        this.rightLongitude = rightLongitude;
-    }
-
-    public Double getRightLatitude() {
-        return rightLatitude;
-    }
-
-    public void setRightLatitude(Double rightLatitude) {
-        this.rightLatitude = rightLatitude;
-    }
-
-    public int getStart() {
-        return start < 0 ? 0 : start;
-    }
-
-    public void setStart(int start) {
-        this.start = start;
-    }
-
-    public int getSize() {
-        return size > 100 ? 100 : size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
 }
