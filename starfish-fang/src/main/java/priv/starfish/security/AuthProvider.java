@@ -11,10 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import priv.starfish.entity.User;
 import priv.starfish.service.IUserService;
 
-/**
- * 自定义认证实现
- * Created by 瓦力.
- */
+
 public class AuthProvider implements AuthenticationProvider {
     @Autowired
     private IUserService userService;

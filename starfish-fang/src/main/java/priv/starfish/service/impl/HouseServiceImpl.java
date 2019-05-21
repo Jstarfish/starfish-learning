@@ -1,5 +1,4 @@
-/*
-package priv.starfish.service.house;
+package priv.starfish.service.impl;
 
 import com.google.common.collect.Maps;
 import com.qiniu.common.QiniuException;
@@ -19,8 +18,10 @@ import priv.starfish.base.HouseSort;
 import priv.starfish.base.HouseStatus;
 import priv.starfish.base.HouseSubscribeStatus;
 import priv.starfish.base.LoginUserUtil;
-import priv.starfish.dto.*;
+import priv.starfish.entity.*;
 import priv.starfish.repository.*;
+import priv.starfish.service.IHouseService;
+import priv.starfish.service.IQiNiuService;
 import priv.starfish.service.ServiceMultiResult;
 import priv.starfish.service.ServiceResult;
 import priv.starfish.service.search.ISearchService;
@@ -33,12 +34,7 @@ import priv.starfish.web.form.*;
 import javax.persistence.criteria.Predicate;
 import java.util.*;
 
-*/
-/**
- * Created by 瓦力.
- *//*
-
-@Service
+//@Service
 public class HouseServiceImpl implements IHouseService {
 
     @Autowired
@@ -561,13 +557,11 @@ public class HouseServiceImpl implements IHouseService {
         return new ServiceMultiResult<>(houses.getTotalElements(), houseDTOS);
     }
 
-    */
-/**
+    /**
      * 渲染详细信息 及 标签
      * @param houseIds
      * @param idToHouseMap
-     *//*
-
+     */
     private void wrapperHouseList(List<Long> houseIds, Map<Long, HouseDTO> idToHouseMap) {
         List<HouseDetail> details = houseDetailRepository.findAllByHouseIdIn(houseIds);
         details.forEach(houseDetail -> {
@@ -583,14 +577,12 @@ public class HouseServiceImpl implements IHouseService {
         });
     }
 
-    */
-/**
+    /**
      * 图片对象列表信息填充
      * @param form
      * @param houseId
      * @return
-     *//*
-
+     */
     private List<HousePicture> generatePictures(HouseForm form, Long houseId) {
         List<HousePicture> pictures = new ArrayList<>();
         if (form.getPhotos() == null || form.getPhotos().isEmpty()) {
@@ -609,14 +601,12 @@ public class HouseServiceImpl implements IHouseService {
         return pictures;
     }
 
-    */
-/**
+    /**
      * 房源详细信息对象填充
      * @param houseDetail
      * @param houseForm
      * @return
-     *//*
-
+     */
     private ServiceResult<HouseDTO> wrapperDetailInfo(HouseDetail houseDetail, HouseForm houseForm) {
         Subway subway = subwayRepository.findOne(houseForm.getSubwayLineId());
         if (subway == null) {
@@ -644,4 +634,3 @@ public class HouseServiceImpl implements IHouseService {
 
     }
 }
-*/

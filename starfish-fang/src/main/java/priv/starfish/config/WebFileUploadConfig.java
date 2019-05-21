@@ -24,7 +24,7 @@ import javax.servlet.Servlet;
  * 文件上传配置
  * Created by 瓦力.
  */
-@Configuration
+//@Configuration
 @ConditionalOnClass({Servlet.class, StandardServletMultipartResolver.class, MultipartConfigElement.class})
 @ConditionalOnProperty(prefix = "spring.http.multipart", name = "enabled", matchIfMissing = true)
 @EnableConfigurationProperties(MultipartProperties.class)

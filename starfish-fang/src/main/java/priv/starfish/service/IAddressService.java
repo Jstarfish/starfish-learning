@@ -1,5 +1,4 @@
-package priv.starfish.service.house;
-
+package priv.starfish.service;
 
 import priv.starfish.entity.SupportAddress;
 import priv.starfish.service.ServiceMultiResult;
@@ -12,9 +11,9 @@ import priv.starfish.web.dto.SupportAddressDTO;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * 地址服务接口
- * Created by 瓦力.
  */
 public interface IAddressService {
     /**

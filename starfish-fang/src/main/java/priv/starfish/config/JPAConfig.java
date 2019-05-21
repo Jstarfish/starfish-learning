@@ -38,7 +38,7 @@ public class JPAConfig {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
         entityManagerFactory.setJpaVendorAdapter(japVendor);
-        entityManagerFactory.setPackagesToScan("priv.starfish.dto");
+        entityManagerFactory.setPackagesToScan("priv.starfish.entity");
         return entityManagerFactory;
     }
 

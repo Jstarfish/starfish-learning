@@ -6,13 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import priv.starfish.entity.User;
 
-/**
- * @description: 用户仓库
- * @param:  * @param null
- * @return: 
- * @auther: jiahaixin
- * @date: 2018/8/9 10:54
- */
 public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByName(String userName);

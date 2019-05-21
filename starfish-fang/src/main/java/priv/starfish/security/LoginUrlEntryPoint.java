@@ -17,6 +17,7 @@ import java.util.Map;
  * 基于角色的登录入口控制器
  * Created by 瓦力.
  */
+
 public class LoginUrlEntryPoint extends LoginUrlAuthenticationEntryPoint {
 
     private static final String API_FREFIX = "/api";
@@ -36,13 +37,14 @@ public class LoginUrlEntryPoint extends LoginUrlAuthenticationEntryPoint {
         authEntryPointMap.put("/admin/**", "/admin/login");
     }
 
-    /**
+    /*
      * 根据请求跳转到指定的页面，父类是默认使用loginFormUrl
      * @param request
      * @param response
      * @param exception
      * @return
      */
+
     @Override
     protected String determineUrlToUseForThisRequest(HttpServletRequest request, HttpServletResponse response,
                                                      AuthenticationException exception) {
@@ -56,7 +58,7 @@ public class LoginUrlEntryPoint extends LoginUrlAuthenticationEntryPoint {
         return super.determineUrlToUseForThisRequest(request, response, exception);
     }
 
-    /**
+    /*
      * 如果是Api接口 返回json数据 否则按照一般流程处理
      * @param request
      * @param response
@@ -64,6 +66,7 @@ public class LoginUrlEntryPoint extends LoginUrlAuthenticationEntryPoint {
      * @throws IOException
      * @throws ServletException
      */
+
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException, ServletException {

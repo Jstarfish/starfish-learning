@@ -1,4 +1,4 @@
-package priv.starfish.service.user;
+package priv.starfish.service.impl;
 
 import com.google.common.collect.Lists;
 import org.modelmapper.ModelMapper;

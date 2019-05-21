@@ -1,7 +1,7 @@
-INSERT INTO `user`(`id`, `name`, `email`, `phone_number`, `password`, `status`, `last_login_time`) VALUES (1, 'wali',
-'wali@imooc.com', '13888888888', 'wali', 1, NOW());
+INSERT INTO `user`(`id`, `name`, `email`, `phone_number`, `password`, `status`, `last_login_time`) VALUES (1, 'star',
+'star@163.com', '13888888888', 'star', 1, NOW());
 INSERT INTO `user`(`id`, `name`, `email`, `phone_number`, `password`, `status`, `last_login_time`) VALUES (2, 'admin',
-'admin@imooc.com', '13999999999', '55b3d0936a3fb63168d57a6bda0ddbbf', 1, NOW());
+'admin@163.com', '13999999999', '55b3d0936a3fb63168d57a6bda0ddbbf', 1, NOW());
 
 INSERT INTO `role`(`id`, `user_id`, `name`) VALUES (1, 1, 'USER');
 INSERT INTO `role`(`id`, `user_id`, `name`) VALUES (2, 2, 'USER');

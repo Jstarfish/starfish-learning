@@ -8,10 +8,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import priv.starfish.entity.HouseSubscribe;
 
-/**
- * Created by 瓦力.
- */
-public interface HouseSubscribeRespository extends PagingAndSortingRepository<HouseSubscribe, Long> {
+
+public interface HouseSubscribeRespository extends PagingAndSortingRepository<HouseSubscribe, Long>{
 
     HouseSubscribe findByHouseIdAndUserId(Long houseId, Long loginUserId);
 

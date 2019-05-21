@@ -1,4 +1,12 @@
-package priv.starfish.service.house;
+package priv.starfish.service.impl;
+
+import java.io.File;
+import java.io.InputStream;
+
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
@@ -6,18 +14,9 @@ import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import priv.starfish.service.IQiNiuService;
 
-import java.io.File;
-import java.io.InputStream;
-
-/**
- * Created by 瓦力.
- */
-@Service
+//@Service
 public class QiNiuServiceImpl implements IQiNiuService, InitializingBean {
     @Autowired
     private UploadManager uploadManager;

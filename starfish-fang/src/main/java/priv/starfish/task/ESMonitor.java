@@ -18,7 +18,7 @@ import java.io.IOException;
 /**
  * Created by 瓦力.
  */
-@Component
+//@Component
 public class ESMonitor {
     private static final String HEALTH_CHECK_API = "http://127.0.0.1:8888/_cluster/health";
 

@@ -14,18 +14,16 @@ import priv.starfish.security.AuthProvider;
 import priv.starfish.security.LoginAuthFailHandler;
 import priv.starfish.security.LoginUrlEntryPoint;
 
-/**
- * Created by 瓦力.
- */
-@EnableWebSecurity
-@EnableGlobalMethodSecurity
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    /**
+    /*
      * HTTP权限控制
      * @param http
      * @throws Exception
      */
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterBefore(authFilter(), UsernamePasswordAuthenticationFilter.class);
@@ -58,9 +56,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().sameOrigin();
     }
 
-    /**
+    /*
      * 自定义认证策略
      */
+
     @Autowired
     public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authProvider()).eraseCredentials(true);

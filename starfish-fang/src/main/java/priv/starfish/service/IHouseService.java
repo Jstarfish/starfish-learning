@@ -1,4 +1,6 @@
-package priv.starfish.service.house;
+package priv.starfish.service;
+
+import java.util.Date;
 
 import org.springframework.data.util.Pair;
 import priv.starfish.base.HouseSubscribeStatus;
@@ -11,11 +13,9 @@ import priv.starfish.web.form.HouseForm;
 import priv.starfish.web.form.MapSearch;
 import priv.starfish.web.form.RentSearch;
 
-import java.util.Date;
 
 /**
  * 房屋管理服务接口
- * Created by 瓦力.
  */
 public interface IHouseService {
     /**

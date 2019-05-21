@@ -16,7 +16,7 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
 /**
- * @Auther: jiahaixin
+ * @Auther: starfish
  * @Date: 2018/8/8 17:04
  * @Description: mvc相关配置
  */
@@ -49,6 +49,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter implements Application
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.applicationContext);
+        //解决乱码问题
         templateResolver.setCharacterEncoding("UTF-8");
         templateResolver.setCacheable(thymeleafCacheEnable);
         return templateResolver;

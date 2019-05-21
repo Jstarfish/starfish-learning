@@ -1,7 +1,13 @@
-package priv.starfish.service.house;
+package priv.starfish.service.impl;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
@@ -17,12 +23,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import priv.starfish.entity.Subway;
 import priv.starfish.entity.SubwayStation;
 import priv.starfish.entity.SupportAddress;
 import priv.starfish.repository.SubwayRepository;
 import priv.starfish.repository.SubwayStationRepository;
 import priv.starfish.repository.SupportAddressRepository;
+import priv.starfish.service.IAddressService;
 import priv.starfish.service.ServiceMultiResult;
 import priv.starfish.service.ServiceResult;
 import priv.starfish.service.search.BaiduMapLocation;
@@ -30,17 +40,6 @@ import priv.starfish.web.dto.SubwayDTO;
 import priv.starfish.web.dto.SubwayStationDTO;
 import priv.starfish.web.dto.SupportAddressDTO;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-/**
- * Created by 瓦力.
- */
 @Service
 public class AddressServiceImpl implements IAddressService {
     @Autowired

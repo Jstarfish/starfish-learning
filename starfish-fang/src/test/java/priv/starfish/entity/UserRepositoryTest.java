@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import priv.starfish.ApplicationTests;
 import priv.starfish.repository.UserRepository;
 
-import java.util.Optional;
-
 public class UserRepositoryTest extends ApplicationTests {
     @Autowired
     private UserRepository userRepository;

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>priv.starfish</groupId>
-    <artifactId>cloud-app</artifactId>
+    <artifactId>starfish-fang</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 

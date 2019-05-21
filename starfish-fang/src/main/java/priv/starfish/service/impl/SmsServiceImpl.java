@@ -1,4 +1,4 @@
-package priv.starfish.service;
+package priv.starfish.service.impl;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
@@ -13,14 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import priv.starfish.service.ISmsService;
+import priv.starfish.service.ServiceResult;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by 瓦力.
- */
-@Service
+//@Service
 public class SmsServiceImpl implements ISmsService, InitializingBean {
     @Value("${aliyun.sms.accessKey}")
     private String accessKey;
