@@ -46,6 +46,7 @@ public class User implements UserDetails {
     private String avatar;
 
 
+    //透明，不验证这个字段
     @Transient
     private List<GrantedAuthority> authorityList;
 

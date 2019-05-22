@@ -14,8 +14,8 @@ import priv.starfish.security.AuthProvider;
 import priv.starfish.security.LoginAuthFailHandler;
 import priv.starfish.security.LoginUrlEntryPoint;
 
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity
+@EnableWebSecurity
+@EnableGlobalMethodSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /*
@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.addFilterBefore(authFilter(), UsernamePasswordAuthenticationFilter.class);
+        //http.addFilterBefore(authFilter(), UsernamePasswordAuthenticationFilter.class);
 
         // 资源访问权限
         http.authorizeRequests()
@@ -52,6 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(urlEntryPoint())
                 .accessDeniedPage("/403");
 
+        //关掉方策略 方便开发
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
     }
@@ -59,9 +60,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /*
      * 自定义认证策略
      */
-
     @Autowired
     public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        //没有数据，加一个内存用户，登录 TODO
+        // auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN").and();
+
         auth.authenticationProvider(authProvider()).eraseCredentials(true);
     }
 
@@ -75,6 +78,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new LoginUrlEntryPoint("/user/login");
     }
 
+    //认证失败的处理器配置
     @Bean
     public LoginAuthFailHandler authFailHandler() {
         return new LoginAuthFailHandler(urlEntryPoint());
@@ -90,12 +94,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         }
         return authenticationManager;
     }
-
-    @Bean
-    public AuthFilter authFilter() {
-        AuthFilter authFilter = new AuthFilter();
-        authFilter.setAuthenticationManager(authenticationManager());
-        authFilter.setAuthenticationFailureHandler(authFailHandler());
-        return authFilter;
-    }
+//
+//    //@Bean
+//    public AuthFilter authFilter() {
+//        AuthFilter authFilter = new AuthFilter();
+//        authFilter.setAuthenticationManager(authenticationManager());
+//        authFilter.setAuthenticationFailureHandler(authFailHandler());
+//        return authFilter;
+//    }
 }

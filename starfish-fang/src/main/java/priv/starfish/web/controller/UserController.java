@@ -1,23 +1,27 @@
 package priv.starfish.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import priv.starfish.service.IUserService;
+
 @Controller
 public class UserController {
-//    @Autowired
-//    private IUserService userService;
+    @Autowired
+    private IUserService userService;
 //
 //    @Autowired
 //    private IHouseService houseService;
 //
-//    @GetMapping("/user/login")
-//    public String loginPage() {
-//        return "user/login";
-//    }
-//
-//    @GetMapping("/user/center")
-//    public String centerPage() {
-//        return "user/center";
-//    }
+    @GetMapping("/user/login")
+    public String loginPage() {
+        return "user/login";
+    }
+
+    @GetMapping("/user/center")
+    public String centerPage() {
+        return "user/center";
+    }
 //
 //    @PostMapping(value = "api/user/info")
 //    @ResponseBody

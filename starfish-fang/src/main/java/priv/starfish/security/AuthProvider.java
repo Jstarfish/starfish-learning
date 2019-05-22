@@ -11,7 +11,9 @@ import org.springframework.security.core.AuthenticationException;
 import priv.starfish.entity.User;
 import priv.starfish.service.IUserService;
 
-
+/**
+ * 自定义认证实现
+ */
 public class AuthProvider implements AuthenticationProvider {
     @Autowired
     private IUserService userService;
@@ -20,6 +22,7 @@ public class AuthProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        //获取用户名和输入密码
         String userName = authentication.getName();
         String inputPassword = (String) authentication.getCredentials();
 
@@ -28,6 +31,7 @@ public class AuthProvider implements AuthenticationProvider {
             throw new AuthenticationCredentialsNotFoundException("authError");
         }
 
+        //通过用户id加盐，用md5解密器解密，比较
         if (this.passwordEncoder.isPasswordValid(user.getPassword(), inputPassword, user.getId())) {
             return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 

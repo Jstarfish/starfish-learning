@@ -22,9 +22,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by 瓦力.
- */
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
@@ -41,7 +38,6 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User findUserByName(String userName) {
         User user = userRepository.findByName(userName);
-
         if (user == null) {
             return null;
         }

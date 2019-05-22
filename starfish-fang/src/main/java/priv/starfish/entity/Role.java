@@ -2,9 +2,6 @@ package priv.starfish.entity;
 
 import javax.persistence.*;
 
-/**
- * Created by 瓦力.
- */
 @Entity
 @Table(name = "role")
 public class Role {

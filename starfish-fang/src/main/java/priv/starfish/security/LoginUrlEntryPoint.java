@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * 基于角色的登录入口控制器
- * Created by 瓦力.
+ * 不同角色登录到不同的页面
  */
 
 public class LoginUrlEntryPoint extends LoginUrlAuthenticationEntryPoint {
@@ -44,7 +44,6 @@ public class LoginUrlEntryPoint extends LoginUrlAuthenticationEntryPoint {
      * @param exception
      * @return
      */
-
     @Override
     protected String determineUrlToUseForThisRequest(HttpServletRequest request, HttpServletResponse response,
                                                      AuthenticationException exception) {

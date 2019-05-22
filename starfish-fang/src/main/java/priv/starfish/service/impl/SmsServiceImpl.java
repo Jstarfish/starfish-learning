@@ -59,7 +59,7 @@ public class SmsServiceImpl implements ISmsService, InitializingBean {
         request.setPhoneNumbers(telephone);
         request.setTemplateParam(templateParam);
         request.setTemplateCode(templateCode);
-        request.setSignName("寻屋");
+        request.setSignName("海星找房");
 
         boolean success = false;
         try {

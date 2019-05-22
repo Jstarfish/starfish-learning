@@ -30,9 +30,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
-/**
- * Created by 瓦力.
- */
 @Controller
 public class AdminController {
 //    @Autowired
