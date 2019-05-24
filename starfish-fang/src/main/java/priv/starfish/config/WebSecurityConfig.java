@@ -62,9 +62,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        //没有数据，加一个内存用户，登录 TODO
+        //没有数据，加一个内存用户，登录
         // auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN").and();
-
         auth.authenticationProvider(authProvider()).eraseCredentials(true);
     }
 

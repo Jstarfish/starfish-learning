@@ -134,6 +134,7 @@
             <groupId>com.qiniu</groupId>
             <artifactId>qiniu-java-sdk</artifactId>
             <version>7.2.14</version>
+            <!--中括号代表区间下载-->
             <!--<version>[7.2.0, 7.2.99]</version>-->
         </dependency>
 
