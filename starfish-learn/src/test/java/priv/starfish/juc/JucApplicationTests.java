@@ -11,6 +11,7 @@ public class JucApplicationTests {
 
     @Test
     public void contextLoads() {
+        System.out.println("hello");
     }
 
 }
