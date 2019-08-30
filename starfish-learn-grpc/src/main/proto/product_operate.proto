@@ -1,0 +1,19 @@
+syntax = "proto2";
+package product.pb;
+option java_package = "com.qihoo.product.protocol";
+option java_outer_classname = "ProductOperate";
+import "product.proto";
+message ProductOperateData {
+  required ProductOperateEvent event = 1;//操作符
+  required Product product = 2;//商品
+  optional int64 nonce=3;//解析时间戳
+}
+enum ProductOperateEvent {
+  INSERT = 1;
+  UPDATE = 2;
+  EXPIRE = 3;
+  UPDATEPIC	= 4;
+  DELETE = 5;
+  NOCHANGE = 6;
+  BLACK = 7;
+}

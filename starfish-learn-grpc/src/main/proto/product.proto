@@ -1,0 +1,29 @@
+syntax = "proto2";
+package product.pb;
+option java_package = "com.qihoo.product.protocol";
+option java_outer_classname = "ProductData";
+//maven run with "mvn protobuf:compile -DprotocExecutable=E:/protoc-2.5.0-win32/protoc.exe"
+message Product {
+    optional string id = 1;//hashID
+    optional string pid = 4;//ID
+    optional string bid = 41;//feedId
+    optional string qid = 44;//点睛广告主ID
+    optional string timestamps = 51;//数据录入最新时间
+    optional string lproperty= 53;//地域定向信息
+    optional string audit=54;//审核状态 0:待审核, 1:审核通过 2：审核不通过
+    optional string industry=55 [default = "1"];//FEED归属行业
+    repeated DmpIndustryField choiceFields=83;//自定义字段
+    repeated DmpIndustryField mFields=84;//宏字段
+    optional string source=86; //导入来源
+    optional string imgWarning=87;//imgUrl尺寸大小报警
+    optional string auditLevel =88;//审核通过等级
+    optional string rejectCause=89;//审核系统不通过原因
+    optional int32 automatic=90 [default = 0];//更新类型 0:增量 1:全量
+    optional int32 uploadType=91 [default = 0];//上传类型 0:手动1:自动
+
+}
+
+message DmpIndustryField {
+    optional string fieldName = 1;
+    optional string fieldValue = 2;
+}

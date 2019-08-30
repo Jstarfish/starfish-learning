@@ -1,0 +1,62 @@
+syntax = "proto3";
+package product.pb;
+option java_package = "com.qihoo.product.protocol";
+import "product.proto";
+import "product_operate.proto";
+option java_generic_services = true;
+service ProductBusService {
+	rpc save (stream SaveRequest) returns (stream Response);
+
+	rpc changeStatus (stream ChangeStatusRequest) returns (stream Response);
+	
+	rpc query (stream QueryRequest) returns (stream QueryResponse);
+}
+message ChangeStatusRequest {
+	string id = 1;
+	ProductOperateEvent op = 2;
+	enum ProductOperateEvent {
+		UNKNOWN = 0;
+		INSERT = 1;
+		UPDATE = 2;
+		EXPIRE = 3;
+		UPDATEPIC = 4;
+		DELETE = 5;
+		NOCHANGE = 6;
+		BLACK = 7;
+	}
+}
+message Response {
+	ResponseStatus errno = 1;
+	string errmsg = 2;
+	string id = 3;
+}
+
+message QueryRequest {
+	string id = 1;
+}
+message QueryResponse {
+	ResponseStatus errno = 1;
+	string errmsg = 2;
+	Product product = 3;
+}
+message SaveRequest {
+	Product product = 1;
+	ProductOperateEvent op = 2;
+	enum ProductOperateEvent {
+		UNKNOWN = 0;
+		INSERT = 1;
+		UPDATE = 2;
+		EXPIRE = 3;
+		UPDATEPIC = 4;
+		DELETE = 5;
+		NOCHANGE = 6;
+		BLACK = 7;
+		RANDOMUPDATE = 8;
+	}
+}
+
+enum ResponseStatus {
+	SUCCESS = 0;
+	FALSE = 1;
+}
+
