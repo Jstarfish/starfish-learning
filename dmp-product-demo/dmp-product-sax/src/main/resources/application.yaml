@@ -1,5 +1,0 @@
-﻿airlines:
-  url: "http://58.248.41.144/E-UNION/data/service/minPrice/queryMinPriceInSeventyOfInternational.json"
-  account: "360Search"
-  password: "360Search@2019"
-
