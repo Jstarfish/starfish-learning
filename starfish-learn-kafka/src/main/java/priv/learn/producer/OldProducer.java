@@ -8,11 +8,12 @@ import kafka.producer.ProducerConfig;
 
 
 */
-/**
+/*
  * @author: jiahaixin
  * @date: 2019/9/9 15:34
  * @description: 创建生产者（过时的 API）
  *//*
+
 
 public class OldProducer {
 
