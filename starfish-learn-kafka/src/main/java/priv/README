@@ -1,0 +1,21 @@
+kafka学习和使用：
+
+example:
+
+	kafka官方提供的demo
+
+	启动KafkaConsumerProducerDemo的main方法后，无限循环写消息，消费消息
+
+learn:
+
+	跟着尚硅谷教程做的例子，有旧版本的和新版本的，和简单的kafka拦截器的例子以及kafka streams的例子。
+
+employ：
+
+	实际项目中的大概使用
+
+
+
+
+
+
