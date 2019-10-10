@@ -4,6 +4,8 @@ package priv.starfish.constructorOrderTest;
  * @author: jiahaixin
  * @date: 2019/9/24 10:42
  * @description:
+ *  父类的静态内容—>子类的静态内容—>父类非静态代码块—>父类构造器—>子类非静态代码块—>子类构造器
+ *
  */
 public class App {
     public static void main(String[] args) {

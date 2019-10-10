@@ -9,7 +9,7 @@ import java.util.Properties;
 /**
  * @author: jiahaixin
  * @date: 2019/9/9 16:47
- * @description:
+ * @description:  使用自定义分区，关联分区内容
  */
 public class PartitionerProducer {
     public static void main(String[] args) {

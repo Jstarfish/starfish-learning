@@ -14,7 +14,7 @@ public class CustomPartitioner implements Partitioner {
     @Override
     public int partition(String s, Object o, byte[] bytes, Object o1, byte[] bytes1, Cluster cluster) {
         // 控制分区
-        return 0;
+        return 1;
     }
 
     @Override

@@ -27,7 +27,6 @@ public class NewProducer {
         // 请求延时
         properties.put("linger.ms", 1);
         // 发送缓存区内存大小
-
         properties.put("buffer.memory", 33554432);
         // key 序列化
         properties.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");

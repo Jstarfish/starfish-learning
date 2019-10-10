@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * @author: jiahaixin
  * @date: 2019/9/9 16:11
- * @description: 创建生产者带回调函数（新 API）
+ * @description: 异步发送：创建生产者带回调函数（新 API）
  */
 public class CallBackProducer {
 
@@ -37,7 +37,7 @@ public class CallBackProducer {
                 "org.apache.kafka.common.serialization.StringSerializer");
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(props);
         for (int i = 0; i < 50; i++) {
-            kafkaProducer.send(new ProducerRecord<String, String>("learn-java-kafka", "hello"
+            kafkaProducer.send(new ProducerRecord<String, String>("learn-java-kafka", "key","hello"
                     + i), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception
