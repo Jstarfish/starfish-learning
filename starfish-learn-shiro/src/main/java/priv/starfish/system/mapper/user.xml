@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.starfish.system.dao.UserDao">
+	<resultMap type="priv.starfish.system.model.User" id="user">
+		<id column="userId" property="userId" />
+		<result column="userName" property="userName" />
+		<result column="userPassword" property="password" />
+		<result column="phone" property="phone" />
+		<result column="address" property="address" />
+		<result column="status" property="status" />
+		<result column="createTime" property="createTime" />
+	</resultMap>
+
+	<select id="getUserInfo" parameterType="String" resultType="priv.starfish.system.model.User">
+		select t.userName userName,t.userPassword password from User t where t.userName= #{username}
+	</select>
+
+	<select id="getAllUsers" parameterType="priv.starfish.system.form.UserForm" resultMap="user">
+		select t.userName ,t.realName,t.phone,t.address,t.createTime,t.status from User t
+	</select>
+	
+</mapper>
