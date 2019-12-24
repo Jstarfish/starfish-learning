@@ -19,4 +19,7 @@ public class TestStr {
         String str="abcdefg";
         System.out.println(str.substring(str.indexOf("c")+1));
     }
+
+
+
 }

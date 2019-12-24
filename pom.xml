@@ -11,7 +11,7 @@
     <modules>
         <module>starfish-learn-grpc</module>
         <module>starfish-learn-kafka</module>
-        <module>starfish-learn-shiro</module>
+        <module>starfish-web-demo</module>
     </modules>
 
 

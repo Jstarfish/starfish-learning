@@ -2,7 +2,10 @@ package priv.starfish.redisson;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.redisson.Redisson;
+import org.redisson.api.RFuture;
 import org.redisson.api.RKeys;
+import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -64,11 +67,19 @@ public class StarfishLearnRedissonApplicationTests {
         long deletedKeysAmount = keys.deleteByPattern("test?");
         String randomKey = keys.randomKey();
         long keysAmount = keys.count();*/
-
-
-
        // System.out.println("-----"+allKeys);
+    }
 
+    public void redisLock() throws InterruptedException {
+        RedissonClient redissonClient = Redisson.create();
+        RLock rLock = redissonClient.getLock("resourceName");
+        //直接加锁
+        //rLock.lock();
+        //尝试加锁5秒，锁过期时间10秒
+        rLock.tryLock(5,10,TimeUnit.SECONDS);
+        //非阻塞异步加锁
+        RFuture<Boolean> rFuture = rLock.tryLockAsync(5,10,TimeUnit.SECONDS);
+        rLock.unlock();
     }
 
 

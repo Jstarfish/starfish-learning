@@ -54,6 +54,7 @@ public class RefreshMacroTask {
         long start = System.currentTimeMillis();
         try {
 
+
             //若任务执行时间过短，则有可能在等锁的过程中2个服务任务都会获取到锁，这与实际需要的功能不一致，故需要将waitTime设置为0
             if (getLock = redissonLock.tryLock(lockKey, TimeUnit.SECONDS, 0, 10000)) {
 
