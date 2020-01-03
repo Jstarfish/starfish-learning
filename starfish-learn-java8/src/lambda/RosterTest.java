@@ -1,6 +1,9 @@
 package lambda;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -13,9 +16,9 @@ public class RosterTest {
     }
 
     /**
-     *  1. eg：输出年龄大于20岁的成员
-     *    匹配符合某一特征的成员的方法
-     *    如果老板要年龄在某一区间的成员呢？接着换方法
+     * 1. eg：输出年龄大于20岁的成员
+     * 匹配符合某一特征的成员的方法
+     * 如果老板要年龄在某一区间的成员呢？接着换方法
      */
     public static void printPersonsOlderThan(List<Person> roster, int age) {
         for (Person p : roster) {
@@ -27,9 +30,9 @@ public class RosterTest {
 
     /**
      * 2. eg:输出年龄在14到30岁之间的成员
-     *      更全面的匹配方法
-     *    如果老板只要男性成员呢？
-      */
+     * 更全面的匹配方法
+     * 如果老板只要男性成员呢？
+     */
     public static void printPersonsWithinAgeRange(
             List<Person> roster, int low, int high) {
         for (Person p : roster) {
@@ -44,10 +47,10 @@ public class RosterTest {
     // Approach 5: Specify Search Criteria Code with a Lambda Expression
 
     /**
-     *  3. eg:老板又提出了各种复杂的需求，不要处女座的、只要邮箱是163的，怎么搞？
-     *     方法1：在本地类中指定搜索条件代码，通过接口方式，不同的需求对应不同的实现类，每次都要新建实现类，写大量的代码
-     *     方法2：在匿名类中指定搜索条件代码，不需要写各种实现，但是还要写个interface CheckPerson，而且匿名类写起来也挺麻烦
-     *     方法3：Lambda表达式是懒人的不二之选，CheckPerson是一个只包含一个抽象方法的接口，比较简单，Lambda可以省略其实现
+     * 3. eg:老板又提出了各种复杂的需求，不要处女座的、只要邮箱是163的，怎么搞？
+     * 方法1：在本地类中指定搜索条件代码，通过接口方式，不同的需求对应不同的实现类，每次都要新建实现类，写大量的代码
+     * 方法2：在匿名类中指定搜索条件代码，不需要写各种实现，但是还要写个interface CheckPerson，而且匿名类写起来也挺麻烦
+     * 方法3：Lambda表达式是懒人的不二之选，CheckPerson是一个只包含一个抽象方法的接口，比较简单，Lambda可以省略其实现
      */
     public static void printPersons(
             List<Person> roster, CheckPerson tester) {
@@ -59,10 +62,10 @@ public class RosterTest {
     }
 
     /**
-     *  4. eg: 搞这么久，还得写一个接口，而且是只有一个抽象方法，还是不爽？
-     *     你也可以使用标准的函数接口来代替接口CheckPerson，从而进一步减少所需的代码量
-     *     java.util.function包中定义了标准的函数接口
-     *     我们可以使用JDK8提供的 Predicate<T>接口来代替CheckPerson。该接口包含方法boolean test(T t)
+     * 4. eg: 搞这么久，还得写一个接口，而且是只有一个抽象方法，还是不爽？
+     * 你也可以使用标准的函数接口来代替接口CheckPerson，从而进一步减少所需的代码量
+     * java.util.function包中定义了标准的函数接口
+     * 我们可以使用JDK8提供的 Predicate<T>接口来代替CheckPerson。该接口包含方法boolean test(T t)
      */
     public static void printPersonsWithPredicate(
             List<Person> roster, Predicate<Person> tester) {
@@ -76,7 +79,7 @@ public class RosterTest {
 
     /**
      * 5. Lambda表达式可不只是能够简化匿名类
-     *    简化 p.printPerson(), 使用Consumer<T>接口的void accept(T t)方法，相当于入参的操作
+     * 简化 p.printPerson(), 使用Consumer<T>接口的void accept(T t)方法，相当于入参的操作
      */
     public static void processPersons(
             List<Person> roster,
@@ -91,7 +94,7 @@ public class RosterTest {
 
     /**
      * 6. eg: 老板说了只想看到邮箱
-     *   Function<T,R>接口，相当于输入类型，mapper定义参数，block负责方对给定的参数进行执行
+     * Function<T,R>接口，相当于输入类型，mapper定义参数，block负责方对给定的参数进行执行
      */
     public static void processPersonsWithFunction(
             List<Person> roster,
@@ -264,6 +267,88 @@ public class RosterTest {
                                 && p.getAge() <= 25)
                 .map(p -> p.getEmailAddress())
                 .forEach(email -> System.out.println(email));
+        System.out.println();
+
+        /**
+         *  9. 按年龄排序。Java 8 之前需要实现 Comparator 接口
+         *  接口比较器是一个功能接口。因此，可以使用lambda表达式来代替定义并创建一个实现了Comparator的类的新实例:
+         */
+        Person[] rosterAsArray = roster.toArray(new Person[roster.size()]);
+
+        Arrays.sort(rosterAsArray,
+                (a, b) -> Person.compareByAge(a, b)
+        );
+
+        for (Person person : roster) {
+            person.printPerson();
+        }
+
+
+        /**
+         *  这种比较两个Person实例的出生日期的方法已经作为Person. comparebyage存在。你可以在lambda表达式中调用这个方法
+         */
+
+        Arrays.sort(rosterAsArray,
+                (a, b) -> Person.compareByAge(a, b)
+        );
+
+
+
+
+        /**
+         *  ===================================================================
+         *  方法引用：
+         * 这个lambda表达式调用现有的方法，所以您可以使用方法引用而不是lambda表达式
+         *  Person::compareByAge 等同于 (a, b) -> Person.compareByAge(a, b)
+         */
+        Arrays.sort(rosterAsArray, Person::compareByAge);
+
+
+        System.out.println();
+
+        // Reference to an Instance Method of a Particular Object
+        class ComparisonProvider {
+            public int compareByName(Person a, Person b) {
+                return a.getName().compareTo(b.getName());
+            }
+
+            public int compareByAge(Person a, Person b) {
+                return a.getBirthday().compareTo(b.getBirthday());
+            }
+        }
+        ComparisonProvider myComparisonProvider = new ComparisonProvider();
+        Arrays.sort(rosterAsArray, myComparisonProvider::compareByName);
+        for (Person person : rosterAsArray) {
+            person.printPerson();
+        }
+
+        System.out.println();
+
+        /**
+         * 引用特定类型的任意对象的实例方法
+         * String::compareToIgnoreCase 格式化 (String a, String b) ，并去调用 a.compareToIgnoreCase(b)
+         */
+        String[] stringArray = { "Barbara", "James", "Mary", "John",
+                "Patricia", "Robert", "Michael", "Linda" };
+        Arrays.sort(stringArray, String::compareToIgnoreCase);
+        for (String s : stringArray) {
+            System.out.println(s);
+        }
+
+
+        System.out.println();
+
+        // 通过 stream 将计算集合的和
+        Integer[] intArray = {1, 2, 3, 4, 5, 6, 7, 8 };
+        List<Integer> listOfIntegers =
+                new ArrayList<>(Arrays.asList(intArray));
+        System.out.println("Sum of integers: " +
+                listOfIntegers
+                        .stream()
+                        .reduce(Integer::sum).get());
+
+
+
     }
 
 }

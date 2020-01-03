@@ -7,6 +7,14 @@ import java.time.LocalDate;
 
 public class Person {
 
+
+    public Person() {
+
+    }
+
+    public Person(Person person) {
+    }
+
     public enum Sex {
         MALE, FEMALE
     }
@@ -16,7 +24,7 @@ public class Person {
     Sex gender;
     String emailAddress;
 
-    Person(String nameArg, LocalDate birthdayArg,
+    public Person(String nameArg, LocalDate birthdayArg,
            Sex genderArg, String emailArg) {
         name = nameArg;
         birthday = birthdayArg;
@@ -80,5 +88,15 @@ public class Person {
                         Person.Sex.MALE, "bob@example.com"));
 
         return roster;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", gender=" + gender +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
     }
 }
