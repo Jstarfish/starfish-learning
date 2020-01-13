@@ -19,6 +19,7 @@ public class Calculator {
 
         Calculator myApp = new Calculator();
         IntegerMath addition = (a, b) -> a + b;
+
         IntegerMath subtraction = (a, b) -> a - b;
         System.out.println("40 + 2 = " +
                 myApp.operateBinary(40, 2, addition));
