@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="starfish-learn-zookeeper" />
+        <module name="starfish-learn-java8" />
+        <module name="starfish-learn" />
+        <module name="starfish-learn-juc" />
+        <module name="starfish-learn-spring" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="starfish-learn" target="1.8" />
+      <module name="starfish-learn-java8" target="1.8" />
+      <module name="starfish-learn-juc" target="8" />
+      <module name="starfish-learn-spring" target="1.5" />
+      <module name="starfish-learn-zookeeper" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="starfish-learn" options="-parameters" />
+      <module name="starfish-learn-spring" options="" />
+    </option>
+  </component>
+</project>

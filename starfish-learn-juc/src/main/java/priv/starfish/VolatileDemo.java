@@ -24,45 +24,50 @@ public class VolatileDemo {
 
         //seeOkByVolatile();
 
+        atomicTest();
+
+
+    }
+
+    private static void atomicTest() throws InterruptedException {
         MyData myData = new MyData();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             new Thread(() ->{
                 for (int j = 0; j < 1000; j++) {
-                    //myData.addPlusPlus();
+                    myData.addPlusPlus();
 
-                    myData.atomicAdd();
+                    //myData.atomicAdd();
                 }
             },"addPlusThread:"+ i).start();
         }
 
 
         //等待上边20个线程结束后(预计5秒肯定结束了)，在main线程中获取最后的number
- //       TimeUnit.SECONDS.sleep(5);
-//        while (Thread.activeCount() > 2){
-//            Thread.yield();
-//        }
+        TimeUnit.SECONDS.sleep(5);
+        while (Thread.activeCount() > 2){
+            Thread.yield();
+        }
 
         //正常情况，输出值应该是20000，运行后会发现不一定是
         System.out.println(Thread.currentThread().getName()+",int :"+myData.number);
         System.out.println(Thread.currentThread().getName()+",atomicInterger:"+myData.atomicNum);
-
-
     }
 
 
     //写好代码后，选中要提取的代码，右键Refactor,选择Extract
     //voaltile可以保证可见性，及时通知其他线程，主物理内存的值已经被修改
     private static void seeOkByVolatile() {
+
+
         MyData myData = new MyData();
 
         new Thread(() -> {
-            System.out.println(Thread.currentThread().getName()+"\t come in");
+            System.out.println(Thread.currentThread().getName()+"\t execute");
 
             try {
-                //Thread.sleep(200);
                 TimeUnit.SECONDS.sleep(2);
-                myData.addTo18();
+                myData.add();
 
                 System.out.println(Thread.currentThread().getName()+"\t update number value :"+myData.number);
 
@@ -70,27 +75,25 @@ public class VolatileDemo {
                 e.printStackTrace();
             }
 
-        }, "AAA").start();
+        }, "workThread").start();
 
         //第2个线程，main线程
         while (myData.number == 0){
             //main线程还在找0
         }
 
-        System.out.println(Thread.currentThread().getName()+"\t mission is over");
-
         //不加volatile,不会执行下边输出语句，在number前加关键字 volatile,重新运行
 
-        System.out.println(Thread.currentThread().getName()+"\t mission is over，main get number is:"+myData.number);
+        System.out.println(Thread.currentThread().getName()+"\t execute over，main get number is:"+myData.number);
     }
 }
 
 
 class MyData {
-    volatile int number = 0;
+     volatile int number = 0;
 
-    public void addTo18() {
-        this.number = 18;
+    public void add() {
+        this.number = number + 1;
     }
 
     public void addPlusPlus(){

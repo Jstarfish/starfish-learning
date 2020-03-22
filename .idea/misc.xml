@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/starfish-learn-java8/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-learn/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-learn-zookeeper/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-learn-juc/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-learn-spring/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/.." />
+  </component>
+</project>

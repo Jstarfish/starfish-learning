@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/starfish-learn/starfish-learn.iml" filepath="$PROJECT_DIR$/starfish-learn/starfish-learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starfish-learn-designpattern/starfish-learn-designpattern.iml" filepath="$PROJECT_DIR$/starfish-learn-designpattern/starfish-learn-designpattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starfish-learn-java8/starfish-learn-java8.iml" filepath="$PROJECT_DIR$/starfish-learn-java8/starfish-learn-java8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starfish-learn-juc/starfish-learn-juc.iml" filepath="$PROJECT_DIR$/starfish-learn-juc/starfish-learn-juc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starfish-learn-leetcode/starfish-learn-leetcode.iml" filepath="$PROJECT_DIR$/starfish-learn-leetcode/starfish-learn-leetcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starfish-learn-spring/starfish-learn-spring.iml" filepath="$PROJECT_DIR$/starfish-learn-spring/starfish-learn-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starfish-learn-zookeeper/starfish-learn-zookeeper.iml" filepath="$PROJECT_DIR$/starfish-learn-zookeeper/starfish-learn-zookeeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/starfish-learning.iml" filepath="$PROJECT_DIR$/.idea/starfish-learning.iml" />
+    </modules>
+  </component>
+</project>
