@@ -7,22 +7,23 @@ package priv.starfish;
  **/
 public class Singleton {
 
-    private static volatile Singleton instance;
+        private static volatile Singleton instance;
 
-    private Singleton(){}
-    // DCL
-    public static Singleton getInstance(){
-        if(instance ==null){   //第一次检查
-            synchronized (Singleton.class){
-                if(instance == null){   //第二次检查
-                    instance = new Singleton();
+        private Singleton(){}
+        public static Singleton getInstance(){
+            if(instance ==null){
+                synchronized (Singleton.class){
+                    if(instance == null){
+                        instance = new Singleton();
+                    }
                 }
             }
+            return instance;
         }
-        return instance;
-    }
 
     public static void main(String[] args) {
-
+        Singleton.getInstance();
     }
+
+
 }
