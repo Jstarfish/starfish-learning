@@ -1,7 +1,12 @@
 package priv.starfish.observer;
 
+import org.springframework.cache.transaction.TransactionAwareCacheDecorator;
 import org.springframework.context.ApplicationEvent;
+import org.springframework.session.web.http.SessionRepositoryFilter;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.ServletRequestWrapper;
+
 
 /**
  * @description: 事件
@@ -13,5 +18,6 @@ public class MyEvent extends ApplicationEvent {
         super(source);
         System.out.println("my Event");
     }
+
 
 }
