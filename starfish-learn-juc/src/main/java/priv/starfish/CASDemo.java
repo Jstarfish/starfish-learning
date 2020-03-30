@@ -12,8 +12,16 @@ public class CASDemo {
 
         AtomicInteger num = new AtomicInteger(6);
 
+//        System.out.println(num.addAndGet(1));   //7
+//
+//        System.out.println(num.floatValue());   //7.0
+//
+//        num.lazySet(8);
+//
+//        System.out.println(num.get());  //8
+
         System.out.println(num.compareAndSet(6, 7) + "\t + current num:" + num);
 
-        System.out.println(num.compareAndSet(6, 8) + "\t current num:" + num);
+        System.out.println(num.compareAndSet(6, 7) + "\t current num:" + num);
     }
 }
