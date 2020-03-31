@@ -14,11 +14,11 @@ public class AtomicRefrenceDemo {
         User tom = new User("tom",18);
         User jim = new User("jim",20);
 
-        AtomicReference<User> userAtomicReference = new AtomicReference<>();
-        userAtomicReference.set(tom);
+        AtomicReference<User> user = new AtomicReference<>();
+        user.set(tom);
 
-        System.out.println(userAtomicReference.compareAndSet(tom, jim)+"\t"+userAtomicReference.get().toString());
-        System.out.println(userAtomicReference.compareAndSet(tom, jim)+"\t"+userAtomicReference.get().toString());
+        System.out.println(user.compareAndSet(tom, jim)+"\t"+user.get().toString());
+        System.out.println(user.compareAndSet(tom, jim)+"\t"+user.get().toString());
 
     }
 
