@@ -27,8 +27,8 @@ public class Client {
         MyPublisher myPublisher = (MyPublisher) context.getBean("myPublisher");
         myPublisher.publishEvent(new MyEvent(this));
 
-        HandlerExecutionChain；
-                DiapatcherServlet
+        //HandlerExecutionChain
+       // diapatcherServlet
 
     }
 

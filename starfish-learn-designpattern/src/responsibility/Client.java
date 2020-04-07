@@ -12,6 +12,7 @@ public class Client {
         ConcreteHandler2 handler2 = new ConcreteHandler2(2);
         ConcreteHandler3 handler3 = new ConcreteHandler3(3);
 
+        //处理者构成一个环形
         handler1.setNextHandler(handler2);
         handler2.setNextHandler(handler3);
 
