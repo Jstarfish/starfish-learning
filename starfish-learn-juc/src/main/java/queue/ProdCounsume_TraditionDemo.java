@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 题目：一个初始值为 0 的变量，两个线程对齐交替操作，一个+1，一个-1，5 轮
+ * 题目：一个初始值为 0 的变量，两个线程交替操作，一个+1，一个-1，5 轮
  */
 public class ProdCounsume_TraditionDemo {
 

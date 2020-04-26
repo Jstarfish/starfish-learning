@@ -17,6 +17,11 @@ public class SynchronousQueueDemo {
 
         BlockingQueue<String> queue = new SynchronousQueue<>();
 
+        //System.out.println(queue.offer("aaa"));   //false
+        //System.out.println(queue.poll());         //null
+
+        System.out.println(queue.add("bbb"));        //ava.lang.IllegalStateException: Queue full
+
         new Thread(()->{
             try {
                 System.out.println("Thread 1 put a");
