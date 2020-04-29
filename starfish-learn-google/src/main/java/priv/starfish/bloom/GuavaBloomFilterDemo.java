@@ -11,6 +11,7 @@ import com.google.common.hash.Funnels;
 public class GuavaBloomFilterDemo {
 
     public static void main(String[] args) {
+        //后边两个参数：预计包含的数据量，和允许的误差值
         BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), 100000, 0.01);
         for (int i = 0; i < 100000; i++) {
             bloomFilter.put(i);
