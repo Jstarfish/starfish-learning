@@ -17,7 +17,7 @@ public class NewProducer {
 
         Properties properties = new Properties();
         // Kafka 服务端的主机名和端口号
-        properties.put("bootstrap.servers", "10.121.214.96:9092");
+        properties.put("bootstrap.servers", "10.202.253.240:9092");
         // 等待所有副本节点的应答
         properties.put("acks", "all");
         // 消息发送最大尝试次数

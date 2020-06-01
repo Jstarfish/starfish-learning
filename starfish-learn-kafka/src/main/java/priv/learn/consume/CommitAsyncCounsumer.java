@@ -16,7 +16,7 @@ public class CommitAsyncCounsumer {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "10.121.214.96:9092");
+        props.put("bootstrap.servers", "10.202.253.240:9092");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
 
         //关闭自动提交offset

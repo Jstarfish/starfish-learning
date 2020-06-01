@@ -5,6 +5,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -17,7 +18,7 @@ public class CommitSyncCounsumer {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "10.121.214.96:9092");
+        props.put("bootstrap.servers", "10.202.253.240:9092");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
 
         //关闭自动提交offset
@@ -31,7 +32,7 @@ public class CommitSyncCounsumer {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Arrays.asList("first", "second", "third","learn-java-kafka"));
         while (true) {
-            ConsumerRecords<String, String> records = consumer.poll(100);
+            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
             for (ConsumerRecord<String, String> record : records) {
                 System.out.printf("offset = %d, key = %s, value = %s%n",
                         record.offset(), record.key(), record.value());
