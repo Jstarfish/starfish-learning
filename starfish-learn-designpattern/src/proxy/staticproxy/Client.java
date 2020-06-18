@@ -7,19 +7,13 @@ package proxy.staticproxy;
  **/
 public class Client {
 
-
-    public static void main (String[] args)
-    {
-        Internet internet = new ProxyInternet();
-        try
-        {
-            internet.connectTo("geeksforgeeks.org");
-            internet.connectTo("abc.com");
-        }
-        catch (Exception e)
-        {
+    public static void main(String[] args) {
+        Internet internet = new ProxyInternet(new RealInternet());
+        try {
+            internet.connectTo("360.cn");
+            internet.connectTo("qq.com");
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-
 }
