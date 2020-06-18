@@ -1,4 +1,4 @@
-package priv.starfish.demo;
+package priv.starfish.hystrix;
 
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;

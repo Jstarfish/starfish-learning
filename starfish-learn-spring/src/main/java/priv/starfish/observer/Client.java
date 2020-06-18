@@ -6,6 +6,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExecutionChain;
@@ -26,6 +27,8 @@ public class Client {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         MyPublisher myPublisher = (MyPublisher) context.getBean("myPublisher");
         myPublisher.publishEvent(new MyEvent(this));
+
+        //ApplicationContextAware
 
         //HandlerExecutionChain
        // diapatcherServlet

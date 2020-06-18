@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+<!--	<tx:advice id="txAdvice" transaction-manager="txManager">-->
+<!--		&lt;!&ndash; the transactional semantics... &ndash;&gt;-->
+<!--		<tx:attributes>-->
+<!--			&lt;!&ndash; all methods starting with 'get' are read-only &ndash;&gt;-->
+<!--			<tx:method name="get*" read-only="true" propagation="REQUIRES_NEW" isolation="READ_COMMITTED" timeout="30" no-rollback-for="java.lang.ArithmeticException"/>-->
+<!--			&lt;!&ndash; other methods use the default transaction settings (see below) &ndash;&gt;-->
+<!--			<tx:method name="*"/>-->
+<!--		</tx:attributes>-->
+<!--	</tx:advice>-->
+
+<!--	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--		<property name="dataSource" ref="dataSource"/>-->
+<!--	</bean>-->
+
+</beans>

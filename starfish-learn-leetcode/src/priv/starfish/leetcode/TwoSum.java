@@ -38,6 +38,8 @@ public class TwoSum {
 
 
     public static void main(String[] args) {
+        System.err.println("Usage: [target]");
+        System.out.println("aaaaa");
         int[] nums = new int[]{2,7,11,15};
 
         int target = 9;
