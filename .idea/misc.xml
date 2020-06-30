@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/starfish-web-demo" />
+  </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
@@ -11,6 +14,10 @@
         <option value="$PROJECT_DIR$/starfish-learn-zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/starfish-learn-juc/pom.xml" />
         <option value="$PROJECT_DIR$/starfish-learn-spring/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-learn-designpattern/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-learn-collection/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-learn-jvm/pom.xml" />
+        <option value="$PROJECT_DIR$/starfish-web-demo/pom.xml" />
       </list>
     </option>
   </component>

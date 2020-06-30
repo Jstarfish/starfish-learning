@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="starfish-web-demo:war">
+    <output-path>$PROJECT_DIR$/starfish-web-demo/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>starfish-web-demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="starfish-web-demo-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="starfish-web-demo:war exploded" />
+    </root>
+  </artifact>
+</component>
