@@ -6,19 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="starfish-learn-zookeeper" />
-        <module name="starfish-learn-java8" />
-        <module name="starfish-learn" />
+        <module name="starfish-web-demo" />
         <module name="starfish-learn-juc" />
+        <module name="starfish-learn" />
         <module name="starfish-learn-spring" />
+        <module name="starfish-learn-java8" />
+        <module name="starfish-learn-zookeeper" />
+        <module name="starfish-learn-collection" />
+        <module name="starfish-learn-designpattern" />
+        <module name="starfish-learn-jvm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="starfish-learn" target="1.8" />
+      <module name="starfish-learn-collection" target="1.5" />
+      <module name="starfish-learn-designpattern" target="1.8" />
       <module name="starfish-learn-java8" target="1.8" />
-      <module name="starfish-learn-juc" target="8" />
+      <module name="starfish-learn-juc" target="1.8" />
+      <module name="starfish-learn-jvm" target="1.5" />
       <module name="starfish-learn-spring" target="1.5" />
       <module name="starfish-learn-zookeeper" target="1.5" />
+      <module name="starfish-web-demo" target="1.7" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
