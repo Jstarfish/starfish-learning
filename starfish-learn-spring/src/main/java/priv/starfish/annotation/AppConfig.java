@@ -9,8 +9,8 @@ import org.springframework.context.annotation.PropertySource;
  * @create: 2020-06-30 16:42
  **/
 
-@Configuration
-@PropertySource("classpath:application.properties")
+//@Configuration
+//@PropertySource("classpath:application.properties")
 public class AppConfig {
 
 

@@ -1,5 +1,9 @@
 package priv.starfish;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @description:
  * @author: starfish
@@ -11,5 +15,13 @@ public class T1 {
 
     public void add(){
         i ++;
+    }
+
+    public static Map<String, String> PRODUCT_DATA_MAP = new ConcurrentHashMap<>();
+
+    public static void main(String[] args) {
+
+        System.out.println(PRODUCT_DATA_MAP.get(null));
+
     }
 }

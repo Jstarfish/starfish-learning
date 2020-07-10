@@ -12,23 +12,24 @@ public class SemaphoreDemo {
 
     public static void main(String[] args) {
 
-        //模拟 3 个车位
-        Semaphore semaphore = new Semaphore(3);
+        //模拟 5 张桌子
+        Semaphore semaphore = new Semaphore(5,true);
 
-        //7 辆车去争抢
-        for (int i = 0; i < 7; i++) {
+        //7 波吃饭的客人
+        for (int i = 1; i <= 7 ; i++) {
             new Thread(()->{
                 try {
-                    semaphore.acquire();  //抢到车位
-                    System.out.println(Thread.currentThread().getName()+"\t抢到车位");
+                    semaphore.acquire();
+                    System.out.println(Thread.currentThread().getName()+"\t 进去吃饭");
                     TimeUnit.SECONDS.sleep(3);
-                    System.out.println(Thread.currentThread().getName()+"\t 停车 3 秒后离开");
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }finally {
+                    System.out.println(Thread.currentThread().getName()+"\t 吃完离开");
                     semaphore.release();
                 }
-                System.out.println(Thread.currentThread().getName()+"\t抢到车位");
+                //System.out.println(Thread.currentThread().getName()+"\t抢到车位");
             },String.valueOf(i)).start();
         }
     }

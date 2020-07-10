@@ -6,6 +6,7 @@
 
     <groupId>priv.starfish</groupId>
     <artifactId>starfish-learn-spring</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

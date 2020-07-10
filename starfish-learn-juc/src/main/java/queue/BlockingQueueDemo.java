@@ -3,26 +3,21 @@ package queue;
 import java.util.concurrent.*;
 
 /**
- * @description:
- *
- *  ArrayBlockingQueue, 一个基于数组结构的有界阻塞队列，次队列按 FIFO(先进先出)原则对元素进行排序
- *  DelayQueue,
- *  LinkedBlockingDeque,
- *  LinkedBlockingQueue, 一个基于链表结构的阻塞队列，次队列按 FIFO(先进先出)排序元素，吞吐量要高于ArrayBlockingQueue
- *  LinkedTransferQueue,
- *  PriorityBlockingQueue,
- *  SynchronousQueue, 一个不存储元素的阻塞队列，每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，
+ * @description: ArrayBlockingQueue, 一个基于数组结构的有界阻塞队列，次队列按 FIFO(先进先出)原则对元素进行排序
+ * DelayQueue,
+ * LinkedBlockingDeque,
+ * LinkedBlockingQueue, 一个基于链表结构的阻塞队列，次队列按 FIFO(先进先出)排序元素，吞吐量要高于ArrayBlockingQueue
+ * LinkedTransferQueue,
+ * PriorityBlockingQueue,
+ * SynchronousQueue, 一个不存储元素的阻塞队列，每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，
  **/
 public class BlockingQueueDemo {
 
-
     public static void main(String[] args) {
-
 
         /**
          * 异常组
          */
-
         BlockingQueue<String> queue = new ArrayBlockingQueue<>(2);
 
         //LinkedBlockingQueue
@@ -30,7 +25,7 @@ public class BlockingQueueDemo {
         System.out.println(queue.add("a"));   //true
         System.out.println(queue.remainingCapacity());
         System.out.println(queue.add("b"));    //true
-       // System.out.println(queue.add("c"));   //java.lang.IllegalStateException: Queue full
+        // System.out.println(queue.add("c"));   //java.lang.IllegalStateException: Queue full
 
         System.out.println(queue.element());  //a
 
@@ -38,7 +33,7 @@ public class BlockingQueueDemo {
 
 
         //System.out.println(queue.remove());  //a
-       // System.out.println(queue.remove());   //b
+        // System.out.println(queue.remove());   //b
         //System.out.println(queue.remove());  // java.util.NoSuchElementException
 
         System.out.println("------------");
@@ -50,7 +45,7 @@ public class BlockingQueueDemo {
         System.out.println(queue1.offer("b"));  //true
         System.out.println(queue1.offer("c"));   //false
 
-        System.out.println(queue1.peek()+"22222");   //a
+        System.out.println(queue1.peek() + "22222");   //a
 
         System.out.println(queue1.poll());     //a
         System.out.println(queue1.poll());     //b
@@ -82,14 +77,13 @@ public class BlockingQueueDemo {
          */
         BlockingQueue<String> queue3 = new ArrayBlockingQueue<>(2);
         try {
-            System.out.println(queue3.offer("a",2,TimeUnit.SECONDS));   //true
+            System.out.println(queue3.offer("a", 2, TimeUnit.SECONDS));   //true
             System.out.println(queue3.offer("b", 2, TimeUnit.SECONDS));  //true
             System.out.println(queue3.offer("c", 2, TimeUnit.SECONDS));   //false
 
-
-            System.out.println(queue3.poll(2,TimeUnit.SECONDS));    //a
-            System.out.println(queue3.poll(2,TimeUnit.SECONDS));    //b
-            System.out.println(queue3.poll(2,TimeUnit.SECONDS));  //null,阻塞2秒后退出
+            System.out.println(queue3.poll(2, TimeUnit.SECONDS));    //a
+            System.out.println(queue3.poll(2, TimeUnit.SECONDS));    //b
+            System.out.println(queue3.poll(2, TimeUnit.SECONDS));  //null,阻塞2秒后退出
 
         } catch (InterruptedException e) {
             e.printStackTrace();

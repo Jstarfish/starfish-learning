@@ -17,4 +17,8 @@ public class AppConfig {
 //        return new MyServiceImpl();
 //    }
 
+    public static void main(String[] args) {
+        System.out.println("===============");
+    }
+
 }
