@@ -1,6 +1,4 @@
-package priv.starfish;
-
-import java.util.concurrent.atomic.AtomicInteger;
+package atomic;
 
 
 /*

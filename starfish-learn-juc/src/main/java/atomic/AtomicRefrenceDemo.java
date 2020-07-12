@@ -1,4 +1,4 @@
-package priv.starfish;
+package atomic;
 
 import java.util.concurrent.atomic.AtomicReference;
 

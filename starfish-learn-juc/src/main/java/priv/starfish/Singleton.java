@@ -21,7 +21,8 @@ public class Singleton {
             return instance;
         }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+            Thread.sleep(1000000);
         Singleton.getInstance();
     }
 
