@@ -1,11 +1,12 @@
 package priv.starfish.object;
 
+
 /**
  * @description:
  * @author: starfish
  * @data: 2020-07-12 21:45
  **/
-public class Person {
+public class Person implements Cloneable {
 
     int id = 1008;
     String name;
@@ -17,5 +18,15 @@ public class Person {
 
     public void sayHi(){
         System.out.println("泥豪！！！");
+    }
+
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }
