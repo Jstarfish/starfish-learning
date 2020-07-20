@@ -5,82 +5,71 @@ package priv.starfish.queue;
  * @author: starfish
  * @data: 2020-07-19 17:37
  **/
-class MyCircularQueue {
+class MyCircularQueue implements MyQueue{
 
-    private int[] data;
-    private int head;
-    private int tail;
-    private int size;
+    private Object[] data;
+    private int capacity;
+    private int front;
+    private int rear;
 
     /** Initialize your data structure here. Set the size of the queue to be k. */
     public MyCircularQueue(int k) {
-        data = new int[k];
-        head = -1;
-        tail = -1;
-        size = k;
+        this.capacity = k;
+        data = new Object[k];
     }
 
-    /** Insert an element into the circular queue. Return true if the operation is successful. */
-    public boolean enQueue(int value) {
-        if (isFull() == true) {
-            return false;
-        }
-        if (isEmpty() == true) {
-            head = 0;
-        }
-        tail = (tail + 1) % size;
-        data[tail] = value;
-        return true;
-    }
-
-    /** Delete an element from the circular queue. Return true if the operation is successful. */
-    public boolean deQueue() {
-        if (isEmpty() == true) {
-            return false;
-        }
-        if (head == tail) {
-            head = -1;
-            tail = -1;
-            return true;
-        }
-        head = (head + 1) % size;
-        return true;
-    }
-
-    /** Get the front item from the queue. */
-    public int Front() {
-        if (isEmpty() == true) {
-            return -1;
-        }
-        return data[head];
-    }
-
-    /** Get the last item from the queue. */
-    public int Rear() {
-        if (isEmpty() == true) {
-            return -1;
-        }
-        return data[tail];
+    public int getSize() {
+        return (rear - front + capacity) % capacity;
     }
 
     /** Checks whether the circular queue is empty or not. */
     public boolean isEmpty() {
-        return head == -1;
+        return front == -1;
     }
 
     /** Checks whether the circular queue is full or not. */
     public boolean isFull() {
-        return ((tail + 1) % size) == head;
+        return ((rear + 1) % capacity) == front;
+    }
+
+    public void enqueue(Object e) {
+        // 判断队列是否满
+        if (isFull()) {
+            System.out.println("队列满，不能加入数据~");
+            return;
+        }
+        //直接将数据加入
+        data[rear] = e;
+        //将 rear 后移, 这里必须考虑取模
+        rear = (rear + 1) % capacity;
+    }
+
+    public Object dequeue() {
+        if(isEmpty()){
+            throw new RuntimeException("队列空，不能取数据");
+        }
+        Object value = data[front];
+        front = (front + 1) % capacity;
+        return value;
+    }
+
+
+    public Object peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("队列空，没有可读数据");
+        }
+        Object obj = data[front];
+        return obj;
     }
 
 
     public static void main(String[] args) {
         MyCircularQueue myCircularQueue = new MyCircularQueue(3);
-        myCircularQueue.enQueue(1);
-        myCircularQueue.enQueue(2);
-        myCircularQueue.enQueue(3);
-        myCircularQueue.enQueue(4);
-        System.out.println(myCircularQueue.Rear());
+        myCircularQueue.enqueue(1);
+        myCircularQueue.enqueue(2);
+        myCircularQueue.enqueue(3);
+        myCircularQueue.enqueue(4);
+        System.out.println(myCircularQueue.peek());
 
 
     }

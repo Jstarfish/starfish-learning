@@ -1,73 +1,34 @@
 package priv.starfish.queue;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * @description: 数组模拟队列
- * @author: starfish
- * @data: 2020-07-19 17:02
- **/
-
-public class MyQueue {
-    // store elements
-    private List<Integer> data;
-    // a pointer to indicate the start position
-    private int p_start;
-
-    public MyQueue() {
-        data = new ArrayList<Integer>();
-        p_start = 0;
-    }
+public interface MyQueue {
 
     /**
-     * Insert an element into the queue. Return true if the operation is successful.
+     * 返回队列大小
      */
-    public boolean enQueue(int x) {
-        data.add(x);
-        return true;
-    }
+    public int getSize();
 
     /**
-     * Delete an element from the queue. Return true if the operation is successful.
+     * 判断队列是否为空
      */
-    public boolean deQueue() {
-        if (isEmpty() == true) {
-            return false;
-        }
-        p_start++;
-        return true;
-    }
+    public boolean isEmpty();
 
     /**
-     * Get the front item from the queue.
+     * 判断队列是否已满
      */
-    public int Front() {
-        return data.get(p_start);
-    }
+    public boolean isFull();
 
     /**
-     * Checks whether the queue is empty or not.
+     * 数据元素e进入队列
      */
-    public boolean isEmpty() {
-        return p_start >= data.size();
-    }
+    public void enqueue(Object e);
 
-    public static void main(String[] args) {
-        MyQueue q = new MyQueue();
-        q.enQueue(5);
-        q.enQueue(3);
-        if (q.isEmpty() == false) {
-            System.out.println(q.Front());
-        }
-        q.deQueue();
-        if (q.isEmpty() == false) {
-            System.out.println(q.Front());
-        }
-        q.deQueue();
-        if (q.isEmpty() == false) {
-            System.out.println(q.Front());
-        }
+    /**
+     * 队首出队元素
+     */
+    public Object dequeue();
 
-    }
+    /**
+     * 取队首元素
+     */
+    public Object peek();
 }
