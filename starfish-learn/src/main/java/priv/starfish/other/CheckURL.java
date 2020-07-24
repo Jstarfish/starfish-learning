@@ -1,8 +1,5 @@
 package priv.starfish.other;
 
-import com.sun.deploy.net.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
