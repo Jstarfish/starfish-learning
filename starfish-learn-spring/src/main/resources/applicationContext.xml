@@ -27,4 +27,9 @@
 <!--		<property name="dataSource" ref="dataSource"/>-->
 <!--	</bean>-->
 
+	<bean id="sheep" class="priv.starfish.prototype.Sheep" scope="prototype">
+		<property name="name" value="肖恩"/>
+		<property name="age" value="2"/>
+		<property name="color" value="白色"/>
+	</bean>
 </beans>
