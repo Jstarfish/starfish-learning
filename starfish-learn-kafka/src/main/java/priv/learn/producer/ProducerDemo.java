@@ -1,9 +1,8 @@
 package priv.learn.producer;
 
 import java.util.Properties;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.ProducerRecord;
+
+import org.apache.kafka.clients.producer.*;
 
 
 /**
@@ -11,7 +10,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
  * @date: 2019/9/9 16:03
  * @description:
  */
-public class NewProducer {
+public class ProducerDemo {
 
     public static void main(String[] args) {
 
@@ -33,11 +32,21 @@ public class NewProducer {
         // value 序列化
         properties.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
         Producer<String, String> producer = new KafkaProducer<String, String>(properties);
-        for (int i = 0; i < 50; i++) {
-            producer.send(new ProducerRecord<String, String>("learn-java-kafka",
-                    Integer.toString(i), "hello world-" + i));
+        for (int i = 0; i < 10; i++) {
+            producer.send(new ProducerRecord<String, String>("test",
+                    Integer.toString(i), "hello world-" + i), new Callback() {
+                @Override
+                public void onCompletion(RecordMetadata recordMetadata, Exception e) {
+                    if (e == null){
+                        System.out.println("TopicName : " + recordMetadata.topic() + " Partiton : " + recordMetadata
+                                .partition() + " Offset : " + recordMetadata.offset());
+                    }
+                    else {
+                        //进行异常处理
+                    }
+                }
+            });
         }
         producer.close();
-
     }
 }

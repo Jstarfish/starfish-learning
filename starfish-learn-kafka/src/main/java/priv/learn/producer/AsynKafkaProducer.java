@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutionException;
  * @author: starfish
  * @create: 2020-06-01 18:54
  **/
-public class CustomProducer {
+public class AsynKafkaProducer {
 
 
     public static void main(String[] args) throws ExecutionException,
@@ -31,7 +31,7 @@ public class CustomProducer {
         Producer<String, String> producer = new
                 KafkaProducer<>(props);
         for (int i = 0; i < 100; i++) {
-            producer.send(new ProducerRecord<String, String>("first",
+            producer.send(new ProducerRecord<String, String>("test",
                     Integer.toString(i), Integer.toString(i))).get();
         }
         producer.close();
