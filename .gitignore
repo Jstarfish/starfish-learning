@@ -8,3 +8,13 @@
 out
 gen
 target
+build
+.project
+.settings
+.classpath
+.idea
+logs
+bin
+*.pyc
+*.log
+*.log.wf
