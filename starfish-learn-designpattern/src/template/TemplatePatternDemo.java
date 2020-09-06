@@ -1,5 +1,7 @@
 package template;
 
+import java.util.Arrays;
+
 /**
  * @description:
  * @author: starfish
@@ -9,11 +11,22 @@ public class TemplatePatternDemo {
 
     public static void main(String[] args) {
 
-        Game game = new Cricket();
-        game.play();
-        System.out.println();
-        game = new Football();
-        game.play();
+//        Drinks coffee = new Coffee();
+//        coffee.makingDrinks();
+//        System.out.println();
+//        Drinks tea = new Tea();
+//        tea.makingDrinks();
+
+        Coffee[] coffees = {new Coffee("星冰乐",38),
+                            new Coffee("拿铁",32),
+                            new Coffee("摩卡",35)};
+
+        Arrays.sort(coffees);
+
+        for (Coffee coffee1 : coffees) {
+            System.out.println(coffee1);
+        }
+
     }
 
 }
