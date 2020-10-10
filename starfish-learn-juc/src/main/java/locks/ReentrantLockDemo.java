@@ -25,14 +25,11 @@ public class ReentrantLockDemo {
         },"t2").start();
 
 
-
         Thread t3 = new Thread(phone);
         Thread t4 = new Thread(phone);
         t3.start();
         t4.start();
     }
-
-
 }
 
 class Phone implements Runnable{

@@ -39,7 +39,9 @@ public class ClimbStairs_70 {
 
 
     public static int climbStairs1(int n) {
+        // 创建一个数组来保存历史数据
         int[] dp = new int[n + 1];
+        // 给出初始值, 爬楼梯的初始值应该是爬 1 级有1 种，2级的话有 2 种
         dp[0] = 1;
         dp[1] = 1;
         for(int i = 2; i <= n; i++) {
@@ -50,7 +52,7 @@ public class ClimbStairs_70 {
 
 
     public static void main(String[] args) {
-        System.out.println(climbStairs1(1));
+        System.out.println(climbStairs1(2));
     }
 
 }

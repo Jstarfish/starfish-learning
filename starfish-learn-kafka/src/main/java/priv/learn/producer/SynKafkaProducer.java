@@ -11,12 +11,10 @@ import java.util.concurrent.ExecutionException;
  * @create: 2020-08-03 17:32
  */
 public class SynKafkaProducer {
-
     public static final Properties props = new Properties();
-
     static {
-        props.put("bootstrap.servers", "10.202.253.240:9092");
-        //props.put("bootstrap.servers", "10.208.251.93:39092");
+        //props.put("bootstrap.servers", "10.202.253.240:9092");
+        props.put("bootstrap.servers", "10.202.4.120:39092");
         // 0:producer不会等待broker发送ack
         // 1:当leader接收到消息后发送ack
         // -1:当所有的follower都同步消息成功后发送ack
@@ -53,7 +51,7 @@ public class SynKafkaProducer {
     }
 
     public static void main(String[] args) {
-        SynKafkaProducer synKafkaProducer = new SynKafkaProducer("test");
+        SynKafkaProducer synKafkaProducer = new SynKafkaProducer("product_field_transform");
         for (int i = 0; i < 10; i++) {
             RecordMetadata metadata = synKafkaProducer.send(String.valueOf(i), "This is " + i +
                     " message");

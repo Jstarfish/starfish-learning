@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>priv.starfish</groupId>
-    <artifactId>redisson</artifactId>
+    <artifactId>starfish-learn-redisson</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>starfish-learn-redisson</name>
     <description>Demo project for Spring Boot</description>
@@ -85,7 +85,6 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>2.9.0</version>
             </dependency>
-
 
 
         <dependency>

@@ -18,7 +18,7 @@ public class CustomNewConsumer {
     public static void main(String[] args) {
         Properties props = new Properties();
         // 定义 kakfa 服务的地址，不需要将所有 broker 指定上
-        props.put("bootstrap.servers", "10.202.253.240:9092");
+        props.put("bootstrap.servers", "10.202.4.120:39092");
         // 制定 consumer group
         //props.put("group.id", "test");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
@@ -35,7 +35,8 @@ public class CustomNewConsumer {
         // 定义 consumer
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         // 消费者订阅的 topic, 可同时订阅多个
-        consumer.subscribe(Arrays.asList("first", "second", "third","learn-java-kafka"));
+        consumer.subscribe(Arrays.asList("product_field_transform"));
+        //consumer.subscribe(Arrays.asList("first", "second", "third","learn-java-kafka","product_field_transform"));
         while (true) {
             // 读取数据，读取超时时间为 100ms
             ConsumerRecords<String, String> records = consumer.poll(100);

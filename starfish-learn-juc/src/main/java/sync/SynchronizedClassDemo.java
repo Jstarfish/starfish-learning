@@ -1,5 +1,7 @@
 package sync;
 
+import java.util.Hashtable;
+
 /**
  * @description: 对象锁和类锁
  * @author: starfish
@@ -22,8 +24,13 @@ public class SynchronizedClassDemo {
 //        }
 //    }
 
-    public synchronized void method() {
-        System.out.println("Hello World!");
-    }
+//    public synchronized void method() {
+//        System.out.println("Hello World!");
+//    }
 
+    public void method() {
+        synchronized (this) {
+            System.out.println("Method 1 start");
+        }
+    }
 }
