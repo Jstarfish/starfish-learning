@@ -31,7 +31,7 @@ public class TestCallable {
 
 }
 
- class ThreadDemo1 implements Callable<Integer> {
+class ThreadDemo1 implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {

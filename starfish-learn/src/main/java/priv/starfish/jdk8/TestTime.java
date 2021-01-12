@@ -21,9 +21,7 @@ public class TestTime {
         }
         Instant instant2 = Instant.now();
 
-        System.out.println(Duration.between(instant,instant2).getSeconds());
-
-
+        System.out.println(Duration.between(instant, instant2).getSeconds());
 
 
     }

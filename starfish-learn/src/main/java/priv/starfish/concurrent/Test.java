@@ -55,14 +55,14 @@ public class Test {
                 @Override
                 public Integer call() throws Exception {
                     for (String s : listStr) {
-                        System.out.println("todo===="+s);
+                        System.out.println("todo====" + s);
                     }
-                   // System.out.println(Thread.currentThread().getName() + "线程：" + listStr);
+                    // System.out.println(Thread.currentThread().getName() + "线程：" + listStr);
                     return null;
                 }
             };
 
-        // 这里提交的任务容器列表和返回的Future列表存在顺序对应的关系
+            // 这里提交的任务容器列表和返回的Future列表存在顺序对应的关系
             tasks.add(task);
         }
 
@@ -75,9 +75,6 @@ public class Test {
         System.out.println("线程任务执行结束");
         System.err.println("执行任务消耗了 ：" + (System.currentTimeMillis() - start) + "毫秒");
     }
-
-
-
 
 
 }

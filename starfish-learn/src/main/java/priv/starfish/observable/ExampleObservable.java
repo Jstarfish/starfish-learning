@@ -13,7 +13,7 @@ public class ExampleObservable extends Observable {
 
     int data = 0;
 
-    public void setData(int data){
+    public void setData(int data) {
         this.data = data;
 
         this.setChanged();  //标记此 Observable对象为已改变的对象

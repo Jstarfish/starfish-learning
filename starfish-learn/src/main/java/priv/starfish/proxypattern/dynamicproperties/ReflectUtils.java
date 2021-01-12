@@ -18,34 +18,34 @@ import java.util.Map;
 public class ReflectUtils {
 
     public static Object getTarget(Object dest, Map<String, Object> addProperties) {
-        PropertyUtilsBean propertyUtilsBean =new PropertyUtilsBean();
+        PropertyUtilsBean propertyUtilsBean = new PropertyUtilsBean();
         PropertyDescriptor[] descriptors = propertyUtilsBean.getPropertyDescriptors(dest);
         Map<String, Class> propertyMap = Maps.newHashMap();
-        for(PropertyDescriptor d : descriptors) {
-            if(!"class".equalsIgnoreCase(d.getName())) {
+        for (PropertyDescriptor d : descriptors) {
+            if (!"class".equalsIgnoreCase(d.getName())) {
                 propertyMap.put(d.getName(), d.getPropertyType());
             }
         }
         // add extra properties
         addProperties.forEach((k, v) -> propertyMap.put(k, v.getClass()));
         // new dynamic bean
-        DynamicBean dynamicBean =new DynamicBean(dest.getClass(), propertyMap);
+        DynamicBean dynamicBean = new DynamicBean(dest.getClass(), propertyMap);
         // add old value
         propertyMap.forEach((k, v) -> {
-            try{
+            try {
                 // filter extra properties
-                if(!addProperties.containsKey(k)) {
+                if (!addProperties.containsKey(k)) {
                     dynamicBean.setValue(k, propertyUtilsBean.getNestedProperty(dest, k));
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
         // add extra value
         addProperties.forEach((k, v) -> {
-            try{
+            try {
                 dynamicBean.setValue(k, v);
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
@@ -108,8 +108,8 @@ public class ReflectUtils {
          * @return
          */
         private Object generateBean(Class superclass, Map<String, Class> propertyMap) {
-            BeanGenerator generator =new BeanGenerator();
-            if(null != superclass) {
+            BeanGenerator generator = new BeanGenerator();
+            if (null != superclass) {
                 generator.setSuperclass(superclass);
             }
             BeanGenerator.addProperties(generator, propertyMap);

@@ -40,22 +40,22 @@ public class Demo {
         users.add(user4);
         users.add(user5);
 
-        handleList(users,1);
+        handleList(users, 1);
 
 
         for (User user : users) {
-            System.out.println("~~~~~~"+user.userId+"~~~~~~~~~~~~~"+user.userName);
+            System.out.println("~~~~~~" + user.userId + "~~~~~~~~~~~~~" + user.userName);
         }
 
     }
 
-    static class User{
+    static class User {
         public int userId;
         public String userName;
     }
 
 
-    public static void handleList(List<User> list, final int flag){
+    public static void handleList(List<User> list, final int flag) {
         // 开始时间
         long start = System.currentTimeMillis();
 
@@ -91,9 +91,9 @@ public class Demo {
                     public Integer call() throws Exception {
                         for (User user : listStr) {
 
-                            if(user.userId == 1){
-                                user.userId=11;
-                                System.out.println("==="+flag);
+                            if (user.userId == 1) {
+                                user.userId = 11;
+                                System.out.println("===" + flag);
                             }
 
                         }
@@ -109,7 +109,7 @@ public class Demo {
             for (Future<Integer> future : results) {
                 System.out.println(future.get());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         // 关闭线程池

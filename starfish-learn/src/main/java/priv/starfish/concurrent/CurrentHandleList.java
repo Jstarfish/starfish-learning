@@ -14,7 +14,6 @@ import java.util.concurrent.Executors;
 public class CurrentHandleList {
 
 
-
     public static void main(String[] args) throws InterruptedException {
 
         int threadNum = 100;
@@ -47,7 +46,7 @@ public class CurrentHandleList {
 
 
     // 实现Runnable
-    static class  RunnableThread implements Runnable {
+    static class RunnableThread implements Runnable {
 
         private String threadName;
         private List<String> data;

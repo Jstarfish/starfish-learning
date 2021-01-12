@@ -5,16 +5,16 @@ package priv.starfish.proxypattern;
  * @date: 2019/6/21 11:20
  * @description:
  */
-public class RealImage implements Image{
+public class RealImage implements Image {
 
     private String fileName;
 
-    public RealImage(String fileName){
+    public RealImage(String fileName) {
         this.fileName = fileName;
         loadFromDisk(fileName);
     }
 
-    private void loadFromDisk(String fileName){
+    private void loadFromDisk(String fileName) {
         System.out.println("Loading " + fileName);
     }
 

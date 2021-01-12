@@ -9,10 +9,8 @@ public class ThreadTestList {
     /**
      * 多线程处理list
      *
-     * @param data
-     *            数据LinkedList,线程安全
-     * @param threadNum
-     *            线程数
+     * @param data      数据LinkedList,线程安全
+     * @param threadNum 线程数
      * @throws InterruptedException
      */
     public synchronized void handleList(LinkedList<String> data, int threadNum) throws InterruptedException {

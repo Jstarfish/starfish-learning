@@ -18,14 +18,12 @@ import static org.apache.commons.collections4.CollectionUtils.isEqualCollection;
 public class TestIsEqualCollection {
 
 
-
-
-
     @Test
-    public void testIsEqual(){
+    public void testIsEqual() {
 
-        class Person{}
-        class Girl extends Person{
+        class Person {
+        }
+        class Girl extends Person {
         }
 
         List<Integer> first = new ArrayList<>();
@@ -42,15 +40,15 @@ public class TestIsEqualCollection {
         //每个男孩心里都装着一个女孩
         boy2.add(new Girl());
         //比较两集合值
-        System.out.println(CollectionUtils.isEqualCollection(first,second));   //true
-        System.out.println(CollectionUtils.isEqualCollection(first,boy1));   //false
-        System.out.println(CollectionUtils.isEqualCollection(boy1,boy2));   //false
+        System.out.println(CollectionUtils.isEqualCollection(first, second));   //true
+        System.out.println(CollectionUtils.isEqualCollection(first, boy1));   //false
+        System.out.println(CollectionUtils.isEqualCollection(boy1, boy2));   //false
 
         List<Person> boy3 = new ArrayList<>();
         //每个男孩心里都装着一个女孩
         boy3.add(goldGirl);
         List<Person> boy4 = new ArrayList<>();
         boy4.add(goldGirl);
-        System.out.println(CollectionUtils.isEqualCollection(boy3,boy4));   //true
+        System.out.println(CollectionUtils.isEqualCollection(boy3, boy4));   //true
     }
 }

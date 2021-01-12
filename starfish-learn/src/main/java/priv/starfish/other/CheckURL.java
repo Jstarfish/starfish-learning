@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author: jiahaixin
  * @date: 2019/7/8 10:11
- * @description: 一个网址可能有多个ip,所以用 InetAddress[] addresses =InetAddress.getAllByName(host);
+ * @description: 一个网址可能有多个ip, 所以用 InetAddress[] addresses =InetAddress.getAllByName(host);
  */
 public class CheckURL {
 
@@ -21,21 +21,21 @@ public class CheckURL {
 
         //String url = "http://d.openapi.dmp.360.cn/xml/pinduoduo_ddk_goods_old/index.xml";
         String url = "http://dmp.360.cn/tags/main/tags-mobile-market";
-        URI uri =new URI(url);
+        URI uri = new URI(url);
 
         String host = uri.getHost();
-        System.out.println(host +"==="+uri.getPath());
+        System.out.println(host + "===" + uri.getPath());
 
 
         InetAddress address1 = InetAddress.getLocalHost();
-        System.out.println("localhost:"+address1);
+        System.out.println("localhost:" + address1);
 
         InetAddress inetAddress = InetAddress.getByName(host);
-        System.out.println("inetnet:"+inetAddress.getHostAddress());
+        System.out.println("inetnet:" + inetAddress.getHostAddress());
 
         try {
 
-            InetAddress[] addresses =InetAddress.getAllByName(host);
+            InetAddress[] addresses = InetAddress.getAllByName(host);
             for (InetAddress address : addresses) {
                 String ip = address.getHostAddress();
                 System.out.println(ip);

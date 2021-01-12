@@ -14,9 +14,7 @@ import java.time.format.DateTimeFormatter;
 public class DateVerify {
 
 
-
-
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         String line = "2019/09-31";
 //        if (StringUtils.isNotBlank(line)) {
 //            String parttenStr = "yyyy-MM-dd||yyyyMMdd||yyyyMMdd HH:mm:ss||yyyy/MM/dd||yyyy/MM/dd HH:mm:ss";

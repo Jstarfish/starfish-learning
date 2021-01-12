@@ -9,7 +9,7 @@ public class DynamicLinkingTest {
 
     int num = 10;
 
-    public void method1(){
+    public void method1() {
 
     }
 

@@ -16,13 +16,13 @@ public class LinkedMultiValueMapTest {
 
     public static void main(String[] args) {
         MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-        map.add("k1","v1");
-        map.add("k1","v2");
+        map.add("k1", "v1");
+        map.add("k1", "v2");
 
-        for (Map.Entry<String, List<String>> entry : map.entrySet()){
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             System.out.println(entry.getValue());
 
-            for (String value : entry.getValue()){
+            for (String value : entry.getValue()) {
                 System.out.println(value);
             }
         }

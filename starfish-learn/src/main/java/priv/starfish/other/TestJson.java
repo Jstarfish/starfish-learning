@@ -16,20 +16,17 @@ import java.util.List;
  */
 public class TestJson {
 
-    public static String test01(JSONObject json)
-    {
-        StringBuilder builder=new StringBuilder();
-        List<String> list1=new ArrayList<String>();
+    public static String test01(JSONObject json) {
+        StringBuilder builder = new StringBuilder();
+        List<String> list1 = new ArrayList<String>();
         list1.addAll(json.keySet());
         Collections.sort(list1);
-        for(int i=0;i<list1.size();i++)
-        {
-            char ch=' ';
-            if(i<list1.size()-1)
-            {
-                ch='&';
+        for (int i = 0; i < list1.size(); i++) {
+            char ch = ' ';
+            if (i < list1.size() - 1) {
+                ch = '&';
             }
-            builder.append(list1.get(i)+"="+json.get(list1.get(i)).toString()+ch);
+            builder.append(list1.get(i) + "=" + json.get(list1.get(i)).toString() + ch);
         }
 
         return builder.toString().trim();
@@ -1793,7 +1790,7 @@ public class TestJson {
                 "    ]\n" +
                 "}");
         JSONObject jsonObject = JSON.parseObject(json);
-       // System.out.println(jsonObject.toJSONString());
+        // System.out.println(jsonObject.toJSONString());
         JSONArray array = jsonObject.getJSONArray("buckets");
 
         //System.out.println(array);
@@ -1804,7 +1801,7 @@ public class TestJson {
 
         List<JSONObject> list = JSONArray.parseArray(array.toJSONString(), JSONObject.class);
 
-        System.out.println("排序前："+array);
+        System.out.println("排序前：" + array);
         Collections.sort(list, new Comparator<JSONObject>() {
             @Override
             public int compare(JSONObject o1, JSONObject o2) {
@@ -1812,7 +1809,7 @@ public class TestJson {
                 int b = Integer.valueOf(o2.getString("key"));
                 if (a > b) {
                     return 1;
-                } else if(a == b) {
+                } else if (a == b) {
                     return 0;
                 } else
                     return -1;
@@ -1827,25 +1824,25 @@ public class TestJson {
 //
 //        }
 
-       // System.out.println(objects);
-       // Collections.sort(jsonObjectList, (a, b) -> String.valueOf(a.get("day_id")).compareTo(String.valueOf(b.get("day_id"))));
+        // System.out.println(objects);
+        // Collections.sort(jsonObjectList, (a, b) -> String.valueOf(a.get("day_id")).compareTo(String.valueOf(b.get("day_id"))));
     }
 
-    public static List<JSONObject> getSortJsonList(JSONArray jsonArray){
-        List<JSONObject> jsonObjectList=new ArrayList<JSONObject>();
-        for(int i=0;i<jsonArray.size();i++){
-            JSONObject temp= jsonArray.getJSONObject(i);
+    public static List<JSONObject> getSortJsonList(JSONArray jsonArray) {
+        List<JSONObject> jsonObjectList = new ArrayList<JSONObject>();
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JSONObject temp = jsonArray.getJSONObject(i);
             jsonObjectList.add(temp);
         }
         //Lambda表达式 Java编译器可以自动推导出参数类型，所以不用再写一次类型。  下面写法可以用lambda表达式代替
         //Collections.sort(jsonObjectList, (a, b) -> String.valueOf(a.get("day_id")).compareTo(String.valueOf(b.get("day_id"))));//升序
         //老版本的写法
-        Collections.sort(jsonObjectList, new Comparator<JSONObject>(){
+        Collections.sort(jsonObjectList, new Comparator<JSONObject>() {
             @Override
             public int compare(JSONObject o1, JSONObject o2) {
                 String s1 = String.valueOf(o1.get("key"));
                 String s2 = String.valueOf(o2.get("key"));
-                return  s1.compareTo(s2);  //升序
+                return s1.compareTo(s2);  //升序
             }
         });
         return jsonObjectList;

@@ -10,6 +10,7 @@ public class ThreadTestListPool {
 
 
     ExecutorService service = Executors.newFixedThreadPool(100);
+
     public synchronized void handleList(LinkedList<String> data, int threadNum) throws InterruptedException {
         int length = data.size();
         int tl = length % threadNum == 0 ? length / threadNum : (length / threadNum + 1);

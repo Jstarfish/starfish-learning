@@ -14,6 +14,6 @@ public class ProxyPatternDemo {
         image.display();
         System.out.println("");
         // 图像不需要从磁盘加载
-       // image.display();
+        // image.display();
     }
 }

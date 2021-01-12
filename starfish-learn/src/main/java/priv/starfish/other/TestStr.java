@@ -16,10 +16,9 @@ public class TestStr {
         System.out.println(flag.substring("China_southern_airlines_".length()));
 
 
-        String str="abcdefg";
-        System.out.println(str.substring(str.indexOf("c")+1));
+        String str = "abcdefg";
+        System.out.println(str.substring(str.indexOf("c") + 1));
     }
-
 
 
 }

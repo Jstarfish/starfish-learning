@@ -9,12 +9,12 @@ public class LocalVairableTest {
 
     int i;
 
-    public void test(){
+    public void test() {
         int a = 1;
         int ii;
 
         System.out.println(i);
-       //  System.out.println(ii); //
+        //  System.out.println(ii); //
 
         {
             int b = 2;
