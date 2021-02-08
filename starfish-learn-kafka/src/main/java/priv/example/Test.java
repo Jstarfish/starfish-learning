@@ -26,5 +26,4 @@ public class Test {
     final KafkaProducer<String, String> producer = new KafkaProducer<String, String>(props);
 
 
-
 }

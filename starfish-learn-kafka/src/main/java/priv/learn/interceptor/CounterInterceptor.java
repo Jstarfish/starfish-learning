@@ -11,7 +11,7 @@ import java.util.Map;
  * @date: 2019/9/9 17:17
  * @description:统计发送消息成功和发送失败消息数，并在 producer 关闭时打印这两个计数器
  */
-public class CounterInterceptor  implements ProducerInterceptor<String, String> {
+public class CounterInterceptor implements ProducerInterceptor<String, String> {
 
     private int errorCounter = 0;
     private int successCounter = 0;

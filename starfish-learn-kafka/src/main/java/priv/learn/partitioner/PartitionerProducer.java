@@ -9,7 +9,7 @@ import java.util.Properties;
 /**
  * @author: jiahaixin
  * @date: 2019/9/9 16:47
- * @description:  使用自定义分区，关联分区内容
+ * @description: 使用自定义分区，关联分区内容
  */
 public class PartitionerProducer {
     public static void main(String[] args) {
@@ -20,8 +20,8 @@ public class PartitionerProducer {
         props.put("batch.size", 16384);
         props.put("linger.ms", 1);
         props.put("buffer.memory", 33554432);
-        props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         // 自定义分区
         props.put("partitioner.class", "priv.learn.partitioner.CustomPartitioner");

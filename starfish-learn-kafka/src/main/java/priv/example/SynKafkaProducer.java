@@ -23,7 +23,7 @@ public class SynKafkaProducer {
         // -1:当所有的follower都同步消息成功后发送ack
         props.put("acks", "-1");//
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-       props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
     }
 
     final KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(props);

@@ -21,10 +21,10 @@ public class LogProcessor implements Processor<byte[], byte[]> {
     @Override
     public void process(byte[] key, byte[] value) {
         String input = new String(value);
-    // 如果包含“>>>”则只保留该标记后面的内容
+        // 如果包含“>>>”则只保留该标记后面的内容
         if (input.contains(">>>")) {
             input = input.split(">>>")[1].trim();
-    // 输出到下一个 topic
+            // 输出到下一个 topic
             context.forward("logProcessor".getBytes(), input.getBytes());
         } else {
             context.forward("logProcessor".getBytes(), input.getBytes());

@@ -37,7 +37,7 @@ public class CallBackProducer {
                 "org.apache.kafka.common.serialization.StringSerializer");
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(props);
         for (int i = 0; i < 50; i++) {
-            kafkaProducer.send(new ProducerRecord<String, String>("learn-java-kafka", "key","hello"
+            kafkaProducer.send(new ProducerRecord<String, String>("learn-java-kafka", "key", "hello"
                     + i), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception

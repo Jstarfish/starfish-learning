@@ -16,19 +16,21 @@ public class CommitAsyncCounsumer {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "10.202.253.240:9092");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
+        props.put("bootstrap.servers", "10.160.20.161:9092,10.160.22.146:9092,10.160.23.212:9092");
+        //props.put("bootstrap.servers", "10.162.128.103:9092,10.162.128.105:9092,10.162.128.105:9092");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "test2");
 
         //关闭自动提交offset
-        props.put("enable.auto.commit","false");
+        props.put("enable.auto.commit", "false");
         props.put("enable.auto.commit", "true");
+        //props.put("auto.offset.reset","latest");
         props.put("auto.commit.interval.ms", "1000");
         props.put("key.deserializer",
                 "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer",
                 "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList("first", "second", "third","learn-java-kafka"));
+        consumer.subscribe(Arrays.asList("ielog_sku", "second", "third", "learn-java-kafka"));
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records) {
@@ -37,8 +39,8 @@ public class CommitAsyncCounsumer {
             consumer.commitAsync(new OffsetCommitCallback() {
                 @Override
                 public void onComplete(Map<TopicPartition, OffsetAndMetadata> map, Exception e) {
-                    if(e != null){
-                        System.out.println("commit failed"+map);
+                    if (e != null) {
+                        System.out.println("commit failed" + map);
                     }
                 }
             });

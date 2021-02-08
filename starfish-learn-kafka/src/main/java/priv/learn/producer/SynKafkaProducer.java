@@ -1,10 +1,12 @@
 package priv.learn.producer;
+
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
+
 /**
  * @description: 同步方式
  * @author: starfish
@@ -12,6 +14,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class SynKafkaProducer {
     public static final Properties props = new Properties();
+
     static {
         //props.put("bootstrap.servers", "10.202.253.240:9092");
         props.put("bootstrap.servers", "10.202.4.120:39092");

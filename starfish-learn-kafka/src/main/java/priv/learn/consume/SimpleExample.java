@@ -27,7 +27,7 @@ import kafka.javaapi.consumer.SimpleConsumer;
  * @author: jiahaixin
  * @date: 2019/9/9 17:02
  * @description: 低级 API
- *
+ * <p>
  * 实现使用低级 API 读取指定 topic，指定 partition,指定 offset 的数据。
  * 1）消费者使用低级 API 的主要步骤：
  * 步骤 主要工作

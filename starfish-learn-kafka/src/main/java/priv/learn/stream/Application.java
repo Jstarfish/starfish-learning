@@ -1,5 +1,7 @@
 package priv.learn.stream;
+
 import java.util.Properties;
+
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.processor.Processor;
