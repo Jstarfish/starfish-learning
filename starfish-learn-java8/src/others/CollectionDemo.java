@@ -2,6 +2,7 @@ package others;
 
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.stream.Collectors;
 
 /**
  * @description: 集合类学习
@@ -18,14 +19,23 @@ public class CollectionDemo {
 
         arrayList.add("aa");
 
-        List<String> vector = new Vector<>(10,20);
+        List<String> vector = new Vector<>(10, 20);
 
         List<String> linkedList = new LinkedList<>();
         linkedList.add("bb");
 
         Set<String> set = new HashSet<>();
 
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
+
+        map.put("a", "aa");
+        map.put("a", "bb");
+        map.put("c", "cc");
+        for (String key : map.keySet()) {
+            System.out.println(map.get(key));
+
+        }
+
     }
 
 }
