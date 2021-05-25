@@ -18,7 +18,8 @@ public class CallBackProducer {
 
         Properties props = new Properties();
         // Kafka 服务端的主机名和端口号
-        props.put("bootstrap.servers", "10.121.214.96:9092");
+        //props.put("bootstrap.servers", "10.160.20.161:9092,10.160.22.146:9092,10.160.23.212:9092");
+        props.put("bootstrap.servers", "10.139.20.58:9092,10.139.36.108:9092,10.139.36.110:9092");
         // 等待所有副本节点的应答
         props.put("acks", "all");
         // 消息发送最大尝试次数

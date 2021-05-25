@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>priv.starfish</groupId>
-    <artifactId>starfish-lerarn-datastructure</artifactId>
+    <artifactId>starfish-learn-datastructure</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

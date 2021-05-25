@@ -18,6 +18,7 @@ public class ProducerDemo {
         // Kafka 服务端的主机名和端口号
         properties.put("bootstrap.servers", "10.160.20.161:9092,10.160.22.146:9092,10.160.23.212:9092");
         //properties.put("bootstrap.servers", "qa.broker1.log.kafka.biz.sogou:9092,qa.broker3.log.kafka.biz.sogou:9092,qa.broker3.log.kafka.biz.sogou:9092 ");
+        //properties.put("bootstrap.servers", "10.139.20.58:9092,10.139.36.108:9092,10.139.36.110:9092");
         // 等待所有副本节点的应答
         properties.put("acks", "all");
         // 消息发送最大尝试次数

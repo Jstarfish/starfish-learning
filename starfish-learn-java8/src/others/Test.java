@@ -2,10 +2,13 @@ package others;
 
 import org.junit.Assert;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @description:
@@ -14,20 +17,36 @@ import java.util.concurrent.atomic.AtomicInteger;
  **/
 public class Test {
 
+    private static Pattern NUMBER_PATTERN = Pattern.compile("([1-9]+[0-9]*|0)(\\.[\\d]+)?");
+
 
     public static void main(String[] args) {
 
-        List<String> list = Arrays.asList("A", "B", "C", "D");
+        final BigDecimal PLAN_PRICE_MAX_VAL = new BigDecimal(999.99);
+        System.out.println(PLAN_PRICE_MAX_VAL.toPlainString());
 
-        for (String s : list) {
-            if(s.equals("C")){
-                System.out.println(s);
-                return;
+
+        System.out.println(NUMBER_PATTERN.matcher("33.22").matches());
+
+        int a = 1;
+        for (int i = 0; i < 10; i++) {
+
+            if(5>a){
+                if(a>0){
+                    System.out.println("dddd");
+                }
+                if(2>a){
+                    System.out.println("cccc");
+                }
+
+                System.out.println("aaa");
+            }
+
+
+            if(true){
+                System.out.println("---");
             }
         }
-        //System.out.println(list.stream().filter(i -> i.equals("C")).findFirst().orElse(null));
-
-        //getResult(null);
 
     }
 
