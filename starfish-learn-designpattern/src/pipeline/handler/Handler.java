@@ -11,4 +11,9 @@ public interface Handler<I,O> {
      * @return
      */
     O process(I input);
+
+    static boolean checkInput(String input){
+        return input == null;
+    }
+
 }

@@ -26,10 +26,11 @@ public class ClientTest {
         File file = new File("/Users/apple/Documents/hello.txt");
 
         val filters = new Pipeline<>(new FileProcessHandler())
-                .addHandler(new CharacterFilterHandler())
-                .addHandler(new CharacterReverseHandler());
+                .addStage(new CharacterFilterHandler())
+                .addStage(new CharacterReverseHandler());
 
-        //System.out.println(filters.execute(file));
+        System.out.println(filters.execute(file)+"!!!");
+
 
 
         Function<File,String> readFile = input -> {
@@ -58,6 +59,6 @@ public class ClientTest {
                 .andThen(filterCharacter)
                 .andThen(reverseCharacter);
 
-        System.out.println(pipe.apply(file));
+        //System.out.println(pipe.apply(file));
     }
 }

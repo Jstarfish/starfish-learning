@@ -15,6 +15,10 @@ public class CharacterReverseHandler implements Handler<String,String>{
 
     @Override
     public String process(String input) {
+        //Handler.chekInput(input);
+//        if(Handler.checkInput(input)){
+//            return null;
+//        }
         System.out.println("===反转字符串===");
         return new StringBuilder(input).reverse().toString();
     }
