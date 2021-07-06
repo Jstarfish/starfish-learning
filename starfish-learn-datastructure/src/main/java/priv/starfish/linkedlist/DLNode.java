@@ -1,11 +1,13 @@
 package priv.starfish.linkedlist;
 
+import javax.swing.*;
+
 /**
  * @description:
  * @author: starfish
  * @data: 2020-07-27 21:55
  **/
-public class DLNode implements Node {
+public class DLNode{
     private Object element;
     private DLNode pre;
     private DLNode next;

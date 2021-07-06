@@ -16,6 +16,6 @@ public class TraversalTest {
      * @return
      */
     public List<Integer> preorderTraversal(TreeNode root){
-
+        return null;
     }
 }
