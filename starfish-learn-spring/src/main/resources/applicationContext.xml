@@ -33,4 +33,8 @@
 		<property name="age" value="2"/>
 		<property name="color" value="白色"/>
 	</bean>
+
+    <import resource="classpath:aop.xml"/>
+    <aop:aspectj-autoproxy/>
+
 </beans>
