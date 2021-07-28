@@ -68,6 +68,9 @@ public class LogAspect {
     @Around("loggingOperation()")
     public Object aroundAdvice(ProceedingJoinPoint joinPoint){
         System.out.println("- - - - - 环绕前置通知 - - - -");
+        String simpleName = joinPoint.getTarget().getClass().getSimpleName();
+        String methodName = joinPoint.getSignature().getName();
+        Object[] params = joinPoint.getArgs();
         try {
             //调用执行目标方法
             Object obj = joinPoint.proceed();
