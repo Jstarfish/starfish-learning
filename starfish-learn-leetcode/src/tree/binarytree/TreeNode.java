@@ -1,4 +1,4 @@
-package binarytree;
+package tree.binarytree;
 
 /**
  * @description:

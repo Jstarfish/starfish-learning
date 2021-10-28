@@ -16,12 +16,12 @@ import java.util.List;
 @Mapper
 public interface FeedSchemaMapper {
 
-    @Select("SELECT id,datastandard,type,content FROM feedschema where type = 1 and datastandard = #{datastandard}")
+    @Select("SELECT id,datastandard,type,content FROM feedschema where type = 0 and datastandard = #{datastandard}")
     FeedSchemaDto getContentById(int datastandard);
 
     @Select("SELECT name FROM kuaitou.sku_attribute where filter_condition = 1")
     List<String> getName();
 
-    @Insert("insert into industry_field (industry_id,field_key,field_key_cn,is_required,seq,field_type,validate_rule,demo,field_len,gmt_create,gmt_modified,is_pick) values(#{industryId},#{fieldKey},#{fieldKeyCn},#{required},#{seq},#{fieldType},#{validateRule},#{demo},#{fieldLen},now(),now(),#{pick})")
+    @Insert("insert into industry_field_0 (industry_id,field_key,field_key_cn,is_required,seq,field_type,validate_rule,demo,field_length,gmt_create,gmt_modified,is_pick) values(#{industryId},#{fieldKey},#{fieldKeyCn},#{required},#{seq},#{fieldType},#{validateRule},#{demo},#{fieldLen},now(),now(),#{pick})")
     int insertIndustryField(IndustryFieldDO industryField);
 }

@@ -1,7 +1,5 @@
 package priv.starfish.demo;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
@@ -142,34 +140,34 @@ class ValueAnnotationTests {
     @Value("#{systemProperties['unknown'] ?: 'some default'}")
     private String spelSomeDefault;
 
-    @Test
-    void contextLoads() throws IOException {
-
-        PriorityProvider provider = new PriorityProvider("null");
-        System.out.println(provider.getPriority());
-
-        System.out.println(normal);
-        System.out.println(valueFromFile);
-        System.out.println(Arrays.asList(valuesArray));
-        System.out.println(valuesList);
-        //System.out.println(numList);
-
-        System.out.println(systemPropertiesName);
-        System.out.println(randomNumber);
-        System.out.println(fromAnotherBean);
-
-        System.out.println(new BufferedReader(new InputStreamReader(resourceFile.getInputStream()))
-                .lines().collect(Collectors.joining(System.lineSeparator())));
-        System.out.println(testUrl);
-        System.out.println(ip);
-        System.out.println(port);
-        System.out.println(valuesMap.toString());
-        System.out.println(valuesMapKey1);
-        System.out.println(unknownMapKey);
-        System.out.println(unknownMap);
-        System.out.println(unknownMapKeyWithDefaultValue);
-        System.out.println(valuesMapFiltered);
-        System.out.println(systemPropertiesMap);
-    }
+//    @Test
+//    void contextLoads() throws IOException {
+//
+//        PriorityProvider provider = new PriorityProvider("null");
+//        System.out.println(provider.getPriority());
+//
+//        System.out.println(normal);
+//        System.out.println(valueFromFile);
+//        System.out.println(Arrays.asList(valuesArray));
+//        System.out.println(valuesList);
+//        //System.out.println(numList);
+//
+//        System.out.println(systemPropertiesName);
+//        System.out.println(randomNumber);
+//        System.out.println(fromAnotherBean);
+//
+//        System.out.println(new BufferedReader(new InputStreamReader(resourceFile.getInputStream()))
+//                .lines().collect(Collectors.joining(System.lineSeparator())));
+//        System.out.println(testUrl);
+//        System.out.println(ip);
+//        System.out.println(port);
+//        System.out.println(valuesMap.toString());
+//        System.out.println(valuesMapKey1);
+//        System.out.println(unknownMapKey);
+//        System.out.println(unknownMap);
+//        System.out.println(unknownMapKeyWithDefaultValue);
+//        System.out.println(valuesMapFiltered);
+//        System.out.println(systemPropertiesMap);
+//    }
 
 }

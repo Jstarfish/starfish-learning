@@ -37,14 +37,14 @@ public class JedisConfig extends CachingConfigurerSupport {
     private long maxWaitMillis;
 
 
-    @Bean
-    public JedisPool getJedisPool(){
-        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-        jedisPoolConfig.setMaxIdle(maxIdle);
-        //jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
-       // jedisPoolConfig.setMaxTotal(maxActive);
-        jedisPoolConfig.setMinIdle(minIdle);
-        JedisPool jedisPool = new JedisPool(jedisPoolConfig,host,port,timeout,password);
-        return jedisPool;
-    }
+//    @Bean
+//    public JedisPool getJedisPool(){
+//        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+//        jedisPoolConfig.setMaxIdle(maxIdle);
+//        //jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
+//       // jedisPoolConfig.setMaxTotal(maxActive);
+//        jedisPoolConfig.setMinIdle(minIdle);
+//        JedisPool jedisPool = new JedisPool(jedisPoolConfig,host,port,timeout,password);
+//        return jedisPool;
+//    }
 }

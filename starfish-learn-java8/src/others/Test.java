@@ -3,7 +3,9 @@ package others;
 import org.junit.Assert;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -21,6 +23,16 @@ public class Test {
 
 
     public static void main(String[] args) {
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.HOUR_OF_DAY, calendar.get(Calendar.HOUR_OF_DAY) - 6);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String startTime = df.format(calendar.getTime());
+
+        System.out.println(startTime);
+
+
 
         final BigDecimal PLAN_PRICE_MAX_VAL = new BigDecimal(999.99);
         System.out.println(PLAN_PRICE_MAX_VAL.toPlainString());

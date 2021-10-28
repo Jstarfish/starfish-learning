@@ -1,4 +1,4 @@
-package priv.starfish.redisson;
+package priv.starfish;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StarfishLearnRedissonApplicationTests {
+public class RedissonApplicationTests {
 
     @Autowired
     private RedissonDistributedLock redissonLock;
@@ -32,7 +32,7 @@ public class StarfishLearnRedissonApplicationTests {
         for (int i = 0; i < count; i++) {
             Thread thread = new Thread(() -> {
                 try {
-                    String lockKey = "17631701110";
+                    String lockKey = "MyLock";
                     redissonLock.tryLock(lockKey, TimeUnit.SECONDS, 100, 8);
                     System.out.println("===加锁===" + Thread.currentThread().getName());
 
@@ -81,6 +81,7 @@ public class StarfishLearnRedissonApplicationTests {
         RFuture<Boolean> rFuture = rLock.tryLockAsync(5,10,TimeUnit.SECONDS);
         rLock.unlock();
     }
+
 
 
 }

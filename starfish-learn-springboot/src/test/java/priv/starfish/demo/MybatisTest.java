@@ -32,10 +32,15 @@ public class MybatisTest extends ApplicationTests {
     @Test
     public void generateField(){
         Map<Integer,String> map = new HashMap<>();
-        map.put(0,"/Users/apple/Downloads/电商行业模板.xml");
-        map.put(2070000,"/Users/apple/Downloads/汽车行业模板.xml");
-        map.put(1,"/Users/apple/Downloads/资讯行业模板.xml");
-        map.put(2050000,"/Users/apple/Downloads/房产行业模板.xml");
+//        map.put(0,"/Users/apple/Downloads/电商行业模板.xml");
+//        map.put(2070000,"/Users/apple/Downloads/汽车行业模板.xml");
+//        map.put(1,"/Users/apple/Downloads/资讯行业模板.xml");
+//        map.put(2050000,"/Users/apple/Downloads/房产行业模板.xml");
+
+        //手动上传
+        map.put(3040000,"教育行业");
+        map.put(3060000,"招商行业");
+        map.put(3170000,"医美行业");
 
         map.forEach((k,v) -> {
             try {
@@ -97,8 +102,8 @@ public class MybatisTest extends ApplicationTests {
                     fieldDO.setFieldLen(50);
             }
 
-            String demo = parseXml(dto.getHeader(),filePath);
-            fieldDO.setDemo(demo);
+//            String demo = parseXml(dto.getHeader(),filePath);
+//            fieldDO.setDemo(demo);
 
             mapper.insertIndustryField(fieldDO);
 

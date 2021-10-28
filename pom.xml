@@ -12,6 +12,7 @@
         <module>starfish-learn-grpc</module>
         <module>starfish-learn-kafka</module>
         <module>starfish-web-demo</module>
+        <module>starfish-learn-netty</module>
     </modules>
 
 

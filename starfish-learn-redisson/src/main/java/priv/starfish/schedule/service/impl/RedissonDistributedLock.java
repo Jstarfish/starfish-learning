@@ -1,5 +1,6 @@
 package priv.starfish.schedule.service.impl;
 
+import org.redisson.api.RBucket;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
@@ -67,6 +68,14 @@ public class RedissonDistributedLock implements DistributedLock {
     @Override
     public boolean tryLock(String lockKey, TimeUnit unit, int waitTime, int leaseTime) {
         RLock lock = redissonClient.getLock(lockKey);
+
+        System.out.println(lock.getName());
+
+        RBucket<String> bucket = redissonClient.getBucket("name");
+        bucket.set("zhaoyun");
+        System.out.println(bucket.get());
+
+        System.out.println(redissonClient.getKeys().toString());
 
         try {
             logger.info("获取锁状态："+lock.tryLock(0,5,TimeUnit.SECONDS));

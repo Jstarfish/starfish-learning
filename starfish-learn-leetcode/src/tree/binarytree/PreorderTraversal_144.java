@@ -1,6 +1,4 @@
-package binarytree;
-
-import sun.reflect.generics.tree.Tree;
+package tree.binarytree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +18,16 @@ import java.util.List;
  *
  * 输出: [1,2,3]
  **/
-class preorderTraversal_144 {
+class PreorderTraversal_144 {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1,null,2,3);
+
+        PreorderTraversal_144 client = new PreorderTraversal_144();
+        TreeNode root = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.right.left = new TreeNode(3);
+        List<Integer> result = client.preorderTraversal(root);
+        result.forEach(System.out::println);
 
     }
 

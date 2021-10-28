@@ -1,5 +1,6 @@
 package priv.starfish.schedule.TimerTask;
 
+import org.redisson.api.RBucket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,8 @@ public class RefreshMacroTask {
 
         System.out.println(Thread.currentThread().getName() + " >>> task one " + format.format(new Date()));
 
+
+
         trace.info("刷新ES-query定时任务启动......");
 
         String lockKey = "TASK-LOCK";
@@ -72,7 +75,7 @@ public class RefreshMacroTask {
             if (!getLock) {
                 return;
             }
-            // redissonLock.unlock(lockKey);
+            redissonLock.unlock(lockKey);
             trace.info("host：" + CommonUtils.getInet4Address() + " unlocked " + lockKey + " at " + CommonUtils.getCurrentDate());
             long end = System.currentTimeMillis();
             trace.info("refresh es_query time:" + (end - start));
@@ -85,7 +88,7 @@ public class RefreshMacroTask {
 
     @Scheduled(fixedDelay = 1000)
     public void secondTask() {
-        System.out.println(Thread.currentThread().getName() + " >>> task two " + format.format(new Date()));
+        //System.out.println(Thread.currentThread().getName() + " >>> task two " + format.format(new Date()));
     }
 
 }

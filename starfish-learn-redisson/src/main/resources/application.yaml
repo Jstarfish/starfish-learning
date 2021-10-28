@@ -10,10 +10,10 @@
 # 单实例，不支持大写
 single:
     #address: "39.105.124.247:6379"
-    address: "39.105.124.247:6379"
+    address: "127.0.0.1:6379"
     #clientName: 0ae0454e5c582415
     #password:
-    database: 15
+    database: 0
 
 
 
