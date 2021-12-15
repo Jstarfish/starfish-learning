@@ -13,6 +13,7 @@
         <module>starfish-learn-kafka</module>
         <module>starfish-web-demo</module>
         <module>starfish-learn-netty</module>
+        <module>starfish-learn-test</module>
     </modules>
 
 
