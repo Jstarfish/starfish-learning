@@ -23,12 +23,14 @@ public class PalindromeList_234 {
             list.add(head.val);
             head = head.next;
         }
-        int[] arr = new int[list.toArray().length];
+        int[] arr = new int[list.size()];
         int temp = 0;
-        for (int a : list) {
-            arr[temp++] = a;
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
         }
-        temp = 0;
+        /*for (int a : list) {
+            arr[temp++] = a;
+        }*/
         for (int i = 0;i < arr.length/2;i++) {
             if (arr[i] == arr[arr.length-i-1]) {
                 temp++;

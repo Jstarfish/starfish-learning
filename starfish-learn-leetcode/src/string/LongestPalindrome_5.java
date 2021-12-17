@@ -24,7 +24,11 @@ package string;
  */
 public class LongestPalindrome_5 {
 
-        public String longestPalindrome(String s) {
+    public static void main(String[] args) {
+        System.out.println(longestPalindrome("xabcbae"));
+    }
+
+        public static String longestPalindrome(String s) {
             int len = s.length();
             if (len < 2) {
                 return s;
@@ -71,4 +75,52 @@ public class LongestPalindrome_5 {
             }
             return s.substring(begin, begin + maxLen);
         }
+
+
+    public String longestPalindrome_1(String s) {
+        char[] chas = s.toCharArray();
+        boolean[][] dp = new boolean[chas.length][chas.length];
+        int length = 0;
+        int[] res = new int[2];
+        for(int j=0;j<chas.length;j++){
+            for(int i=j;i>=0;i--){
+                if(chas[i] ==chas[j])
+                    dp[i][j] = j-i<2?true:dp[i+1][j-1];
+                if(dp[i][j]&&length<j-i+1){
+                    res[0] = i;
+                    res[1] = j;
+                    length = j-i+1;
+                }
+            }
+        }
+        return s.substring(res[0],res[1]+1);
+    }
+
+    private int expandAroundCenter(String s,int left,int right){
+        int L = left;
+        int R = right;
+        while (L>=0 && R< s.length() && s.charAt(L) == s.charAt(R)){
+            L--;
+            R++;
+        }
+        return R-L-1;
+    }
+
+    public String longestPalindrome3(String s) {
+        if (s == null || s.length() < 1) return "";
+        int start = 0, end = 0;
+        for (int i = 0; i < s.length(); i++) {
+            // 以 s[i] 为中心的最长回文子串
+            int len1 = expandAroundCenter(s, i, i);
+            // 以 s[i] 和 s[i+1] 为中心的最长回文子串
+            int len2 = expandAroundCenter(s, i, i + 1);
+            int len = Math.max(len1, len2);
+            if (len > end - start) {
+                start = i - (len - 1) / 2;
+                end = i + len / 2;
+            }
+        }
+        return s.substring(start, end + 1);
+    }
+
 }

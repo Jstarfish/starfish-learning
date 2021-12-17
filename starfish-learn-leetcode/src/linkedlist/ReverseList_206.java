@@ -10,42 +10,40 @@ package linkedlist;
  */
 public class ReverseList_206 {
 
-    public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) {
+    /**
+     * 迭代
+     * 在遍历链表时，将当前节点的 next 指针改为指向前一个节点。
+     * 由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。
+     * 最后返回新的头引用。
+     */
+    public ListNode reverseList_1(ListNode head){
+        if(head == null || head.next == null){
             return head;
         }
-
-        ListNode prev = null;
-        ListNode next = null;
-        while (head.next != null) {
-            next = head.next;   //保存下一个节点
-            head.next = prev;   //重置next
-            prev = head;    //保存当前节点
-            head = next;
+        ListNode cur = head;
+        ListNode pre = null;
+        while(cur != null) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
         }
-        head.next = prev;
-        return head;
-
-//        ListNode prev = null;
-//        ListNode curr = head;
-//        while (curr != null) {
-//            ListNode nextTemp = curr.next;  //保存下一个节点
-//            curr.next = prev;  //重置next
-//            prev = curr; //保存当前节点
-//            curr = nextTemp;
-//        }
-//        return prev;
+         return pre;
     }
 
     public static void main(String[] args) {
         ReverseList_206 obj = new ReverseList_206();
         ListNode head = obj.initLinkedList(9);
+        ListNode head1 = obj.initLinkedList(8);
+        System.out.println(head1==head);
         obj.printLinkedList(head);
 
-        ListNode result = obj.reverseList(head);
+        ListNode result = obj.reverseList_1(head);
         System.out.println("");
 
         obj.printLinkedList(result);
+
+
 
 
     }

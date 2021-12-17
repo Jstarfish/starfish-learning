@@ -8,7 +8,6 @@ package linkedlist;
 public class linkedlistcycle_141 {
 
     public boolean hasCycle(ListNode head) {
-
         if (head == null || head.next == null) {
             return false;
         }
@@ -27,4 +26,22 @@ public class linkedlistcycle_141 {
         }
         return false;
     }
-}
+
+
+    public boolean hasCycle_1(ListNode head){
+
+        if(head == null || head.next == null){
+            return false;
+        }
+
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null){
+            slow = head.next;
+            fast = head.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }}

@@ -1,7 +1,7 @@
 package linkedlist;
 
 /**
- * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+ * 给定一个链表，删除链表的倒数第n个节点，并且返回链表的头结点。
  *
  * 示例：
  *
@@ -21,7 +21,6 @@ public class removeNthFromEnd_19 {
 //
 //        return head;
 //    }
-
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(0);
