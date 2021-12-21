@@ -16,20 +16,22 @@ public class ReverseList_206 {
      * 由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。
      * 最后返回新的头引用。
      */
-    public ListNode reverseList_1(ListNode head){
+    public ListNode reverseList(ListNode head){
         if(head == null || head.next == null){
-            return head;
+            return null;
         }
-        ListNode cur = head;
         ListNode pre = null;
-        while(cur != null) {
+        ListNode cur = head;
+        while(cur != null){
             ListNode tmp = cur.next;
             cur.next = pre;
             pre = cur;
             cur = tmp;
         }
-         return pre;
+        return pre;
+
     }
+
 
     public static void main(String[] args) {
         ReverseList_206 obj = new ReverseList_206();
@@ -38,12 +40,10 @@ public class ReverseList_206 {
         System.out.println(head1==head);
         obj.printLinkedList(head);
 
-        ListNode result = obj.reverseList_1(head);
+        ListNode result = obj.reverseList(head);
         System.out.println("");
 
         obj.printLinkedList(result);
-
-
 
 
     }
@@ -53,9 +53,9 @@ public class ReverseList_206 {
      * 初始化链表
      **/
     private ListNode initLinkedList(int num) {
-        ListNode head = new ListNode(0);
+        ListNode head = new ListNode(1);
         ListNode cur = head;
-        for (int i = 1; i < num; i++) {
+        for (int i = 2; i < num; i++) {
             cur.next = new ListNode(i);
             cur = cur.next;
         }
