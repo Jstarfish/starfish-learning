@@ -20,4 +20,27 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    public void add(int newData){
+        ListNode newNode = new ListNode(newData);
+
+    }
+    public void addToEnd(int data){
+        ListNode temp = this;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=new ListNode(data, null);
+    }
+
+    /**
+     * 打印链表
+     **/
+    public void printLinkedList(ListNode head) {
+        ListNode node = head;
+        while (node != null) {
+            System.out.print(node.val);
+            node = node.next;
+        }
+    }
 }

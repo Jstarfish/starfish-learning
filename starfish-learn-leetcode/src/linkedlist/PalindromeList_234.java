@@ -17,20 +17,19 @@ import java.util.List;
  */
 public class PalindromeList_234 {
 
-    public boolean isPalindrome_1(ListNode head) {
+    public static boolean isPalindrome_1(ListNode head) {
         List<Integer> list = new ArrayList<>();
         while (head != null) {
             list.add(head.val);
             head = head.next;
         }
         int[] arr = new int[list.size()];
-        int temp = 0;
+
         for (int i = 0; i < list.size(); i++) {
             arr[i] = list.get(i);
         }
-        /*for (int a : list) {
-            arr[temp++] = a;
-        }*/
+
+        int temp = 0;
         for (int i = 0;i < arr.length/2;i++) {
             if (arr[i] == arr[arr.length-i-1]) {
                 temp++;
@@ -48,7 +47,9 @@ public class PalindromeList_234 {
      * @return
      */
     public boolean isPalindrome(ListNode head) {
-        if(head == null  || head.next == null)   return true;
+        if(head == null  || head.next == null) {
+            return true;
+        }
         ListNode p = new ListNode(-1);
         ListNode low = p;
         ListNode fast = p;
@@ -79,6 +80,38 @@ public class PalindromeList_234 {
             pre = pre.next;
         }
         return true;
+    }
+
+
+
+    public static boolean isPalindrome_me(ListNode head){
+        if(head == null || head.next == null){
+            return false;
+        }
+        List<Integer> list = new ArrayList<>();
+        while(head != null){
+            list.add(head.val);
+            head = head.next;
+        }
+        Integer[] arrs = list.toArray(new Integer[list.size()]);
+
+        int tmp = 0;
+        for(int i=0;i<arrs.length/2;i++){ //注意这里只遍历到一半就可以了
+            if(arrs[i]== arrs[arrs.length-i-1]){
+                tmp++;
+            }
+        }
+        return tmp == arrs.length / 2;
+    }
+
+    public static void main(String[] args){
+        ListNode head = new ListNode(1);
+        head.addToEnd(2);
+        head.addToEnd(2);
+        head.addToEnd(3);
+        System.out.println(isPalindrome_me(head));
+
+
     }
 
 }
