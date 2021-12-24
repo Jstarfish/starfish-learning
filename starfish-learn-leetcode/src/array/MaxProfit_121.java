@@ -2,7 +2,7 @@ package array;
 
 /**
  * @description: 买卖股票的最佳时机
- * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+ * 给定一个数组，它的第i 个元素是一支给定股票第 i 天的价格。
  *
  * 如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。
  * 注意：你不能在买入股票前卖出股票。
@@ -42,9 +42,22 @@ public class MaxProfit_121 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{7,6,4,3,1};
-        System.out.println(maxProfit(nums));
-
+        int[] nums = new int[]{7,1,5,3,6,4};
+        System.out.println(maxProfit_1(nums));
+    }
+    
+    public static int maxProfit_1(int[] nums){
+        int maxProfit=0;
+        //第一层不需要遍历到最后，第二层从i+1 开始就可以
+        for(int i=0;i<nums.length-1;i++){
+            for(int j=1;j<nums.length-1;j++){
+                // 比较的是数据的值，不是下标，别写成maxProfit < j-i
+                if(maxProfit < nums[j] - nums[i]){
+                    maxProfit = nums[j] - nums[i];
+                }
+            }
+        }
+        return maxProfit;
     }
 
 }
