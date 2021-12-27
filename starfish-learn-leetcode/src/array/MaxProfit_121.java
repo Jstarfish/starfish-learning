@@ -45,7 +45,7 @@ public class MaxProfit_121 {
         int[] nums = new int[]{7,1,5,3,6,4};
         System.out.println(maxProfit_1(nums));
     }
-    
+
     public static int maxProfit_1(int[] nums){
         int maxProfit=0;
         //第一层不需要遍历到最后，第二层从i+1 开始就可以
@@ -59,5 +59,6 @@ public class MaxProfit_121 {
         }
         return maxProfit;
     }
+
 
 }
