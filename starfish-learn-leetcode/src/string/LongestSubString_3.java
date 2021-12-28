@@ -52,10 +52,13 @@ public class LongestSubString_3 {
     }
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubString("abcabcee"));
+        System.out.println(lengthOfLongestSubstring("abcabcee"));
     }
 
-    public int lengthOfLongestSubstring(String s) {
+    /**
+     * 滑动窗口
+     */
+    public static int lengthOfLongestSubstring(String s) {
         if (s.length()==0) {
             return 0;
         }
@@ -70,7 +73,6 @@ public class LongestSubString_3 {
             max = Math.max(max,i-left+1);
         }
         return max;
-
     }
 
 }

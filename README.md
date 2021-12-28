@@ -20,9 +20,13 @@ starfish-learn-leetcode
 
 - 2020-12-23  没刷
 - 2020-12-24
-  - [x] [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/)
-  - [x] [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+  - [x] [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/) +1
+  - [x] [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) +1
   - [x] [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
 
 - 2020-12-27
   - [x] [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+
+- 2020-12-28
+  - [x] [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+  - [ ] [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)

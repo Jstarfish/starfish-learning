@@ -9,6 +9,7 @@ package array;
  */
 public class MoveZero_283 {
 
+    //两次遍历
     public void moveZeroes(int[] nums){
         int j=0;
         //第一次遍历的时候，j指针记录非0的个数，只要是非0的统统都赋给nums[j]
@@ -22,7 +23,18 @@ public class MoveZero_283 {
         for(int i = j;i<nums.length;i++){
             nums[i] = 0;
         }
+    }
 
+    //一次遍历，类似快排
+    public void moveZeroes_1(int[] nums){
+        int j = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]!=0){
+                int tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j++] = tmp;
+            }
+        }
     }
 
 
