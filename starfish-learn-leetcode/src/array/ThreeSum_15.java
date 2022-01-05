@@ -60,4 +60,12 @@ public class ThreeSum_15 {
         }
         return result;
     }
+
+
+    public int getSum(int[] nums){
+        int left = 0;
+        int right = nums.length - 1;
+        return 0;
+
+    }
 }

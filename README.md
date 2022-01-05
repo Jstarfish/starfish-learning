@@ -43,3 +43,9 @@ starfish-learn-leetcode
 - 2022-1-4
   - [x] [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
 
+- 2022-1-5
+  - [x] [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
+  - [x] [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
+  - [x] [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)
+  - [x] [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
+  - [x] [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)

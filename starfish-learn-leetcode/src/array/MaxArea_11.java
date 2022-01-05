@@ -13,20 +13,28 @@ package array;
  */
 public class MaxArea_11 {
 
-    public int maxArea(int[] height){
-
-        int l = 0;
-        int r = height.length - 1;
-        int ans = 0;
-        while( l < r){
-            int area = Math.min(height[l], height[r]) * (r - l);
-            ans = Math.max(ans,area);
-            if(height[l] < height[r]){
-                l ++;
-            }else {
-                r --;
+    public static int maxArea(int[] height){
+        int left = 0;
+        int right = height.length - 1;
+        int result = 0;
+        while(left < right){
+            //水量 = 两个指针指向的数字中较小值∗指针之间的距离
+            int area = Math.min(height[left],height[right]) * (right - left);
+            result = Math.max(result,area);
+            //往哪个方向移动需要考虑好，
+            if(height[left] <= height[right]){
+                right --;
+            }else{
+                left++;
             }
         }
-        return ans;
+        return result;
+    }
+
+
+    public static void main(String[] args) {
+        //int[] nums = new int[]{1,1};
+        int[] nums = new int[]{1,8,6,2,5,4,8,3,7};
+        System.out.println(maxArea(nums));
     }
 }
