@@ -11,7 +11,7 @@ starfish-learn-leetcode
 - 2021-12-21
   
   - [x]  [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)   
-  - [x]  [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+  - [x]  [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) +1
   
 - 2021-12-22
 
@@ -49,3 +49,6 @@ starfish-learn-leetcode
   - [x] [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)
   - [x] [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
   - [x] [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
+
+- 2022-1-6
+  - [x] [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/)

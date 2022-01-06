@@ -5,7 +5,7 @@ package linkedlist;
  * <p>
  * 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。
  */
-public class linkedlistcycle_141 {
+public class Linkedlistcycle_141 {
 
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
@@ -31,17 +31,17 @@ public class linkedlistcycle_141 {
     public boolean hasCycle_1(ListNode head){
         if(head == null || head.next == null){
             return false;
-
         }
-        //快慢指针
-        ListNode fast = null;
-        ListNode slow = null;
-        while(fast != null && fast.next !=null){
-            if(slow.next == fast.next.next){
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
                 return true;
             }
-
         }
         return false;
+    }
 
-    }}
+}
