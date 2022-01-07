@@ -52,3 +52,6 @@ starfish-learn-leetcode
 
 - 2022-1-6
   - [x] [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/)
+- 2022-1-7
+  - [x] [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+
