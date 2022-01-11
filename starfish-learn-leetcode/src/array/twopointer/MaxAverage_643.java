@@ -10,35 +10,17 @@ public class MaxAverage_643 {
 
     public static double getMaxAverage(int[] nums, int k) {
         int sum = 0;
-        //先求出前k个数的和
+        //先算出前k个数字和，然后逐步往右移
         for (int i = 0; i < k; i++) {
             sum += nums[i];
         }
-        int maxSum = sum;
-        //然后从第 K 个数开始移动，保存移动中的和值，返回最大的
+        int result = sum;
         for (int i = k; i < nums.length; i++) {
-            sum = sum - nums[i - k] + nums[i];
-            maxSum = Math.max(maxSum, sum);
+            //从第k个数字开始，算出最大的
+            result = Math.max(result, sum + nums[i] - nums[i - k]);
         }
-        //返回的是double
-        return 1.0 * maxSum / k;
+        return 1.0 * result / k;
     }
-//
-//    public static double getMax1(int[] nums,int k){
-//        int sum = 0;
-//        int left = 0;
-//        int right = k;
-//        int maxSum = 0;
-//        while(right < nums.length){
-//            for (int i = k; i < nums.length; i++) {
-//                sum += nums[i];
-//                maxSum = Math.max(sum,maxSum);
-//                right++;
-//                k++;
-//            }
-//        }
-//        return 1.0 * maxSum / k;
-//    }
 
     public static void main(String[] args) {
         int[] nums = new int[]{1,12,-5,-6,50,3};

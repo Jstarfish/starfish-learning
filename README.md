@@ -55,3 +55,6 @@ starfish-learn-leetcode
 - 2022-1-7
   - [x] [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
+- 2022-1-11
+  - [x] [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+  - [x] [643. 子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i/)
