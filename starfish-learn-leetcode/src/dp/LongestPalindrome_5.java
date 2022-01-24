@@ -1,4 +1,4 @@
-package string;
+package dp;
 
 /**
  * 最长回文子串
@@ -36,9 +36,9 @@ public class LongestPalindrome_5 {
 
             int maxLen = 1;
             int begin = 0;
-            // dp[i][j] 表示 s[i..j] 是否是回文串
+            // 建立二维数组，找出所有的回文子串，dp[i][j] 表示 s[i..j] 是否是回文串
             boolean[][] dp = new boolean[len][len];
-            // 初始化：所有长度为 1 的子串都是回文串
+            // 初始化：单个字符就形成一个回文串，所以，所有的 dp[i][i]=true
             for (int i = 0; i < len; i++) {
                 dp[i][i] = true;
             }
@@ -121,6 +121,27 @@ public class LongestPalindrome_5 {
             }
         }
         return s.substring(start, end + 1);
+    }
+
+    public static int getLongestSubstring(String s){
+        char[] chars = s.toCharArray();
+        int len = chars.length;
+        if(len <=0) return 0;
+        boolean[][] dp = new boolean[len][len];
+
+        for(int i = 0;i<len;i++){
+            dp[i][i] = true;
+        }
+
+        int maxLength = 1;
+
+        for(int i = len-1;i>=0;i--){
+            for(int j = i;j<len;j++){
+
+            }
+        }
+        return 0;
+
     }
 
 }

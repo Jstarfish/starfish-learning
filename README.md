@@ -58,3 +58,13 @@ starfish-learn-leetcode
 - 2022-1-11
   - [x] [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
   - [x] [643. 子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i/)
+
+- 2022-1-23
+  - [x] [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+
+- 2022-1-24
+  - [x] [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+  - [x] [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
+  - [ ] [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+  - [ ] [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
+  - [ ] [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)

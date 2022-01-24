@@ -51,5 +51,25 @@ public class MaxProfit_121 {
         return maxProfit;
     }
 
+    public static int getMaxProfit1(int[] nums){
+        int max = 0;
+        for(int i = 0;i<nums.length;i++){
+            for(int j =1;j<nums.length-1;j++){
+                int tmp = nums[j]-nums[i];
+                if(tmp > max){
+                    max = tmp;
+                }
+            }
+        }
+        return max;
+    }
+
+
+
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{7,1,5,3,6,4};
+        System.out.println(getMaxProfit1(nums));
+    }
 
 }

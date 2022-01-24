@@ -17,5 +17,11 @@ public class CharacterReplacement_424 {
 
     public static void main(String[] args) {
 
+        System.out.println(Integer.parseInt("A"));
+        int sitemapid = 15200013;
+        boolean flowFlag = sitemapid % 10 >= 3;
+        int flag = sitemapid % 10;
+        System.out.println(flowFlag + "," + flag);
     }
+
 }

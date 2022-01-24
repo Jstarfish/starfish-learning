@@ -61,7 +61,7 @@ public class CoinChange_322 {
     public static void main(String[] args) {
         int[] coins = {1, 2, 5};
         int amout = 11;
-        System.out.println(coinChange(coins,amout));
+        System.out.println(coinChange1(coins,amout));
 
     }
 
