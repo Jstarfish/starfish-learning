@@ -38,7 +38,7 @@ public class MaxProfit_121 {
         return maxProfit;
     }
 
-    public int maxProfit(int[] prices){
+    public static int maxProfit(int[] prices){
         int minPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
         for(int i = 0; i< prices.length;i++){
@@ -51,17 +51,18 @@ public class MaxProfit_121 {
         return maxProfit;
     }
 
-    public static int getMaxProfit1(int[] nums){
-        int max = 0;
-        for(int i = 0;i<nums.length;i++){
-            for(int j =1;j<nums.length-1;j++){
-                int tmp = nums[j]-nums[i];
-                if(tmp > max){
-                    max = tmp;
-                }
-            }
+    public static int dp(int[] prices) {
+        int length = prices.length;
+        if (length == 0) {
+            return 0;
         }
-        return max;
+        int dp[] = new int[length];
+        int minPrice = prices[0];
+        for (int i = 1; i < length; i++) {
+            minPrice = Math.min(minPrice, prices[i]);
+            dp[i] = Math.max(dp[i - 1], prices[i] - minPrice);
+        }
+        return dp[length - 1];
     }
 
 
@@ -69,7 +70,7 @@ public class MaxProfit_121 {
 
     public static void main(String[] args) {
         int[] nums = new int[]{7,1,5,3,6,4};
-        System.out.println(getMaxProfit1(nums));
+        System.out.println(maxProfit(nums));
     }
 
 }

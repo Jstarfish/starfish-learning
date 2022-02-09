@@ -42,29 +42,26 @@ starfish-learn-leetcode
 
 - 2022-1-4
   - [x] [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
-
 - 2022-1-5
   - [x] [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
   - [x] [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
   - [x] [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)
   - [x] [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
   - [x] [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
-
 - 2022-1-6
   - [x] [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/)
 - 2022-1-7
   - [x] [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
-
 - 2022-1-11
   - [x] [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
   - [x] [643. 子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i/)
-
 - 2022-1-23
-  - [x] [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
-
+  - [x] [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) + 1
 - 2022-1-24
   - [x] [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
   - [x] [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
   - [ ] [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
-  - [ ] [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
-  - [ ] [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+
+- 2022-2-9
+  - [x] [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+  - [x] [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)

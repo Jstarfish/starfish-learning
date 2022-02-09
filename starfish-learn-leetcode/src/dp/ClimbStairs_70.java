@@ -26,24 +26,22 @@ package dp;
  */
 public class ClimbStairs_70 {
 
-
-    public static int climbStairs(int n) {
-        int p = 0,q=0,r=1;
-        for (int i = 0; i <= n; i++) {
-            p = q;
-            q = r;
-            r = p + q;
+/*    public static int climb(int n){
+        int dp[] = new int[n];    为什么是 n+1
+        dp[1] = 1;
+        for(int i = 2;i<n;i++){
+            dp[i] = dp[i-1] +1;
         }
-        return r;
-    }
-
+        return dp[n];
+    }*/
 
     public static int climbStairs1(int n) {
-        // 创建一个数组来保存历史数据
+        // 创建一个数组来保存历史数据，
+        // 数组下标是从0开始的，返回结果想用dp[n]，所以就需要n+1,如果这里是n的话，结果就需要是dp[n-1]表示第n个台阶，一样的
         int[] dp = new int[n + 1];
-        // 给出初始值, 爬楼梯的初始值应该是爬 1 级有1 种，2级的话有 2 种
-        dp[0] = 1;
+        // 给出初始值, 爬楼梯的初始值应该是爬 1 级有1 种，2级的话有 2 种, 题目n是正整数，不考虑
         dp[1] = 1;
+        dp[2] = 2;
         for(int i = 2; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
