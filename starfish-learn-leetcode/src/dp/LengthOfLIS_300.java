@@ -14,26 +14,24 @@ import java.util.Arrays;
 public class LengthOfLIS_300 {
 
     public static int getLengthOfLIS(int[] nums) {
-
-        int len = nums.length;
-        if (len < 2) {
-            return len;
+        int length = nums.length;
+        if(length < 2){
+            return length;
         }
 
-        int[] dp = new int[len];
-        Arrays.fill(dp, 1);
+        int dp[] = new int[length];
 
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < i; j++) {
-                //当 nums[i] <= nums[j]nums[i]<=nums[j] 时： nums[i]nums[i] 无法接在 nums[j]nums[j] 之后，此情况上升子序列不成立，跳过
-                if (nums[i] > nums[j]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+        Arrays.fill(dp,1);
+        for(int i = 0;i<length;i++){
+            for(int j = 0;j<i;j++){
+                if(nums[i]>nums[j]){
+                    dp[i] = Math.max(dp[i],dp[j]+1);
                 }
             }
         }
         int res = 0;
-        for (int i = 0; i < len; i++) {
-            res = Math.max(res, dp[i]);
+        for(int i = 0;i<length;i++){
+            res = Math.max(res,dp[i]);
         }
         return res;
     }
