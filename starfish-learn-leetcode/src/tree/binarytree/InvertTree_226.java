@@ -54,4 +54,15 @@ public class InvertTree_226 {
 
     }
 
+    public static TreeNode ievertTree5(TreeNode node){
+
+        TreeNode tmp = node.left;
+        node.right = tmp;
+        node.left = node.right;
+
+        ievertTree5(node.left);
+        ievertTree5(node.right);
+        return node;
+    }
+
 }

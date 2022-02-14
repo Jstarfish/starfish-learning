@@ -41,4 +41,17 @@ public class MergeTree_617 {
         result.right = mergeTrees(root1.right,root2.right);
         return result;
     }
+
+    public TreeNode mergeTree5(TreeNode node1, TreeNode node2) {
+        if (node1 == null) {
+            return node2;
+        }
+        if (node2 == null) {
+            return node1;
+        }
+        TreeNode res = new TreeNode(node1.val + node2.val);
+        res.left = mergeTrees(node1.left, node2.left);
+        res.right = mergeTree5(node1.right, node2.right);
+        return res;
+    }
 }

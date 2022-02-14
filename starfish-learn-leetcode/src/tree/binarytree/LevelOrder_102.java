@@ -25,7 +25,7 @@ import java.util.*;
  */
 public class LevelOrder_102 {
 
-    public List<List<Integer>> levelOrder(TreeNode root){
+    public static List<List<Integer>> levelOrder(TreeNode root){
 
         List<List<Integer>> result = new ArrayList<>();
 
@@ -53,5 +53,49 @@ public class LevelOrder_102 {
         return result;
     }
 
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(9);
+        root.left.left = new TreeNode(10);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+
+        for (List<Integer> integers : levelOrder5(root)) {
+            for (Integer integer : integers) {
+                System.out.print(integer + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static List<List<Integer>> levelOrder5(TreeNode treeNode) {
+        if (treeNode == null) {
+            return null;
+        }
+        //用LinkedList 实现类
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        List<List<Integer>> res = new ArrayList<>();
+        queue.offer(treeNode);
+        // 从上到下遍历二叉树的每一层
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> currentList = new ArrayList<>();
+            // 从左到右遍历每一层的每个节点
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                // 将下一层节点放入队列
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+                currentList.add(node.val);
+            }
+            res.add(currentList);
+        }
+        return res;
+    }
 
 }

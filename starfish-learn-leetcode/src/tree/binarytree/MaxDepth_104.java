@@ -25,17 +25,13 @@ package tree.binarytree;
 public class MaxDepth_104 {
 
     public static int maxDepth(TreeNode root) {
-
-        //return root == null ? 0 : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
-
-        if(root == null){
+        if (root == null) {
             return 0;
-        }else {
+        } else {
             int leftHeight = maxDepth(root.left);
             int rightHeight = maxDepth(root.right);
-            return Math.max(leftHeight,rightHeight) + 1;
+            return Math.max(leftHeight, rightHeight) + 1;
         }
-
     }
 
     public static void main(String[] args){
@@ -47,4 +43,15 @@ public class MaxDepth_104 {
 
         System.out.println(maxDepth(root));
     }
-}
+
+
+    public static int maxDepth5(TreeNode node){
+        if(node == null){
+            return 0;
+        }else{
+            int left = maxDepth(node.left);
+            int right = maxDepth(node.right);
+            return Math.max(left,right) + 1;
+        }
+
+    }}
