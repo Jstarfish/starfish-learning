@@ -72,3 +72,6 @@ starfish-learn-leetcode
   - [x] [617. 合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/)
   - [x] [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
   - [x] [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
+
+- 2022-2-15
+  - [x] [654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree/)
