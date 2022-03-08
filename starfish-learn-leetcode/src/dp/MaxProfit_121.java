@@ -38,6 +38,11 @@ public class MaxProfit_121 {
         return maxProfit;
     }
 
+    /**
+     * 单次循环
+     * @param prices
+     * @return
+     */
     public static int maxProfit(int[] prices){
         int minPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
@@ -51,6 +56,11 @@ public class MaxProfit_121 {
         return maxProfit;
     }
 
+    /**
+     * dp 法
+     * @param prices
+     * @return
+     */
     public static int dp(int[] prices) {
         int length = prices.length;
         if (length == 0) {
@@ -65,12 +75,46 @@ public class MaxProfit_121 {
         return dp[length - 1];
     }
 
+    /**
+     * 通用公式法
+     * @param prices
+     */
+    public static int dp_ik(int[] prices){
+        int n = prices.length;
+        int[][] dp = new int[n][2];
+        //特例
+        for(int i = 0;i<n;i++){
+            if(i == 0){
+                dp[i][0] = 0;
+                dp[i][1] = -prices[i];
+                continue;
+            }
+            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i-1][1],-prices[i]);
+        }
+        return dp[n-1][0];
+    }
 
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{7,1,5,3,6,4};
+        int[] nums = new int[]{7,1,5};
         System.out.println(maxProfit(nums));
+        System.out.println(dp_ik(nums));
+    }
+
+    public int getResult(int[] arrays){
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for(int i = 0;i<arrays.length;i++){
+            if(arrays[i] < minPrice){
+                minPrice = arrays[i];
+            }else if(arrays[i] - minPrice > maxProfit){
+                maxProfit = arrays[i] - minPrice;
+            }
+        }
+        return maxProfit;
+
     }
 
 }
