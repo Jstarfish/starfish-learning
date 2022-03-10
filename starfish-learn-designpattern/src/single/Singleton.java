@@ -7,38 +7,24 @@ package single;
 public class Singleton {
 
 
-
-//    private static volatile Singleton singleton;
-//
-//    private Singleton(){}
-//
-//
-//    public static Singleton getInstance(){
-//        if(singleton ==null){
-//            synchronized (Singleton.class){
-//                if(singleton == null){
-//                    singleton = new Singleton();
-//                }
-//            }
-//        }
-//        return singleton;
-//    }
-
-
-
-    private Singleton(){}
-
-    private static class SingletonInstance{
-
-        private static final Singleton INSTANCE = new Singleton();
+    private Singleton(){
 
     }
 
+    private static Singleton instance;
 
     public static Singleton getInstance(){
-
-        return SingletonInstance.INSTANCE;
+        if(instance == null){
+            synchronized(Singleton.class){
+                if(instance == null){
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
     }
+
+
 
 
 

@@ -44,9 +44,8 @@ public class ReverseList_206 {
         System.out.println("");
 
         obj.printLinkedList(result);
-
-
     }
+
 
 
     /**
