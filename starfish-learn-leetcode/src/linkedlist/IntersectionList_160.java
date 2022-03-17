@@ -21,18 +21,16 @@ public class IntersectionList_160 {
 
 
 
-    public ListNode getIntersectionNode1(ListNode headA,ListNode headB){
+    public ListNode getIntersectionNode_me(ListNode headA,ListNode headB){
         if(headA == null || headB == null){
             return null;
         }
-        ListNode a = headA;
-        ListNode b = headB;
-        while (a != b){
-            a = a==null?headB:a.next;
-            b = b==null?headA:b.next;
+        ListNode pA = headA,pB = headB;
+        while(pA != pB){
+            pA = pA == null?headB:pA.next;
+            pB = pB == null?headA:pB.next;
         }
-        return a;
-
+        return pA;
     }
 
 }

@@ -13,6 +13,5 @@ public class HashSetDemo {
     public static void main(String[] args) {
         HashSet<String> set = new HashSet<>();
 
-        ListIterator
     }
 }

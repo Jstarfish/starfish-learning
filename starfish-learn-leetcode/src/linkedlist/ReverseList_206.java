@@ -72,6 +72,24 @@ public class ReverseList_206 {
         }
     }
 
+    public ListNode reverseList_me(ListNode head){
+        //特例
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode pre = null;
+        ListNode cur = head;
+        while(cur != null) {
+            ListNode tmp = head.next;
+            head.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return head;
+    }
+
+
 }
 
 

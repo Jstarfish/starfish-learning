@@ -7,11 +7,10 @@ import java.util.List;
  * 请判断一个链表是否为回文链表。
  *
  * 示例 1:
- *
  * 输入: 1->2
  * 输出: false
- * 示例 2:
  *
+ * 示例 2:
  * 输入: 1->2->2->1
  * 输出: true
  */
@@ -82,6 +81,13 @@ public class PalindromeList_234 {
         return true;
     }
 
+    public static void main(String[] args){
+        ListNode head = new ListNode(1);
+        head.addToEnd(2);
+        head.addToEnd(2);
+        head.addToEnd(3);
+        System.out.println(isPalindrome_me(head));
+    }
 
 
     public static boolean isPalindrome_me(ListNode head){
@@ -97,21 +103,13 @@ public class PalindromeList_234 {
 
         int tmp = 0;
         for(int i=0;i<arrs.length/2;i++){ //注意这里只遍历到一半就可以了
-            if(arrs[i]== arrs[arrs.length-i-1]){
+            if(arrs[i] == arrs[arrs.length-i-1]){
                 tmp++;
             }
         }
         return tmp == arrs.length / 2;
     }
 
-    public static void main(String[] args){
-        ListNode head = new ListNode(1);
-        head.addToEnd(2);
-        head.addToEnd(2);
-        head.addToEnd(3);
-        System.out.println(isPalindrome_me(head));
 
-
-    }
 
 }

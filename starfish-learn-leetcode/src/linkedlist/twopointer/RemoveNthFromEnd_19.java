@@ -29,7 +29,6 @@ public class RemoveNthFromEnd_19 {
         }
         // 删除节点，返回哑结点后的结果即可
         cur.next = cur.next.next;
-        //TODO 返回pre.next 怎么就是结果了？
         return pre.next;
     }
 
@@ -41,14 +40,27 @@ public class RemoveNthFromEnd_19 {
         head.addToEnd(4);
         head.addToEnd(5);
         RemoveNthFromEnd_19 obj = new RemoveNthFromEnd_19();
-        obj.removeNthFromEnd_1(head,2);
+       // ListNode.printLinkedList(obj.removeNthFromEnd_1(head,2));
+        ListNode.printLinkedList(obj.removeNthFromEnd(head,2));
+
 
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0, head);
+        ListNode first = head;
+        ListNode second = dummy;
 
-        return null;
-
+        //让 first 指针先移动 n 步
+        for (int i = 0; i < n; ++i) {
+            first = first.next;
+        }
+        while (first != null) {
+            first = first.next;
+            second = second.next;
+        }
+        second.next = second.next.next;
+        return dummy.next;
     }
 
 }

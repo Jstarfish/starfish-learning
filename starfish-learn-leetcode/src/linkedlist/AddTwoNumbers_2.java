@@ -17,7 +17,6 @@ package linkedlist;
 public class AddTwoNumbers_2 {
 
     /**
-     *
      * @param l1
      * @param l2
      * @return
@@ -27,7 +26,7 @@ public class AddTwoNumbers_2 {
         ListNode cur = pre;
         //进位
         int carry = 0;
-        while(l1 != null || l2 != null) {
+        while (l1 != null || l2 != null) {
             int x = l1 == null ? 0 : l1.val;
             int y = l2 == null ? 0 : l2.val;
             int sum = x + y + carry;
@@ -37,18 +36,22 @@ public class AddTwoNumbers_2 {
             //进位后剩下的余数
             sum = sum % 10;
             //进位后的数据
+            //将求和数赋值给新链表的节点，
+            //注意这个时候不能直接将sum赋值给cur.next = sum。这时候会报，类型不匹配。
+            //所以这个时候要创一个新的节点，将值赋予节点
             cur.next = new ListNode(sum);
+            //将新链表的节点后移
             cur = cur.next;
             //往后移动
-            if(l1 != null) {
+            if (l1 != null) {
                 l1 = l1.next;
             }
-            if(l2 != null) {
+            if (l2 != null) {
                 l2 = l2.next;
             }
         }
         //如果最后一位还有进位的话，再往后增加一个节点
-        if(carry == 1) {
+        if (carry == 1) {
             cur.next = new ListNode(carry);
         }
         return pre.next;

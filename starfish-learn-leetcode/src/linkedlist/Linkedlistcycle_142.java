@@ -75,4 +75,28 @@ public class Linkedlistcycle_142 {
         ListNode.printLinkedList(detectCycle(head));
     }
 
+    public ListNode detectCycle_me(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                //前边和判断是否有环，一样，只是这里不返回true
+                //构建第二轮相遇，slow指针 位置不变 ，将fast指针重新 指向链表头部节点或者重新构建一个指针 ；slow和fast同时每轮向前走 1 步；
+                ListNode ptr = head;
+
+                while (ptr != slow) {
+                    ptr = ptr.next;
+                    slow = slow.next;
+                }
+                return ptr;
+            }
+        }
+        return null;
+    }
+
 }
