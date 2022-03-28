@@ -55,11 +55,12 @@ public class InvertTree_226 {
     }
 
     public static TreeNode ievertTree5(TreeNode node){
-
+        if(node == null) {
+            return null;
+        }
         TreeNode tmp = node.left;
-        node.right = tmp;
         node.left = node.right;
-
+        node.right = tmp;
         ievertTree5(node.left);
         ievertTree5(node.right);
         return node;

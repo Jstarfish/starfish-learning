@@ -7,25 +7,19 @@ package binarysearch;
 public class Search {
 
     public static int getResult(int[] nums, int target) {
-        int start = 0;
-        int end = nums.length - 1;
-        while (start <= end) {
-            int mid = (start + end) / 2;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
                 return mid;
             } else if (nums[mid] > target) {
-                end = mid - 1;
+                right = mid - 1;
             } else {
-                start = mid + 1;
+                left = mid + 1;
             }
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{1,4,4,5,7,8};
-        System.out.println(getResult(nums,4));
-        System.out.println(getLeftNums(nums,4));
     }
 
     //左边界
@@ -44,4 +38,12 @@ public class Search {
         }
         return left;
     }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,4,4,4,5,7,8};
+        System.out.println(getResult(nums,4));
+        System.out.println(getLeftNums(nums,6));
+    }
+
+
 }

@@ -1,62 +1,84 @@
 package priv.example;
 
-import org.apache.kafka.clients.producer.*;
+import org.apache.kafka.clients.producer.Callback;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 
-/**
- * @author: jiahaixin
- * @date: 2019/9/11 11:13
- * @description: kafka官方提供的生产者例子
- */
 public class Producer extends Thread {
-
     private final KafkaProducer<Integer, String> producer;
     private final String topic;
     private final Boolean isAsync;
+    private int numRecords;
+    private final CountDownLatch latch;
 
-    public Producer(String topic, Boolean isAsync) {
+    public Producer(final String topic,
+                    final Boolean isAsync,
+                    final String transactionalId,
+                    final boolean enableIdempotency,
+                    final int numRecords,
+                    final int transactionTimeoutMs,
+                    final CountDownLatch latch) {
         Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaProperties.KAFKA_SERVER_URL + ":" + KafkaProperties.KAFKA_SERVER_PORT);
         props.put(ProducerConfig.CLIENT_ID_CONFIG, "DemoProducer");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        if (transactionTimeoutMs > 0) {
+            props.put(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, transactionTimeoutMs);
+        }
+        if (transactionalId != null) {
+            props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, transactionalId);
+        }
+        props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, enableIdempotency);
+
         producer = new KafkaProducer<>(props);
         this.topic = topic;
         this.isAsync = isAsync;
+        this.numRecords = numRecords;
+        this.latch = latch;
+    }
+
+    KafkaProducer<Integer, String> get() {
+        return producer;
     }
 
     @Override
     public void run() {
-        int messageNo = 1;
-        while (true) {
-            String messageStr = "Message_" + messageNo;
+        int messageKey = 0;
+        int recordsSent = 0;
+        while (recordsSent < numRecords) {
+            String messageStr = "Message_" + messageKey;
             long startTime = System.currentTimeMillis();
             if (isAsync) { // Send asynchronously
                 producer.send(new ProducerRecord<>(topic,
-                        messageNo,
-                        messageStr), new DemoCallBack(startTime, messageNo, messageStr));
+                        messageKey,
+                        messageStr), new DemoCallBack(startTime, messageKey, messageStr));
             } else { // Send synchronously
                 try {
                     producer.send(new ProducerRecord<>(topic,
-                            messageNo,
+                            messageKey,
                             messageStr)).get();
-                    System.out.println("Sent message: (" + messageNo + ", " + messageStr + ")");
+                    System.out.println("Sent message: (" + messageKey + ", " + messageStr + ")");
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
             }
-            ++messageNo;
+            messageKey += 2;
+            recordsSent += 1;
         }
+        System.out.println("Producer sent " + numRecords + " records successfully");
+        latch.countDown();
     }
 }
 
-/**
- * 带回调函数
- */
 class DemoCallBack implements Callback {
 
     private final long startTime;
@@ -74,11 +96,10 @@ class DemoCallBack implements Callback {
      * be called when the record sent to the server has been acknowledged. When exception is not null in the callback,
      * metadata will contain the special -1 value for all fields except for topicPartition, which will be valid.
      *
-     * @param metadata  The metadata for the record that was sent (i.e. the partition and offset). Null if an error
-     *                  occurred.
+     * @param metadata  The metadata for the record that was sent (i.e. the partition and offset). An empty metadata
+     *                  with -1 value for all fields except for topicPartition will be returned if an error occurred.
      * @param exception The exception thrown during processing of this record. Null if no error occurred.
      */
-    @Override
     public void onCompletion(RecordMetadata metadata, Exception exception) {
         long elapsedTime = System.currentTimeMillis() - startTime;
         if (metadata != null) {

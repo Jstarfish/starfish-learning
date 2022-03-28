@@ -12,8 +12,8 @@
     <artifactId>starfish-learn-kafka</artifactId>
 
     <properties>
- <kafka.version>2.1.1</kafka.version>
-<!--        <kafka.version>0.8.2.</kafka.version>-->
+        <kafka.version>3.1.0</kafka.version>
+        <!--        <kafka.version>0.8.2.</kafka.version>-->
     </properties>
 
 
