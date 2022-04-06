@@ -22,6 +22,7 @@ public class BuildTree_105 {
     public TreeNode buildTree(int[] preorder,int[] inorder){
 
         int n = preorder.length;
+        // 构造哈希映射，帮助我们快速定位根节点
         indexMap = new HashMap<>();
         for (int i = 0; i < n; i++) {
             indexMap.put(inorder[i],i);

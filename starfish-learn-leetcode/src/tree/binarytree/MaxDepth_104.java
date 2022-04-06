@@ -53,5 +53,5 @@ public class MaxDepth_104 {
             int right = maxDepth(node.right);
             return Math.max(left,right) + 1;
         }
-
-    }}
+    }
+}

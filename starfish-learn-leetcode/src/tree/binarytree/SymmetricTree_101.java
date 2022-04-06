@@ -8,7 +8,7 @@ import java.util.TreeMap;
  *
  * 给定一个二叉树，检查它是否是镜像对称的。
  *
- * 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
+ * 例如，二叉树[1,2,2,3,4,4,3] 是对称的。
  *
  *     1
  *    / \
@@ -39,7 +39,7 @@ public class SymmetricTree_101 {
         //递归的终止条件是两个节点都为空
         //或者两个节点中有一个为空
         //或者两个节点的值不相等
-        if(left==null && right==null){
+        if(left == null && right == null){
             return true;
         }
         if(left == null || right == null){

@@ -70,32 +70,34 @@ public class LevelOrder_102 {
     }
 
     public static List<List<Integer>> levelOrder5(TreeNode treeNode) {
-        if (treeNode == null) {
+        if(treeNode == null){
             return null;
         }
-        //用LinkedList 实现类
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<>();
         List<List<Integer>> res = new ArrayList<>();
         queue.offer(treeNode);
-        // 从上到下遍历二叉树的每一层
-        while (!queue.isEmpty()) {
+
+        while (!queue.isEmpty()){
             int size = queue.size();
-            List<Integer> currentList = new ArrayList<>();
-            // 从左到右遍历每一层的每个节点
-            for (int i = 0; i < size; i++) {
+            List<Integer> curLevel = new ArrayList<>();
+
+            for(int i = 0;i<size;i++){
                 TreeNode node = queue.poll();
-                // 将下一层节点放入队列
-                if (node.left != null) {
+                if(node.left != null){
                     queue.offer(node.left);
                 }
-                if (node.right != null) {
+                if(node.right != null){
                     queue.offer(node.right);
                 }
-                currentList.add(node.val);
+                curLevel.add(node.val);
             }
-            res.add(currentList);
+            res.add(curLevel);
         }
         return res;
     }
+
+
+
+
 
 }
