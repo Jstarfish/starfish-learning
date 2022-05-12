@@ -33,7 +33,7 @@ starfish-learn-leetcode
   
 - 2021-12-28
   
-  - [x] [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+  - [x] [1. 两数之和](https://leetcode-cn.com/problems/two-sum/) +1
   - [ ] [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
 
 ------
@@ -97,3 +97,11 @@ starfish-learn-leetcode
 - 2022-04-06
   - [x] 前、中、后序二叉树
   - [x] [114. 二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/)
+
+
+
+- 2022-05-12
+
+  - [x] [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
+
+    

@@ -55,7 +55,7 @@ public class MaxSubArray_53 {
         return max;
     }
 
-    public int maxSubArray3(int[] nums) {
+    public static int maxSubArray3(int[] nums) {
         //特判
         if (nums == null || nums.length == 0) {
             return 0;
@@ -89,25 +89,8 @@ public class MaxSubArray_53 {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{-2};
-//        int[] nums = new int[]{-2,1,-3,4,-1,2,1,-5,4};
+        int[] nums = new int[]{-2,1,-3,4,-1,2,1,-5,4};
 
-        //特判
-//        if(nums==null || nums.length==0) {
-//            return 0;
-//        }
-        //初始化
-        int length = nums.length;
-        int[] dp = new int[length];
-        // 初始化最大值
-        int ans = nums[0];
-        dp[0] = nums[0];
-        for(int i = 1; i < length; i++){
-            // 取当前元素的值 和 当前元素的值加上一次结果的值 中最大数
-            dp[i] = Math.max(nums[i], dp[i-1] + nums[i]);
-            // 和最大数对比 取大
-            ans = Math.max(ans, dp[i]);
-        }
-        System.out.println(ans);
+        System.out.println(maxSubArray3(nums));
     }
 }
