@@ -1,4 +1,4 @@
-package priv.starfish.jvm;
+package classloader;
 
 public class ClassInitTest {
     private static int num1 = 30;

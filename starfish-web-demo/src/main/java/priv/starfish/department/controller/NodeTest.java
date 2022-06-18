@@ -1,10 +1,10 @@
-package pric.starfish.test;
+package priv.starfish.department.controller;
 
 /**
  * @author Henry
- * @date 2021/12/15
+ * @date 2022/6/9
  */
-public class Area {
+public class NodeTest {
 
     public static void main(String[] args) {
         ListNode listNode1 = new ListNode(1);
@@ -17,11 +17,10 @@ public class Area {
 
         ListNode result = mergeList(listNode1, listNode3);
 
-        while(result.val != null){
-            System.out.println(result.next);
-            result.val = result.next.val;
+        while(result != null){
+            System.out.println(result.val);
+            result = result.next;
         }
-
 
     }
 
@@ -32,20 +31,20 @@ public class Area {
         }else if(l2 == null){
             return l1;
         }else if(l1.val < l2.val){
-            mergeList(l1.next,l2);
+            l1.next = mergeList(l1.next,l2);
             return l1;
         }else{
-            mergeList(l1,l2.next);
+            l2.next = mergeList(l1,l2.next);
             return l2;
         }
     }
 }
 
 class ListNode{
-    int val;
+    Integer val;
     ListNode next;
 
-    ListNode(val){
+    ListNode(Integer val){
         this.val = val;
     }
 }

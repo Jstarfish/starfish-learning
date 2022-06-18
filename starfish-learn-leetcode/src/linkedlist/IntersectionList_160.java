@@ -25,10 +25,12 @@ public class IntersectionList_160 {
         if(headA == null || headB == null){
             return null;
         }
-        ListNode pA = headA,pB = headB;
+        ListNode pA = headA;
+        ListNode pB = headB;
         while(pA != pB){
-            pA = pA == null?headB:pA.next;
-            pB = pB == null?headA:pB.next;
+            //这里注意如果
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
         }
         return pA;
     }

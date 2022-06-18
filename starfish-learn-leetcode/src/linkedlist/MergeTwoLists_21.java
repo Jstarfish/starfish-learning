@@ -11,7 +11,7 @@ package linkedlist;
 public class MergeTwoLists_21 {
 
 
-    public ListNode mergeLists(ListNode l1,ListNode l2){
+    public static ListNode mergeLists(ListNode l1,ListNode l2){
         if(l1 == null) return l2;
         if(l2 == null) return l1;
 
@@ -24,6 +24,20 @@ public class MergeTwoLists_21 {
         }
 
     }
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        node1.addToEnd(2);
+
+        ListNode node2 = new ListNode(1);
+        node2.addToEnd(3);
+        node2.addToEnd(4);
+
+        mergeLists(node1,node2);
+
+    }
+
+
 
 
 

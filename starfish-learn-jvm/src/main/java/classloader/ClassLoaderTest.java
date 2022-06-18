@@ -1,4 +1,4 @@
-package priv.starfish.jvm;
+package classloader;
 
 import java.net.URL;
 

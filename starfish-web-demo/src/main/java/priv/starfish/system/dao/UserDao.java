@@ -17,7 +17,7 @@ public interface UserDao {
 
     List<User> getAllUsers(UserForm form);
 
-    default Class<?> predictBeanType(Class<?> beanClass, String beanName) throws BeansException {
+   /* default Class<?> predictBeanType(Class<?> beanClass, String beanName) throws BeansException {
         return null;
-    }
+    }*/
 }

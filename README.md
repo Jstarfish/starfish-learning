@@ -11,13 +11,13 @@ starfish-learn-leetcode
 - 2021-12-21
   
   - [x]  [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)   
-  - [x]  [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) +1
+  - [x]  [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) +2
   
 - 2021-12-22
 
   今天重点突击链表热题100
 
-  - [x] [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
+  - [x] [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) +1
   - [x] [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
 
 - 2021-12-23  没刷
@@ -105,3 +105,7 @@ starfish-learn-leetcode
   - [x] [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
 
     
+
+- 2022-06-08
+
+  

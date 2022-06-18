@@ -28,23 +28,6 @@ public class Linkedlistcycle_141 {
     }
 
 
-    public boolean hasCycle_1(ListNode head) {
-        if (head == null || head.next == null) {
-            return false;
-        }
-
-        //起点相同
-        ListNode fast = head;
-        ListNode slow = head;
-        //while 条件需要注意,如果不含有环，不管是快的还是慢的都会遇到null,
-        // 如果不含有环的情况用slow！=null 判断的话，fast.next.next 走那么快，没值，不就空指针了
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-            if (fast == slow) return true;
-        }
-        return false;
-    }
 
 
 
