@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.13.RELEASE'
+    id 'org.springframework.boot' version '2.6.9'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -27,6 +27,10 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+
+    // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.CR1'
+
 
 }
 
