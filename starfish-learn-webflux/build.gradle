@@ -28,8 +28,15 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+// https://mvnrepository.com/artifact/io.netty/netty-resolver-dns-native-macos
+    implementation 'io.netty:netty-resolver-dns-native-macos:4.1.79.Final'
+
+
     // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
-    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.CR1'
+    //implementation 'org.hibernate.validator:hibernate-validator:8.0.0.CR1'
 
 
 }

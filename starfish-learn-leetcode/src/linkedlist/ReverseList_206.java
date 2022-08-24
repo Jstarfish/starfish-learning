@@ -75,20 +75,34 @@ public class ReverseList_206 {
     }
 
     public ListNode reverseList_me(ListNode head){
-        //特例
+
         if(head == null || head.next == null){
             return head;
         }
 
         ListNode pre = null;
         ListNode cur = head;
-        while(cur != null) {
-            ListNode tmp = head.next;
-            head.next = pre;
+        while(cur != null){
+            ListNode tmp = cur.next;
+            cur.next = pre;
             pre = cur;
             cur = tmp;
         }
-        return head;
+        return pre;
+    }
+
+    //递归
+    public ListNode reverse(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode last = reverse(head.next);
+        //如果是2个节点的话
+        head.next.next = head;
+        head.next = null;
+
+        return last;
     }
 
 

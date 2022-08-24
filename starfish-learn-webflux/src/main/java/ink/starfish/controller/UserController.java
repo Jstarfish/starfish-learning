@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/user")
@@ -24,7 +23,7 @@ public class UserController {
 
 	/**
 	 * 以数组形式一次性返回数据
-	 * 
+	 *
 	 * @return
 	 */
 	@GetMapping("/")
@@ -34,7 +33,7 @@ public class UserController {
 
 	/**
 	 * 以SSE形式多次返回数据
-	 * 
+	 *
 	 * @return
 	 */
 	@GetMapping(value = "/stream/all", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
@@ -44,22 +43,22 @@ public class UserController {
 
 	/**
 	 * 新增数据
-	 * 
+	 *
 	 * @param user
 	 * @return
 	 */
 	@PostMapping("/")
-	public Mono<User> createUser(@Valid @RequestBody User user) {
+	public Mono<User> createUser(@RequestBody User user) {
 		// spring data jpa 里面, 新增和修改都是save. 有id是修改, id为空是新增
 		// 根据实际情况是否置空id
-		//user.setId(null);
+		user.setId(null);
 		CheckUtil.checkName(user.getName());
 		return this.repository.save(user);
 	}
 
 	/**
 	 * 根据id删除用户 存在的时候返回200, 不存在返回404
-	 * 
+	 *
 	 * @param id
 	 * @return
 	 */
@@ -78,14 +77,14 @@ public class UserController {
 
 	/**
 	 * 修改数据 存在的时候返回200 和修改后的数据, 不存在的时候返回404
-	 * 
+	 *
 	 * @param id
 	 * @param user
 	 * @return
 	 */
 	@PutMapping("/{id}")
 	public Mono<ResponseEntity<User>> updateUser(@PathVariable("id") String id,
-			@Valid @RequestBody User user) {
+												 @RequestBody User user) {
 		CheckUtil.checkName(user.getName());
 		return this.repository.findById(id)
 				// flatMap 操作数据
@@ -101,7 +100,7 @@ public class UserController {
 
 	/**
 	 * 根据ID查找用户 存在返回用户信息, 不存在返回404
-	 * 
+	 *
 	 * @param id
 	 * @return
 	 */
@@ -115,30 +114,30 @@ public class UserController {
 
 	/**
 	 * 根据年龄查找用户
-	 * 
+	 *
 	 * @param start
 	 * @param end
 	 * @return
 	 */
 	@GetMapping("/age/{start}/{end}")
 	public Flux<User> findByAge(@PathVariable("start") int start,
-			@PathVariable("end") int end) {
+								@PathVariable("end") int end) {
 		return this.repository.findByAgeBetween(start, end);
 	}
 
 	/**
 	 * 根据年龄查找用户
-	 * 
+	 *
 	 * @param start
 	 * @param end
 	 * @return
 	 */
 	@GetMapping(value = "/stream/age/{start}/{end}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<User> streamFindByAge(@PathVariable("start") int start,
-			@PathVariable("end") int end) {
+									  @PathVariable("end") int end) {
 		return this.repository.findByAgeBetween(start, end);
 	}
-	
+
 	/**
 	 *  得到20-30用户
 	 * @return
@@ -150,7 +149,7 @@ public class UserController {
 
 	/**
 	 * 得到20-30用户
-	 * 
+	 *
 	 * @return
 	 */
 	@GetMapping(value = "/stream/old", produces = MediaType.TEXT_EVENT_STREAM_VALUE)

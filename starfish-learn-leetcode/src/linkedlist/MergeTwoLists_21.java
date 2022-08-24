@@ -37,6 +37,43 @@ public class MergeTwoLists_21 {
 
     }
 
+    // 1,2,3
+    //1,3,4
+    //1,1,2,3,3,4
+    public ListNode mergeList(ListNode n1,ListNode n2){
+        if(n1 == null) return n2;
+        if(n2 == null) return n1;
+
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+
+        // 比较 p1 和 p2 两个指针
+        // 将值较小的的节点接到 p 指针
+        while (n1 != null && n2 != null){
+            if(n1.val <= n2.val) {
+                p.next = n1;
+                n1 = n1.next;
+            }else {
+                p.next = n2;
+                n2 = n2.next;
+            }
+            // p 指针不断前进
+            p = p.next;
+        }
+
+        //处理比较后较长的链表剩余部分
+        if (n1 != null) {
+            p.next = n1;
+        }
+
+        if (n2 != null) {
+            p.next = n2;
+        }
+        return dummy.next;
+
+    }
+
+
 
 
 
