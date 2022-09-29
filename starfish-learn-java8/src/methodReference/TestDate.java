@@ -1,12 +1,9 @@
 package methodReference;
 
 import org.junit.Test;
-import sun.util.resources.LocaleData;
 
-import javax.xml.transform.Templates;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
 /**

@@ -3,6 +3,9 @@ package priv.starfish.bloom;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 /**
  * @description:
  * @author: starfish
@@ -21,6 +24,15 @@ public class ApacheUtilsTest {
            // System.out.println(str);
         }
         System.out.println(NumberUtils.isNumber("38.0"));
+
+        ArrayList<String> arrayList = new ArrayList<String>(){{
+            add("a");
+            add("b");
+        }};
+
+        System.out.println(arrayList.stream().map(str->str.toString()).collect(Collectors.toList()));
+
+        System.out.println(arrayList.toString());
     }
 
 
