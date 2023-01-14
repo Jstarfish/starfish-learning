@@ -1,7 +1,5 @@
 package sort;
 
-import com.sun.xml.internal.bind.v2.model.annotation.Quick;
-
 import java.util.Arrays;
 
 /**

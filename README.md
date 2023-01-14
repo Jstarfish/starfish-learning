@@ -41,7 +41,7 @@ starfish-learn-leetcode
 
 
 - 2022-1-4
-  - [x] [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
+  - [x] [15. 三数之和](https://leetcode-cn.com/problems/3sum/) + 1
 - 2022-1-5
   - [x] [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
   - [x] [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
