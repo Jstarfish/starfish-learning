@@ -9,6 +9,16 @@ package array;
  */
 public class MoveZero_283 {
 
+    public void move0(int[] nums){
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] == 0){
+                int tmp  = nums[i];
+                nums[i] = nums[i +1];
+                nums[i+1] = tmp;
+            }
+        }
+    }
+
     //两次遍历
     public void moveZeroes(int[] nums){
         int j=0;
@@ -26,14 +36,24 @@ public class MoveZero_283 {
     }
 
     //一次遍历，类似快排
-    public void moveZeroes_1(int[] nums){
+    public static void moveZeroes_1(int[] nums){
+        //两个指针i和j
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
+            //当前元素!=0，就把其交换到左边，等于0的交换到右边
             if(nums[i]!=0){
                 int tmp = nums[i];
                 nums[i] = nums[j];
                 nums[j++] = tmp;
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{0,1,0,3,12};
+        moveZeroes_1(nums);
+        for (int num : nums) {
+            System.out.print(num+",");
         }
     }
 

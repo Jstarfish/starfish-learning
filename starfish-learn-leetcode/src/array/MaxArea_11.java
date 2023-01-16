@@ -13,6 +13,21 @@ package array;
  */
 public class MaxArea_11 {
 
+    public static int maxArea1(int[] height){
+        int l = 0;
+        int r = height.length - 1;
+        int result = 0;
+        while(l < r){
+            int area = Math.min(height[l],height[r]) * (r - l);
+            result = Math.max(area,result);
+            if(height[l] > height[r]) r--;
+            else l ++;
+        }
+        return result;
+    }
+
+
+
     public static int maxArea(int[] height){
         int left = 0;
         int right = height.length - 1;
@@ -35,6 +50,6 @@ public class MaxArea_11 {
     public static void main(String[] args) {
         //int[] nums = new int[]{1,1};
         int[] nums = new int[]{1,8,6,2,5,4,8,3,7};
-        System.out.println(maxArea(nums));
+        System.out.println(maxArea1(nums));
     }
 }

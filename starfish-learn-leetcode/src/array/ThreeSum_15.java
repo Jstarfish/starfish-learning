@@ -27,7 +27,30 @@ public class ThreeSum_15 {
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
-        return null;
+        List<List<Integer>> result = new ArrayList<>();
+        if(nums.length<3) return null;
+
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]>0) break;
+            int left = i + 1;
+            int right = nums.length - 1;
+
+            if(nums[i]==nums[i-1]) continue;
+
+            while(left < right){
+                int sum = nums[i] + nums[left] + nums[right];
+                if(sum == 0){
+                    result.add(Arrays.asList(nums[i],nums[left],nums[right]));
+                    while(left < right && nums[left]==nums[left+1]) left ++;
+                    while(left < right && nums[right]==nums[right-1]) right --;
+                    left ++;
+                    right --;
+                }else if(sum > 0) right--;
+                else if(sum < 0) left ++;
+            }
+        }
+        return result;
     }
 
     public static List<List<Integer>> threeSumX(int[] nums) {
@@ -60,7 +83,8 @@ public class ThreeSum_15 {
                     //移动指针
                     l++;
                     r--;
-                } else if (sum < 0) l++;
+                }
+                else if (sum < 0) l++;
                 else if (sum > 0) r--;
             }
         }

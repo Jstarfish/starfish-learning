@@ -1,7 +1,6 @@
 package array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,6 +15,20 @@ import java.util.List;
  * > ```
  */
 public class DisappearedNumber_448 {
+
+    public List<Integer> findNumbers1(int[] nums){
+        List<Integer> result = new ArrayList<>();
+       return result;
+
+    }
+
+
+
+
+
+
+
+
 
     public static List<Integer> findNumbers(int[] nums){
         List<Integer> list = new ArrayList<>();
