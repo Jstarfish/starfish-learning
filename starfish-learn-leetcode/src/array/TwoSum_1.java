@@ -43,6 +43,22 @@ public class TwoSum_1 {
             throw new IllegalArgumentException("No two sum solution");
         }
 
+//        public static int[] twoSum2Point(int[] arr,int target){
+//            Arrays.sort(arr);
+//            int left = 0;
+//            int right = arr.length - 1;
+//            for(int i = 0;i<arr.length;i++) {
+//                if (arr[left] + arr[right] == target) {
+//                    return new int[] {left, right};
+//                } else if (arr[left] + arr[right] < target) {
+//                    left++;
+//                } else {
+//                    right--;
+//                }
+//            }
+//            return new int[] {};
+//        }
+
 
 
     public static void main(String[] args) {
@@ -51,7 +67,7 @@ public class TwoSum_1 {
         int[] nums = new int[]{2,7,11,15};
 
         int target = 9;
-        System.out.println(Arrays.toString(twoSum1(nums, target)));
+        System.out.println(Arrays.toString(twoSum(nums, target)));
 
     }
 

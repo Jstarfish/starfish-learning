@@ -18,8 +18,17 @@ public class DisappearedNumber_448 {
 
     public List<Integer> findNumbers1(int[] nums){
         List<Integer> result = new ArrayList<>();
-       return result;
+        int[] x = new int[nums.length + 1];
+        for(int i = 0;i<nums.length;i++){
+            x[nums[i]] ++;
+        }
 
+        for(int i = 1;i<x.length;i++){
+            if(x[i] == 0){
+                result.add(i);
+            }
+        }
+       return result;
     }
 
 
