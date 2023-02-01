@@ -1,7 +1,6 @@
 package array.twopointer;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 给定一个已按照 非递减顺序排列 的整数数组numbers ，请你从数组中找出两个数满足相加之和等于目标数target 。
@@ -20,18 +19,14 @@ public class TwoSum_167 {
     public static int[] towSum(int[] nums, int target) {
         int left = 0;
         int rigth = nums.length - 1;
-        //for (int i = 0; i < nums.length; i++) {
-        while(left < rigth){
+        while (left < rigth) {
             int tmp = nums[left] + nums[rigth];
             if (target == tmp) {
-                return new int[]{left, rigth};
-            }
-            if (tmp > target) {
-                //右移
-                rigth--;
-            }
-            if (tmp < target) {
-                left++;
+                return new int[]{left + 1, rigth + 1};
+            } else if (tmp > target) {
+                rigth--; //右移
+            } else {
+                left++;  //左移
             }
         }
         return new int[]{-1, -1};

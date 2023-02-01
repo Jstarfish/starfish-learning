@@ -19,12 +19,20 @@ public class MaxArea_11 {
         int result = 0;
         while(l < r){
             int area = Math.min(height[l],height[r]) * (r - l);
-            result = Math.max(area,result);
-            if(height[l] > height[r]) r--;
-            else l ++;
+            result = Math.max(result,area);
+            if(height[l] < height[r]){
+                l++;
+            }else{
+                r--;
+            }
         }
         return result;
+
     }
+
+
+
+
 
 
 
@@ -38,9 +46,9 @@ public class MaxArea_11 {
             result = Math.max(result,area);
             //往哪个方向移动需要考虑好，
             if(height[left] <= height[right]){
-                right --;
-            }else{
                 left++;
+            }else{
+                right --;
             }
         }
         return result;
