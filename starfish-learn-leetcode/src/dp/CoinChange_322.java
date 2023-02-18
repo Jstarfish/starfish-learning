@@ -3,7 +3,7 @@ package dp;
 import java.util.Arrays;
 
 /**
- * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
+ * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回-1。
  * 示例1:
  * 输入: coins = [1, 2, 5], amount = 11
  * 输出: 3
@@ -17,6 +17,13 @@ import java.util.Arrays;
  * 你可以认为每种硬币的数量是无限的。
  */
 public class CoinChange_322 {
+
+
+    public int coin(int[] coins,int amount){
+
+
+        return -1;
+    }
 
     public static int coinChange(int[] coins, int amount) {
         //定义数组
@@ -59,6 +66,9 @@ public class CoinChange_322 {
     }
 
     public static void main(String[] args) {
+        int a = 1;
+        int b = 3;
+        System.out.println((double)a/b);
         int[] coins = {1, 2, 5};
         int amout = 11;
         System.out.println(coinChange1(coins,amout));

@@ -49,7 +49,7 @@ starfish-learn-leetcode
   - [x] [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
   - [x] [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/) +1
 - 2022-1-6
-  - [x] [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/)
+  - [x] [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/) +1
 - 2022-1-7
   - [x] [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 - 2022-1-11
