@@ -1,5 +1,10 @@
 package dp;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 /**
  * 给定一个数组 prices ，它的第i 个元素prices[i] 表示一支给定股票第 i 天的价格。
  *
@@ -26,16 +31,16 @@ public class MaxProfit_121 {
      * @return
      */
     public int maxprofit(int[] prices){
-        int maxProfit = 0;
-        for(int i = 0; i<prices.length; i++ ){
-            for(int j = i+1;j<prices.length-1;j++){
-                int profit = prices[j] - prices[i];
-                if(profit > maxProfit){
-                    maxProfit = profit;
-                }
-            }
+        int length = prices.length;
+        int dp[] = new int[length];
+
+        //int maxProfit = Integer.MIN_VALUE;
+        int minPrices = dp[0];
+        for(int i = 0;i<length;i++){
+            minPrices = Math.min(minPrices,prices[i]);
+            dp[i] = Math.max(dp[i-1],prices[i]-minPrices);
         }
-        return maxProfit;
+        return dp[length-1];
     }
 
     /**
@@ -54,6 +59,21 @@ public class MaxProfit_121 {
             }
         }
         return maxProfit;
+    }
+
+
+    public int getMaxProfit(int[] nums){
+        int length = nums.length;
+        if(length < 0) return 0;
+        int dp[] = new int[length];
+        int minProfit = nums[0];
+        int min = Integer.MAX_VALUE;
+
+        for(int i = 0;i<nums.length;i++){
+            min =  Math.min(nums[i],min);
+            dp[i] = Math.max(dp[i-1],nums[i]-min);
+        }
+        return dp[length-1];
     }
 
     /**
@@ -99,7 +119,61 @@ public class MaxProfit_121 {
         int[] nums = new int[]{7};
         System.out.println(maxProfit(nums));
         System.out.println(dp_ik(nums));
+
+
+        List<User> list = null;
+        User user1 = new User();
+        user1.setUserName("a");
+        user1.setUserId(null);
+        list.add(user1);
+        //User user = new User();
+//        list.add(user);
+        list.stream().sorted(Comparator.comparing(user -> user.getUserId())).collect(Collectors.toList());
+
+        final Function<String,String> stringFunction = value -> (null==value ? "":value);
+
+        //user.setUserName(stringFunction.apply(user.getUserName()));
+        //user.setUserId(1);
+
+        //System.out.println(user.toString());
     }
+
+
+     static class User{
+        String userName;
+        Integer userId;
+
+         public Integer getUserId() {
+             return userId;
+         }
+
+         public void setUserId(Integer userId) {
+             this.userId = userId;
+         }
+
+         public void setUserName(String userName) {
+             this.userName = userName;
+         }
+
+         public String getUserName() {
+             return userName;
+         }
+
+         public User(String userName, Integer userId) {
+             this.userName = userName;
+             this.userId = userId;
+         }
+
+         public User(){}
+
+         @Override
+         public String toString() {
+             return "User{" +
+                     "userName='" + userName + '\'' +
+                     ", userId=" + userId +
+                     '}';
+         }
+     }
 
     public int getResult(int[] arrays){
         int minPrice = Integer.MAX_VALUE;
