@@ -28,16 +28,15 @@ public class LevelOrder_102 {
     public static List<List<Integer>> levelOrder(TreeNode root){
 
         List<List<Integer>> result = new ArrayList<>();
-
         Queue<TreeNode> queue = new ArrayDeque<>();
-
         if(root != null){
             queue.add(root);
         }
-
+        // 从上到下遍历二叉树的每一层
         while (!queue.isEmpty()){
             int n = queue.size();
             List<Integer> level = new ArrayList<>();
+            // 变量 i 无实际意义，只是为了循环 n 次
             for(int i=0;i<n;i++){
                 TreeNode node = queue.poll();
                 level.add(node.val);
@@ -61,7 +60,7 @@ public class LevelOrder_102 {
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
 
-        for (List<Integer> integers : levelOrder5(root)) {
+        for (List<Integer> integers : levelOrder(root)) {
             for (Integer integer : integers) {
                 System.out.print(integer + " ");
             }
@@ -73,27 +72,30 @@ public class LevelOrder_102 {
         if(treeNode == null){
             return null;
         }
-        Queue<TreeNode> queue = new LinkedList<>();
         List<List<Integer>> res = new ArrayList<>();
-        queue.offer(treeNode);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(treeNode);
 
         while (!queue.isEmpty()){
-            int size = queue.size();
-            List<Integer> curLevel = new ArrayList<>();
+            List<Integer> list = new ArrayList<>();
+            int n = queue.size();
 
-            for(int i = 0;i<size;i++){
+            for(int i = 0;i<n;i++){
                 TreeNode node = queue.poll();
+                list.add(node.val);
                 if(node.left != null){
-                    queue.offer(node.left);
+                    queue.add(node.left);
                 }
                 if(node.right != null){
-                    queue.offer(node.right);
+                    queue.add(node.right);
                 }
-                curLevel.add(node.val);
             }
-            res.add(curLevel);
+            res.add(list);
         }
+
         return res;
+
+
     }
 
 

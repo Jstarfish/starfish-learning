@@ -67,7 +67,7 @@ starfish-learn-leetcode
   - [x] [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) +2
 
 - 2022-2-14
-  - [x] [ 102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) +1
+  - [x] [ 102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) +2
   - [x] [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/) +2
   - [x] [617. 合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/)
   - [x] [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/) +1
