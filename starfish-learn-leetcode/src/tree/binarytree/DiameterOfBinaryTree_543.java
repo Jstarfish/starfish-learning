@@ -22,7 +22,7 @@ public class DiameterOfBinaryTree_543 {
         int right = depth(node.right);
         //将每个节点最大直径(左子树深度+右子树深度)当前最大值比较并取大者
         res = Math.max(left+right,res);
-        //返回节点深度
+        //返回该节点为根的子树的深度
         return Math.max(left,right)+1;
     }
 }

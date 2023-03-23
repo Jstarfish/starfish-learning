@@ -56,14 +56,15 @@ public class InvertTree_226 {
 
     public static TreeNode invertTree5(TreeNode node){
         if(node == null){
-            return null;
+            return node;
         }
+
         TreeNode tmp = node.left;
         node.left = node.right;
         node.right = tmp;
         invertTree5(node.left);
         invertTree5(node.right);
-        return node;
+       return node;
     }
 
 }
