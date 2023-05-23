@@ -49,8 +49,10 @@ public class ThreeSum_15 {
         //int[] nums = {-1,0,1,1,1,2,-1,-4};
         //int[] nums = {-1,0,1,2,-1,-4};
         int[] nums = {-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0};
+        int[] num = {-2,0};
         //int[] nums = {0, 0, 0};
         System.out.println(threeSum(nums));
+        System.out.println(sum_5(num));
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
@@ -63,7 +65,7 @@ public class ThreeSum_15 {
             int left = i + 1;
             int right = nums.length - 1;
 
-            if(nums[i]==nums[i-1]) continue;
+            if(i>0 && nums[i]==nums[i-1]) continue;
 
             while(left < right){
                 int sum = nums[i] + nums[left] + nums[right];
@@ -80,7 +82,12 @@ public class ThreeSum_15 {
         return result;
     }
 
-    public static List<List<Integer>> threeSumX(int[] nums) {
+
+
+    // * 输入：nums = [-1,0,1,2,-1,-4]
+    // -4,-1,-1,0,1,2
+    // * 输出：[[-1,-1,2],[-1,0,1]]
+    public static List<List<Integer>> sum_5(int[] nums){
         //存放结果list
         List<List<Integer>> result = new ArrayList<>();
         int length = nums.length;
@@ -104,7 +111,7 @@ public class ThreeSum_15 {
                     result.add(Arrays.asList(nums[i], nums[l], nums[r]));
                     //去重（相同数字的话就移动指针）
                     //在将左指针和右指针移动的时候，先对左右指针的值，进行判断,以防[0,0,0]这样的造成数组越界
-                    //不要用成 if 判断，只跳过 1 条，还会有重复的
+                    //不要用成 if 判断，只跳过 1 条，还会有重复的，且需要再加上 l<r，以防死循环
                     while (l < r && nums[l] == nums[l + 1]) l++;
                     while (l < r && nums[r] == nums[r - 1]) r--;
                     //移动指针

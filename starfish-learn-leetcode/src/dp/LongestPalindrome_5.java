@@ -1,5 +1,10 @@
 package dp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 /**
  * 最长回文子串
  *
@@ -25,6 +30,9 @@ package dp;
 public class LongestPalindrome_5 {
 
     public static void main(String[] args) {
+        List<String> mapping = new ArrayList<>();
+        Map<String,String> maps = null;
+        System.out.println(Arrays.stream("maps.get(null)".split(",")).findFirst().get());
         System.out.println(longestPalindrome("xabcbae"));
     }
 

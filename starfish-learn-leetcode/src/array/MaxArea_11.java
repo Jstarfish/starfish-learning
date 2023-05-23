@@ -30,12 +30,6 @@ public class MaxArea_11 {
 
     }
 
-
-
-
-
-
-
     public static int maxArea(int[] height){
         int left = 0;
         int right = height.length - 1;
@@ -54,10 +48,38 @@ public class MaxArea_11 {
         return result;
     }
 
+    public int maxArea_5(int[] nums){
+        int result = 0;
+        int left = 0;
+        int right = nums.length - 1;
+
+        while(left < right){
+            int height = Math.min(nums[left],nums[right]);
+            result = Math.max((right-left)*height,result);
+            if(nums[left] < nums[right]){
+                left ++;
+            }else{
+                right --;
+            }
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
         //int[] nums = new int[]{1,1};
         int[] nums = new int[]{1,8,6,2,5,4,8,3,7};
         System.out.println(maxArea1(nums));
     }
+
+
+
+
+//     * 输入：[1,8,6,2,5,4,8,3,7]
+//            * 输出：49
+
+
+
+
+
 }

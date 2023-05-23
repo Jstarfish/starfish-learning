@@ -58,17 +58,17 @@ public class AddTwoNumbers_2 {
     }
 
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(4);
-        node1.addToEnd(0);
-        node1.addToEnd(9);
 
-        ListNode node2 = new ListNode(7);
+        ListNode node1 = new ListNode(2);
+        node1.addToEnd(3);
+
+        ListNode node2 = new ListNode(5);
+        node2.addToEnd(9);
         node2.addToEnd(1);
-        node2.addToEnd(4);
-
 
         ListNode result = addTwoNumbers(node1, node2);
-        result.printLinkedList(result);
+        ListNode.printLinkedList(result);
+        System.out.println();
     }
 
 
@@ -80,7 +80,30 @@ public class AddTwoNumbers_2 {
         if(l2 == null){
             return l1;
         }
+        // 271
+        // 43
+        ListNode pre = new ListNode(0);
+        ListNode cur = pre;
+        int carry = 0;
+        while(l1 != null || l2 != null){
+            int x = l1.next == null ? 0 : l1.val;
+            int y = l2.next == null ? 0 : l2.val;
+            int sum = x + y + carry;
+            carry = sum / 10;
+            sum = sum % 10;
+            cur.next = new ListNode(sum);
 
-        return null;
+            cur = cur.next;
+            if(l1 != null){
+                l1 = l1.next;
+            }
+            if(l2 != null){
+                l2 = l2.next;
+            }
+        }
+        if(carry == 1){
+            cur.next = new ListNode(carry);
+        }
+        return pre.next;
     }
 }
