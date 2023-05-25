@@ -40,8 +40,8 @@ public class RemoveNthFromEnd_19 {
         head.addToEnd(4);
         head.addToEnd(5);
         RemoveNthFromEnd_19 obj = new RemoveNthFromEnd_19();
-       // ListNode.printLinkedList(obj.removeNthFromEnd_1(head,2));
-        ListNode.printLinkedList(obj.removeNthFromEnd(head,2));
+        ListNode.printLinkedList(obj.removeNthFromEnd_1(head,2));
+        //ListNode.printLinkedList(obj.removeNthFromEnd(head,2));
 
 
     }
@@ -62,5 +62,7 @@ public class RemoveNthFromEnd_19 {
         second.next = second.next.next;
         return dummy.next;
     }
+
+
 
 }
