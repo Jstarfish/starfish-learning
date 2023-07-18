@@ -1,9 +1,6 @@
 package string;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']'的字符串 s ，判断字符串是否有效。
@@ -51,5 +48,32 @@ public class ValidParentheses_20 {
             }
         }
         return stack.isEmpty();
+    }
+
+    public static boolean isValid1(String s) {
+        if(s.isEmpty()) {
+            return true;
+        }
+        Stack<Character> stack=new Stack<Character>();
+        for(char c:s.toCharArray()){
+            if(c=='(') {
+                stack.push(')');
+            } else if(c=='{') {
+                stack.push('}');
+            } else if(c=='[') {
+                stack.push(']');
+            } else if(stack.empty()||c!=stack.pop()) {
+                return false;
+            }
+        }
+        return stack.empty();
+    }
+
+    public static void main(String[] args) {
+
+        String s = "[{}]";
+        System.out.println(isValid1(s));
+
+
     }
 }

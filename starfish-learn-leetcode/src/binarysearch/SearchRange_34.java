@@ -1,5 +1,7 @@
 package binarysearch;
 
+import java.util.Random;
+
 /**
  * @author Henry
  * @date 2022/3/15
@@ -51,6 +53,40 @@ public class SearchRange_34 {
 
         }
         return index;
+    }
+
+    public static void main(String[] args) {
+        for(int i = 0;i<100;i++){
+            System.out.println(new Random().nextInt(9) + 2);
+        }
+
+    }
+
+    public int[] query(int[] nums,int target){
+        int left = 0;
+        int right = nums.length - 1;
+        int[] result = new int[2];
+        //1,2,2,5,6,7,9
+        while(left < right){
+            int mid = left + (right - left)/2;
+            if(target > nums[mid]){
+                left = mid + 1;
+            }else{
+                right = mid;
+            }
+        }
+        if(nums[right] != target){
+            return new int[]{-1,-1};
+        }
+        int L = right;
+        left = 0;
+        right = nums.length - 1;
+        while(left < right){
+
+        }
+
+
+        return new int[]{-1,-1};
     }
 
 }
