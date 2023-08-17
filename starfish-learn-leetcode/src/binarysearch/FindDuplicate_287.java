@@ -38,6 +38,9 @@ public class FindDuplicate_287 {
     public static void main(String[] args) {
         int[] nums = new int[]{1,3,4,2,2};
         System.out.println(findDuplicate(nums));
+
+        String a = "rea da , map da  map return map;";
+        System.out.println(a.replace("map","map1"));
     }
 
 }
