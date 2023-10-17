@@ -1,4 +1,4 @@
-package string;
+package stack;
 
 import java.util.*;
 

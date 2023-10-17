@@ -35,7 +35,7 @@ public class FindMin_153 {
 
     public static void main(String[] args) {
         //int[] nums = new int[]{5,6,7,1,2,3,4};
-        int[] nums = new int[]{5,1,2,3,4};
+        int[] nums = new int[]{8,1,2,3,4};
         System.out.println(findMin(nums));
 
         //System.out.println(findMax(nums));

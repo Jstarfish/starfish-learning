@@ -62,31 +62,43 @@ public class SearchRange_34 {
 
     }
 
-    public int[] query(int[] nums,int target){
+    /**
+     *  * 输入：nums = [5,7,7,8,8,10], target = 8
+     *  * 输出：[3,4]
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] query(int[] nums, int target) {
+        // 暴力二分，找到后向找到的结果的两端探索
+        // 确定左区间 [left,mid) 右区间 [mid, right)
+        int length = nums.length;
         int left = 0;
-        int right = nums.length - 1;
-        int[] result = new int[2];
-        //1,2,2,5,6,7,9
-        while(left < right){
-            int mid = left + (right - left)/2;
-            if(target > nums[mid]){
+        int right = length - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (target == nums[mid]) {
+                // 向两边探索
+                int l = mid;
+                int r = mid;
+                while (l > 0 && nums[l - 1] == target) {
+                    l--;
+                }
+                while (r < length - 1 && nums[r + 1] == target) {
+                    r++;
+                }
+                return new int[]{l, r};
+            }
+            if (target < nums[mid]) {
+                // 区间左移
+                right = mid - 1;
+            } else {
+                // 区间右移
                 left = mid + 1;
-            }else{
-                right = mid;
             }
         }
-        if(nums[right] != target){
-            return new int[]{-1,-1};
-        }
-        int L = right;
-        left = 0;
-        right = nums.length - 1;
-        while(left < right){
-
-        }
-
-
-        return new int[]{-1,-1};
+        return new int[]{-1, -1};
     }
+
 
 }
