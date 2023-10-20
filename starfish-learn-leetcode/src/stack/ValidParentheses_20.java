@@ -1,5 +1,6 @@
 package stack;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -39,7 +40,7 @@ public class ValidParentheses_20 {
         for (int i = 0; i < n; i++) {
             char ch = s.charAt(i);
             if (pairs.containsKey(ch)) {
-                if (stack.isEmpty() || stack.peek() != pairs.get(ch)) {
+                if (stack.isEmpty() || stack.peek().equals(pairs.get(ch))) {
                     return false;
                 }
                 stack.pop();
@@ -71,9 +72,28 @@ public class ValidParentheses_20 {
 
     public static void main(String[] args) {
 
-        String s = "[{}]";
-        System.out.println(isValid1(s));
+        DecimalFormat decimalFormat = new DecimalFormat("0.00%");
+        System.out.println(decimalFormat.format((double)1/3));
+
+        String s = "()";
+        System.out.println(isValid_5(s));
 
 
+    }
+    
+    public static boolean isValid_5(String s){
+        if (s.isEmpty()) {
+            return true;
+        }
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == '{') stack.push('}');
+            else if (c == '[') stack.push(']');
+            else if (c == '(') stack.push(')');
+            else if (stack.isEmpty() || c != stack.pop()) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
     }
 }
