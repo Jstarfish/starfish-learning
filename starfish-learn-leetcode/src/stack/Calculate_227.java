@@ -54,6 +54,43 @@ public class Calculate_227 {
     }
 
     public static void main(String[] args) {
-        System.out.println(calculate("3+2*2"));
+        System.out.println(calculate_5("3+2*2"));
+    }
+
+
+    public static int calculate_5(String s){
+        // 3 + 5 * 2
+        Stack<Integer> stack = new Stack<>();
+        int length = s.length();
+        int num = 0;
+        char operator = '+';
+        for (int i = 0; i < length; i++) {
+            if(Character.isDigit(s.charAt(i))){
+                num = num * 10 + (s.charAt(i) - '0');
+            }
+            if(!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == length - 1){
+                switch (operator){
+                    case '+':
+                        stack.push(num);
+                        break;
+                    case '-':
+                        stack.push(-num);
+                        break;
+                    case '*':
+                        stack.push(stack.pop() * num);
+                        break;
+                    default:
+                        stack.push(stack.pop() / num);
+                }
+                num = 0;
+                operator = s.charAt(i);
+            }
+        }
+        int result = 0;
+        while (!stack.isEmpty()){
+            result += stack.pop();
+        }
+        return result;
+
     }
 }

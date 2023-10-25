@@ -43,4 +43,30 @@ public class DailyTemperatures_739 {
         return result;
     }
 
+
+
+
+
+
+
+    public static void main(String[] args) {
+        //给定一个列表 `temperatures = [73, 74, 75, 71, 69, 72, 76, 73]`，你的输出应该是 `[1, 1, 4, 2, 1, 1, 0, 0]`。
+
+
+    }
+
+
+    public int[] dailyTemperatures_5(int[] temperatures){
+        int length = temperatures.length;
+        Stack<Integer> stack = new Stack<>();
+        int[] result = new int[length];
+        for(int i=0;i<length;i++){
+            if(!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]){
+                int pre = stack.pop();
+                result[i] = i - pre;
+            }
+            stack.push(i);
+        }
+        return result;
+    }
 }
