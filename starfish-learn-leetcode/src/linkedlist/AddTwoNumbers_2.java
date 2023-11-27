@@ -73,37 +73,30 @@ public class AddTwoNumbers_2 {
 
 
 
+    // 3,4
+    // 4,7,8
     public ListNode addTowNumbers(ListNode l1,ListNode l2){
-        if(l1 == null){
-            return l2;
-        }
-        if(l2 == null){
-            return l1;
-        }
-        // 271
-        // 43
-        ListNode pre = new ListNode(0);
-        ListNode cur = pre;
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
         int carry = 0;
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
         while(l1 != null || l2 != null){
-            int x = l1.next == null ? 0 : l1.val;
-            int y = l2.next == null ? 0 : l2.val;
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
             int sum = x + y + carry;
             carry = sum / 10;
             sum = sum % 10;
             cur.next = new ListNode(sum);
-
             cur = cur.next;
-            if(l1 != null){
-                l1 = l1.next;
-            }
-            if(l2 != null){
-                l2 = l2.next;
-            }
+            if(l1 != null) l1 = l1.next;
+            if(l2 != null) l2 = l2.next;
         }
-        if(carry == 1){
+        if (carry == 1) {
             cur.next = new ListNode(carry);
         }
-        return pre.next;
+        return dummy.next;
+
+
     }
 }

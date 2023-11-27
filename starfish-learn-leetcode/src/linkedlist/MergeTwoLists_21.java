@@ -10,6 +10,40 @@ package linkedlist;
  */
 public class MergeTwoLists_21 {
 
+    public ListNode merge1(ListNode l1,ListNode l2){
+       if(l1 == null){
+           return l2;
+       }
+       if(l2 == null){
+           return l1;
+       }
+       ListNode dummy = new ListNode(-1);
+       ListNode p = dummy;
+       while(l1 != null && l2 != null){
+           if(l1.val <= l2.val){
+               p.next = l1;
+               l1 = l1.next;
+           }else{
+               p.next = l2;
+               l2 = l2.next;
+           }
+           p = p.next;
+       }
+       p.next = l1 == null ? l2 : l1;
+       return dummy.next;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public static ListNode merge(ListNode l1,ListNode l2){
         if(l1 == null) return l2;
         if(l2 == null) return l1;
@@ -58,14 +92,14 @@ public class MergeTwoLists_21 {
         node2.addToEnd(3);
         node2.addToEnd(4);
 
-        mergeLists(node1,node2);
+        ListNode.printLinkedList(mergeList(node1,node2));
 
     }
 
     // 1,2,3
     //1,3,4
     //1,1,2,3,3,4
-    public ListNode mergeList(ListNode n1,ListNode n2){
+    public static ListNode mergeList(ListNode n1,ListNode n2){
         if(n1 == null) return n2;
         if(n2 == null) return n1;
 
